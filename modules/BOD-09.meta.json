@@ -30,7 +30,7 @@
   "notes": [
     "No JavaScript/clipboard in email: the copy hint is a plain text link (href=\"#\") — point it at a landing page with the message, or leave it as a cue for the reader to select the text manually.",
     "Copy hint is right-aligned bold caps with 0.96px letter-spacing, as in Figma.",
-    "Card border (#7B8290) is unchanged in dark mode; card fill flips to #464646 via mfs-dm-bg-grey.",
+    "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom (mobPad32 padd-top mob-pad-bot); block gaps 24 → 20 (himobtop); card padding 24 → 16 (mobPad16).",
     "Outlook shows square card corners.",
     "[Name] is a placeholder — replace or personalise before send."
   ],

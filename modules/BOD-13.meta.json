@@ -26,9 +26,9 @@
   ],
   "notes": [
     "Figma's stepper is three yellow icon circles separated by › chevrons (no numbered dots or connector lines), so it is built as 30% / 5% table cells; the circles are images, so they stay round in Outlook.",
-    "Does not stack on mobile — labels wrap instead.",
-    "Icons are decorative (alt=\"\"); the labels carry the meaning.",
-    "Yellow circles are hard-coded #FFD100 in Figma and stay yellow in dark mode."
+    "Does not stack on mobile (no drop) — labels wrap instead.",
+    "Mobile (ADC snapping): padding 32/24 → 20 top / 15 sides / 30 bottom (himobtop pad15 mob-pad-bot; Figma 24/16/24).",
+    "Icons are decorative (alt=\"\"); the labels carry the meaning."
   ],
   "figmaNode": "101:1269"
 }

@@ -4,18 +4,41 @@
   "category": "body",
   "description": "When the argument is adoption or scale, not features. Magenta stat = merge field / claim-checked number.",
   "usage": "Scale argument. The number is the hero; faces and stars back it up. Locked layout — edit only image fills and text.",
-  "editable": ["Stat", "Statement", "5 faces", "Rating caption"],
-  "seenIn": "Voucher 6",
-  "chars": { "Stat": "≤ 12", "Statement": "≤ 110", "Rating caption": "≤ 50" },
-  "images": [
-    { "slot": "Faces (light)", "w": 264, "h": 64, "notes": "Transparent PNG: five 64px circular faces with a white ring, overlapping by 14px, composited into one image (Outlook can't overlap images)." },
-    { "slot": "Faces (dark)", "w": 264, "h": 64, "notes": "Same composite with charcoal (#222731) rings, shown in dark mode via mfs-dark-img." },
-    { "slot": "Rating", "w": 164, "h": 28, "notes": "Transparent PNG of five #FFD100 stars (rasterised from the Figma vector). Same in both modes." }
+  "editable": [
+    "Stat",
+    "Statement",
+    "5 faces",
+    "Rating caption"
   ],
-  "tokens": ["surface/white", "text/charcoal"],
+  "seenIn": "Voucher 6",
+  "chars": {
+    "Stat": "≤ 12",
+    "Statement": "≤ 110",
+    "Rating caption": "≤ 50"
+  },
+  "images": [
+    {
+      "slot": "Faces",
+      "w": 264,
+      "h": 64,
+      "notes": "Transparent PNG: five 64px circular faces with a white ring, overlapping by 14px, composited into one image (Outlook can't overlap images)."
+    },
+    {
+      "slot": "Rating",
+      "w": 164,
+      "h": 28,
+      "notes": "Transparent PNG of five #FFD100 stars (rasterised from the Figma vector). Same in both modes."
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
   "notes": [
-    "To swap faces, rebuild both composites (light and dark ring) from the five portraits: 64px circles, 50px step, later faces on top.",
-    "The 64px stat keeps its size on mobile (as in the Mobile frame); the statement uses mfs-h2 per CONVENTIONS (28 → 24), while the Mobile frame keeps 28px.",
+    "To swap faces, rebuild the composite from the five portraits: 64px circles with a white ring, 50px step, later faces on top.",
+    "The 64px stat keeps its size on mobile (as in the Mobile frame); the statement uses f24 (28 → 24) per the convention table, while the Mobile frame keeps 28px.",
+    "Mobile: padding 48 snaps to 32 sides (mobPad32), 40 top (padd-top), 30 bottom (mob-pad-bot); stack gaps 24 snap to 20 (himobtop).",
+    "The faces' white rings are baked into the PNG, so they stay white when the inbox applies dark mode.",
     "The Figma label mentions a magenta stat, but the component renders it in charcoal; built in charcoal. If the number is a merge field, mark it #FF00F5 until it is claim-checked."
   ],
   "figmaNode": "100:975"

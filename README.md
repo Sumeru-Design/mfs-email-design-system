@@ -9,7 +9,7 @@ The source of truth is the Figma file **Templates v/s Modules**, page "◆ MyFre
 |---|---|
 | `index.html`, `site.css`, `site.js` | The documentation site. Vanilla HTML, CSS and JS with no build step, set in Brandon Text. |
 | `module-view.html` | Renders one module inside a real email shell. Each preview iframe loads it as `?id=HRO-01&scheme=dark`. |
-| `email-head.css` | ADC's SFMC template head CSS, plus the MyFreeStyle mobile and dark-mode classes. |
+| `email-head.css` | ADC’s SFMC template head CSS, exactly as the Sumeru Email Builder plugin ships it. Modules use only these classes. |
 | `modules/<ID>.html` | Body-only, ESP-safe module HTML: what becomes an SFMC Content Builder block. |
 | `modules/<ID>.meta.json` | Specs for each module: editable fields, character counts, image slots, tokens and notes. |
 | `brand.json` | Brand foundations: colours, tokens, typography, spacing, buttons, icons and logos. |

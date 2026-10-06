@@ -4,17 +4,35 @@
   "category": "body",
   "description": "Cost, coverage or “what happens next” notes that must not be missed. One per email.",
   "usage": "Yellow callout card for a cost / coverage message. Icon is locked to the brand icon set. Locked layout — edit only image fills and text.",
-  "editable": ["Heading", "Body + link", "Icon (Abbott icon set only)"],
-  "seenIn": "Voucher 1, 4, 7, 8, 10",
-  "chars": { "Heading": "≤ 40", "Body + link": "≤ 160" },
-  "images": [
-    { "slot": "Icon", "w": 75, "h": 75, "notes": "Transparent PNG: white 75px circle with the Abbott icon (No Budget Burden) centred at ~46x44. Composite of Figma node 99:1432. Decorative, alt=\"\"." }
+  "editable": [
+    "Heading",
+    "Body + link",
+    "Icon (Abbott icon set only)"
   ],
-  "tokens": ["surface/light-grey-30", "surface/yellow", "text/charcoal", "text/hyperlink"],
+  "seenIn": "Voucher 1, 4, 7, 8, 10",
+  "chars": {
+    "Heading": "≤ 40",
+    "Body + link": "≤ 160"
+  },
+  "images": [
+    {
+      "slot": "Icon",
+      "w": 75,
+      "h": 75,
+      "notes": "Transparent PNG: white 75px circle with the Abbott icon (No Budget Burden) centred at ~46x44. Composite of Figma node 99:1432. Decorative, alt=\"\"."
+    }
+  ],
+  "tokens": [
+    "surface/light-grey-30",
+    "surface/yellow",
+    "text/charcoal",
+    "text/hyperlink"
+  ],
   "notes": [
-    "The icon circle is hard-coded white in Figma, so it stays white in dark mode (baked into the PNG).",
+    "The icon circle is hard-coded white in Figma (baked into the PNG).",
     "The icon stays to the right of the copy on mobile, as in the Mobile frame.",
-    "Copy-to-icon gap is a fixed 16px inline; Figma drops it to 8px on mobile (no padding-left utility class exists).",
+    "Mobile: callout padding is mobPad16 (exact); panel padding snaps to 10 top / 15 sides (padd-none, pad15), bottom stays 16 (Figma 8).",
+    "Copy-to-icon gap is a 16px spacer cell that drops to 10px on mobile (bw10; Figma 8).",
     "One callout per email."
   ],
   "figmaNode": "99:1435"

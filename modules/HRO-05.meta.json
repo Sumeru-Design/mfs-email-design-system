@@ -4,23 +4,61 @@
   "category": "hero",
   "description": "Offer-delivery email only. Place the voucher as high as possible.",
   "usage": "Offer-delivery hero. Confetti band, next-step strip, the voucher artefact and wallet buttons. The voucher artwork is never restyled. Locked layout — edit only image fills and text.",
-  "editable": ["Eyebrow", "Headline", "Next-step strip", "Body", "Fallback link"],
-  "seenIn": "Voucher 13, 10",
-  "chars": { "Eyebrow": "≤ 30", "Headline": "≤ 65", "Next-step strip": "≤ 55", "Body": "≤ 220", "Fallback link": "≤ 40" },
-  "images": [
-    { "slot": "Celebration background", "w": 600, "h": 268, "notes": "JPG, cover. Applied as a td background (background attr + CSS + VML v:fill for Outlook); bgcolor #FFEFAA fallback. Locked." },
-    { "slot": "Voucher artwork", "w": 504, "h": 306, "notes": "Transparent PNG, locked. Card is 423px wide centred in the slot, as in Figma." },
-    { "slot": "Add to Apple Wallet", "w": 192, "h": 59, "notes": "Transparent PNG, locked badge." },
-    { "slot": "Add to Google Wallet", "w": 192, "h": 59, "notes": "Transparent PNG, locked badge." }
+  "editable": [
+    "Eyebrow",
+    "Headline",
+    "Next-step strip",
+    "Body",
+    "Fallback link"
   ],
-  "tokens": ["surface/white", "surface/yellow", "text/charcoal", "text/hyperlink"],
+  "seenIn": "Voucher 13, 10",
+  "chars": {
+    "Eyebrow": "≤ 30",
+    "Headline": "≤ 65",
+    "Next-step strip": "≤ 55",
+    "Body": "≤ 220",
+    "Fallback link": "≤ 40"
+  },
+  "images": [
+    {
+      "slot": "Celebration background",
+      "w": 600,
+      "h": 268,
+      "notes": "JPG, cover. Applied as a td background (background attr + CSS + VML v:fill for Outlook); bgcolor #FFEFAA fallback. Locked."
+    },
+    {
+      "slot": "Voucher artwork",
+      "w": 504,
+      "h": 306,
+      "notes": "Transparent PNG, locked. Card is 423px wide centred in the slot, as in Figma."
+    },
+    {
+      "slot": "Add to Apple Wallet",
+      "w": 192,
+      "h": 59,
+      "notes": "Transparent PNG, locked badge."
+    },
+    {
+      "slot": "Add to Google Wallet",
+      "w": 192,
+      "h": 59,
+      "notes": "Transparent PNG, locked badge."
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "surface/yellow",
+    "text/charcoal",
+    "text/hyperlink"
+  ],
   "notes": [
-    "Celebration band text is the primitive color/charcoal/1000 (#222731) in Figma, so it stays charcoal in dark mode over the light confetti image — no dm class.",
-    "Wallet buttons sit side by side with a 16px spacer on desktop and stack with an 8px gap on mobile (spacer td also carries mfs-stack and collapses to an 8px row). Images centred on mobile with mfs-auto.",
-    "Fallback link is #001489 underlined with mfs-dm-link (purple in dark mode, matching the Figma Dark frame).",
+    "Built as three SFMC wrappers back to back: confetti band, yellow next-step strip, white voucher band.",
+    "Celebration band text is the primitive color/charcoal/1000 (#222731) in Figma, fixed over the light confetti image.",
+    "Wallet buttons sit side by side with a 16px spacer on desktop. Both columns and the spacer carry drop, so on mobile they stack, centred by the td align, with the spacer's 8px line box as the gap (matches Figma; no mob-h* class needed).",
+    "Fallback link is #001489 underlined.",
     "Voucher artwork contains magenta [XXXX] placeholders for member / NRC / expiration — these must be produced per recipient by the voucher system, not edited here.",
     "Outlook desktop renders the confetti via VML; if background images are blocked the band falls back to pale yellow #FFEFAA.",
-    "Headline 38→28px and eyebrow 28→24px on mobile; padding 48→32px."
+    "Mobile (≤480px): headline 38→28 (f28), eyebrow 28→24 (f24); celebration padding sides 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32. Strip: sides 48→32, top 16→10 (padd-none), bottom stays 16 (no ADC class) vs Figma's 8. Voucher band: sides 48→32, top 32→20 (himobtop), bottom 32→30 (mob-pad-bot) vs Figma's 24; 24px gaps → 20 (himobtop) vs Figma's 16."
   ],
   "figmaNode": "96:771"
 }

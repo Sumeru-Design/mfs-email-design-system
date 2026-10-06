@@ -4,16 +4,26 @@
   "category": "body",
   "description": "Pair with BOD-07 or after a feature run. Exactly three quotes, each under 25 words.",
   "usage": "Three short peer quotes in bordered cards under one heading. Locked layout — edit only text.",
-  "editable": ["Heading", "3 quotes"],
+  "editable": [
+    "Heading",
+    "3 quotes"
+  ],
   "seenIn": "Voucher 6",
-  "chars": { "Heading": "≤ 70", "Quote": "≤ 130 (under 25 words)" },
+  "chars": {
+    "Heading": "≤ 70",
+    "Quote": "≤ 130 (under 25 words)"
+  },
   "images": [],
-  "tokens": ["surface/white", "text/charcoal", "border/primary"],
+  "tokens": [
+    "surface/white",
+    "text/charcoal",
+    "border/primary"
+  ],
   "notes": [
     "Exactly three quotes.",
-    "The #7B8290 card border (border/primary) is unchanged in dark mode.",
-    "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
-    "Padding drops from 48px to 32px, card gaps from 24px to 16px and card padding from 16/24 to 8/16 on mobile."
+    "The #7B8290 card border (border/primary) is left to the inbox in dark mode.",
+    "Heading uses f24 (28 → 24) per the convention table; the Figma Mobile frame keeps 28px.",
+    "Mobile: padding 48 snaps to 32 sides (mobPad32), 40 top (padd-top), 30 bottom (mob-pad-bot); card gaps 24 snap to 20 (himobtop); card padding 16/24 snaps to 10 top / 15 sides (padd-none, pad15), bottom stays 16 (Figma 8)."
   ],
   "figmaNode": "100:1050"
 }

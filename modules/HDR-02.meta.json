@@ -17,12 +17,6 @@
       "w": 276,
       "h": 90,
       "notes": "FreeStyle Libre 3 Plus lockup, charcoal type. Transparent PNG, contain."
-    },
-    {
-      "slot": "Logo (dark)",
-      "w": 276,
-      "h": 90,
-      "notes": "Same lockup with white type, shown via mfs-dark-img."
     }
   ],
   "tokens": [
@@ -30,10 +24,10 @@
     "components/button/yellow"
   ],
   "notes": [
-    "Desktop: logo left, yellow CTA right. Mobile: both stack and centre (mfs-stack + mfs-center + mfs-auto), 8px apart (mfs-pt2).",
-    "Figma's mobile vertical padding grows to 24px (token 4) from 16px on desktop; mfs-py4 is used on top of the 16px inline value because its mobile override is exactly 24px.",
-    "Yellow button is the same in both modes (no dm classes). VML width 216px.",
-    "Logo light/dark swap needs the head CSS; clients without it (Outlook.com dark, Gmail) keep the charcoal lockup."
+    "Desktop: logo left, yellow CTA right. Mobile (≤480px): both columns carry drop + centered and stack; the logo and button sit in centered m-auto tables so they centre. The button gets 10px above it (padd-none) vs 8px in Figma.",
+    "Padding: sides 48→32 (mobPad32). Figma grows the vertical padding from 16 to 24 on mobile; top snaps to 20 (himobtop), bottom has no ADC class near 24 and stays 16.",
+    "Yellow button has no colour changes. VML width 216px.",
+    "Single (light) logo; dark mode is left to the inbox."
   ],
   "figmaNode": "93:650"
 }

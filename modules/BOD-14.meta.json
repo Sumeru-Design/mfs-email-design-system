@@ -22,7 +22,8 @@
   ],
   "notes": [
     "One per email, directly before Customer Support.",
-    "VML button width is 310px for the default label; adjust if the label changes length."
+    "VML button width is 310px for the default label; adjust if the label changes length.",
+    "Mobile (ADC snapping): padding 48 → 32 sides / 40 top / 30 bottom; heading 28 → 24 (f24); button gap 24 → 20 (himobtop)."
   ],
   "figmaNode": "101:1337"
 }

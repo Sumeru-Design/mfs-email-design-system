@@ -19,8 +19,7 @@
   "notes": [
     "Editable: text only — supplied by Regulatory.",
     "Legal type is 13/18. Keep the [XXXXX] / [MM/YY] magenta placeholders verbatim.",
-    "Padding 32/48 → 24/32 on mobile (mfs-py4 mfs-px6). Gaps are 16 → 8 (mfs-pt2).",
-    "Footer links get mfs-dm-link (Figma hard-codes #001489 in dark too). See DIS-01."
+    "Mobile (ADC snapping): padding 32/48 → 20 top / 32 sides / 30 bottom (himobtop mobPad32 mob-pad-bot; Figma 24/32). Gaps 16 → 10 (padd-none, Figma 8)."
   ],
   "figmaNode": "102:1690"
 }

@@ -4,15 +4,32 @@
   "category": "hero",
   "description": "Nudge / re-engagement emails. Magenta [tokens] mark personalised merge fields.",
   "usage": "Relationship hero. Personal headline, warm lifestyle photo, short supporting copy. Locked layout — edit only image fills and text.",
-  "editable": ["Headline", "Photo", "Body"],
+  "editable": [
+    "Headline",
+    "Photo",
+    "Body"
+  ],
   "seenIn": "Nudges 1, 4",
-  "chars": { "Headline": "≤ 50", "Body": "≤ 150" },
-  "images": [{ "slot": "Lifestyle photo", "w": 504, "h": 400, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
-  "tokens": ["surface/yellow", "text/charcoal"],
+  "chars": {
+    "Headline": "≤ 50",
+    "Body": "≤ 150"
+  },
+  "images": [
+    {
+      "slot": "Lifestyle photo",
+      "w": 504,
+      "h": 400,
+      "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+    }
+  ],
+  "tokens": [
+    "surface/yellow",
+    "text/charcoal"
+  ],
   "notes": [
     "[Name] is a merge field shown in magenta (#FF00F5) — replace with the SFMC personalisation string before send.",
     "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners (accepted per CONVENTIONS).",
-    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+    "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
   ],
   "figmaNode": "94:725"
 }

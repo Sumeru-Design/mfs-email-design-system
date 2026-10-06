@@ -22,19 +22,19 @@
       "slot": "Icon · sensor replacement",
       "w": 72,
       "h": 72,
-      "notes": "Locked. 44px laptop icon in a 72px circle (#F4F4F3 light / #464646 dark, swapped)."
+      "notes": "Locked. 44px laptop icon in a 72px #F4F4F3 circle."
     },
     {
       "slot": "Icon · call",
       "w": 72,
       "h": 72,
-      "notes": "Locked. 44px phone icon in a 72px circle, light/dark pair."
+      "notes": "Locked. 44px phone icon in a 72px #F4F4F3 circle."
     },
     {
       "slot": "Icon · FAQ",
       "w": 72,
       "h": 72,
-      "notes": "Locked. 44px FAQ icon in a 72px circle, light/dark pair."
+      "notes": "Locked. 44px FAQ icon in a 72px #F4F4F3 circle."
     }
   ],
   "tokens": [
@@ -44,9 +44,9 @@
     "text/hyperlink"
   ],
   "notes": [
-    "Icons are locked. Each circle (surface/light-grey-30) is baked into the PNG with a light/dark pair via mfs-light-img / mfs-dark-img, so Outlook never shows a square box.",
-    "The three columns stay side by side on mobile, and long labels wrap ('Call customer service').",
-    "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+    "Icons are locked. Each circle (surface/light-grey-30) is baked into the PNG, so Outlook never shows a square box.",
+    "The three columns stay side by side on mobile (no drop), and long labels wrap ('Call customer service').",
+    "Mobile (≤480px): heading 28→24 (f24) per CONVENTIONS; Figma's mobile frame keeps it at 28. Side padding 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32; columns gap 32→20 (himobtop) vs Figma's 24."
   ],
   "figmaNode": "102:1430"
 }

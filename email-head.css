@@ -1,4 +1,17 @@
-/* ADC SFMC template head CSS (from ADC's template-onboarding.html; light-only colour-scheme lock removed) */
+/* ADC SFMC template stylesheet: byte-for-byte the CSS the Sumeru Email Builder Figma
+   plugin ships for ADC (src/generators/stylesheets/adc.ts). Modules use ONLY these
+   classes (.drop, .fluid, .fN, mobCont …). There is no dark-mode CSS: inboxes apply
+   their own dark mode, and the doc site's Dark preview emulates that. */
+@import url(https://db.onlinewebfonts.com/c/8415cddd12851fb7439d5fa5c23ea4d5?family=Calibri+Bold+V2);
+@import url(https://db.onlinewebfonts.com/c/a78cfad3beb089a6ce86d4e280fa270b?family=Calibri);
+@import url(https://db.onlinewebfonts.com/c/8415cddd12851fb7439d5fa5c23ea4d5?family=Calibri+Bold);
+@import url('https://fonts.cdnfonts.com/css/hvdtrial-brandon-grotesque');
+@import url('https://fonts.googleapis.com/css?family=Calibri:400,700,400italic,700italic');
+
+:root {
+  color-scheme: light;
+  supported-color-schemes: light;
+}
 ReadMsgBody{ width: 100%;}
 .ExternalClass {width: 100%;}
 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
@@ -206,68 +219,11 @@ a img {border:none;}
   .mobWdh{width:10% !important;}
 }
 
-/* =====================================================================
-   MyFreeStyle Email Design System: proposed additions to the ADC template head.
-   Everything below is NEW. Modules carry their light-mode look entirely inline,
-   so if this block is missing from a production template the email still
-   renders correctly, just without mobile sizing tweaks and dark mode.
-   ===================================================================== */
-
-/* ---- Mobile (Sizing mode = Mobile in Figma). 640px matches ADC's first breakpoint. */
-@media only screen and (max-width: 640px) {
-  .mfs-w100   { width: 100% !important; max-width: 100% !important; }
-  .mfs-img    { width: 100% !important; max-width: 100% !important; height: auto !important; }
-  .mfs-stack  { display: block !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
-  .mfs-hide   { display: none !important; max-height: 0 !important; overflow: hidden !important; }
-  .mfs-show   { display: block !important; max-height: none !important; overflow: visible !important; }
-  .mfs-center { text-align: center !important; }
-  .mfs-auto   { margin-left: auto !important; margin-right: auto !important; }
-
-  /* Type scale: headline 38 to 28, subheadline 28 to 24. Body sizes are the same on both. */
-  .mfs-h1 { font-size: 28px !important; line-height: 32px !important; }
-  .mfs-h2 { font-size: 24px !important; line-height: 28px !important; }
-
-  /* Spacing tokens, desktop/mobile: 1=8/8 2=16/8 3=24/16 4=32/24 5=40/24 6=48/32 8=64/48 */
-  .mfs-p2 { padding: 8px !important; }   .mfs-px2 { padding-left: 8px !important; padding-right: 8px !important; }   .mfs-py2 { padding-top: 8px !important; padding-bottom: 8px !important; }   .mfs-pt2 { padding-top: 8px !important; }   .mfs-pb2 { padding-bottom: 8px !important; }
-  .mfs-p3 { padding: 16px !important; }  .mfs-px3 { padding-left: 16px !important; padding-right: 16px !important; } .mfs-py3 { padding-top: 16px !important; padding-bottom: 16px !important; } .mfs-pt3 { padding-top: 16px !important; } .mfs-pb3 { padding-bottom: 16px !important; }
-  .mfs-p4 { padding: 24px !important; }  .mfs-px4 { padding-left: 24px !important; padding-right: 24px !important; } .mfs-py4 { padding-top: 24px !important; padding-bottom: 24px !important; } .mfs-pt4 { padding-top: 24px !important; } .mfs-pb4 { padding-bottom: 24px !important; }
-  .mfs-p5 { padding: 24px !important; }  .mfs-px5 { padding-left: 24px !important; padding-right: 24px !important; } .mfs-py5 { padding-top: 24px !important; padding-bottom: 24px !important; } .mfs-pt5 { padding-top: 24px !important; } .mfs-pb5 { padding-bottom: 24px !important; }
-  .mfs-p6 { padding: 32px !important; }  .mfs-px6 { padding-left: 32px !important; padding-right: 32px !important; } .mfs-py6 { padding-top: 32px !important; padding-bottom: 32px !important; } .mfs-pt6 { padding-top: 32px !important; } .mfs-pb6 { padding-bottom: 32px !important; }
-  .mfs-p8 { padding: 48px !important; }  .mfs-px8 { padding-left: 48px !important; padding-right: 48px !important; } .mfs-py8 { padding-top: 48px !important; padding-bottom: 48px !important; } .mfs-pt8 { padding-top: 48px !important; } .mfs-pb8 { padding-bottom: 48px !important; }
-  .mfs-pt0 { padding-top: 0 !important; } .mfs-pb0 { padding-bottom: 0 !important; } .mfs-pl0 { padding-left: 0 !important; } .mfs-pr0 { padding-right: 0 !important; }
-}
-
-/* ---- Dark mode (Tokens mode = Dark in Figma).
-   Apple Mail / iOS / Outlook macOS use prefers-color-scheme. Outlook.com uses [data-ogsc] for text
-   and [data-ogsb] for backgrounds. Gmail ignores both and applies its own inversion. */
 @media (prefers-color-scheme: dark) {
-  .mfs-dm-bg-white    { background-color: #222731 !important; }
-  .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
-  .mfs-dm-bg-grey     { background-color: #464646 !important; }
-  .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
-  .mfs-dm-text        { color: #FFFFFF !important; }
-  .mfs-dm-text-inv    { color: #222731 !important; }
-  .mfs-dm-link        { color: #D0A0EC !important; }
-  .mfs-dm-border      { border-color: #7B8290 !important; }
-  .mfs-light-img      { display: none !important; max-height: 0 !important; overflow: hidden !important; }
-  .mfs-dark-img       { display: block !important; max-height: none !important; overflow: visible !important; }
+  body {
+    background-color: #FFFFFF !important;
+  }
+  .white-text {
+    color: #000000 !important;
+  }
 }
-[data-ogsb] .mfs-dm-bg-white    { background-color: #222731 !important; }
-[data-ogsb] .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
-[data-ogsb] .mfs-dm-bg-grey     { background-color: #464646 !important; }
-[data-ogsb] .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
-[data-ogsc] .mfs-dm-text        { color: #FFFFFF !important; }
-[data-ogsc] .mfs-dm-text-inv    { color: #222731 !important; }
-[data-ogsc] .mfs-dm-link        { color: #D0A0EC !important; }
-
-/* Doc-site preview only: module-view adds .mfs-dark to <body> to show the dark result in any browser. */
-.mfs-dark .mfs-dm-bg-white    { background-color: #222731 !important; }
-.mfs-dark .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
-.mfs-dark .mfs-dm-bg-grey     { background-color: #464646 !important; }
-.mfs-dark .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
-.mfs-dark .mfs-dm-text        { color: #FFFFFF !important; }
-.mfs-dark .mfs-dm-text-inv    { color: #222731 !important; }
-.mfs-dark .mfs-dm-link        { color: #D0A0EC !important; }
-.mfs-dark .mfs-dm-border      { border-color: #7B8290 !important; }
-.mfs-dark .mfs-light-img      { display: none !important; max-height: 0 !important; overflow: hidden !important; }
-.mfs-dark .mfs-dark-img       { display: block !important; max-height: none !important; overflow: visible !important; }

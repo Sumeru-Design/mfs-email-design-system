@@ -35,8 +35,8 @@
     "components/button/yellow"
   ],
   "notes": [
-    "Mobile Figma shows 64px thumbnails with a 16px gap; there is no mfs-* class to resize them, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
-    "Yellow button is unchanged in dark mode.",
+    "Mobile Figma shows 64px thumbnails with a 16px gap; ADC has no class for either, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
+    "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; heading 28 → 24 (f24); step gaps 32 → 20 (himobtop, Figma 24).",
     "Outlook shows square thumbnail corners."
   ],
   "figmaNode": "100:1162"

@@ -4,15 +4,34 @@
   "category": "hero",
   "description": "Switching / consideration emails where a real patient voice leads.",
   "usage": "Social-proof hero. The patient quote is the headline; photo and full quote support it. Locked layout — edit only image fills and text.",
-  "editable": ["Quote headline", "Portrait", "Quote body", "Attribution"],
+  "editable": [
+    "Quote headline",
+    "Portrait",
+    "Quote body",
+    "Attribution"
+  ],
   "seenIn": "Voucher 6",
-  "chars": { "Quote headline": "≤ 65", "Quote body": "≤ 220", "Attribution": "≤ 45" },
-  "images": [{ "slot": "Portrait", "w": 504, "h": 400, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
-  "tokens": ["surface/yellow", "text/charcoal"],
+  "chars": {
+    "Quote headline": "≤ 65",
+    "Quote body": "≤ 220",
+    "Attribution": "≤ 45"
+  },
+  "images": [
+    {
+      "slot": "Portrait",
+      "w": 504,
+      "h": 400,
+      "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+    }
+  ],
+  "tokens": [
+    "surface/yellow",
+    "text/charcoal"
+  ],
   "notes": [
     "Quote body is italic 20/26; attribution is bold 18/23.",
     "Use real patient testimonials only, with MLR-approved copy.",
-    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+    "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
   ],
   "figmaNode": "94:796"
 }

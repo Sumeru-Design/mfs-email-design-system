@@ -342,16 +342,16 @@
       h += '<section class="section"><div class="callout"><p><strong>Contrast badges</strong> show the WCAG ratio of charcoal and white text on each colour. AA needs 4.5:1 for body text, or 3:1 for text 24px and up (18.66px bold).</p></div></section>';
     }
     else if (page === 'tokens') {
-      h += head('Brand Library', 'Light / Dark tokens', 'Semantic tokens from the Abbott Brand Master File. In email, each token is applied inline in its light value and swapped to its dark value by a class in the email head CSS.');
-      h += '<section class="section"><div class="table-wrap"><table class="doc"><thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Used for</th><th>Email class</th></tr></thead><tbody>';
+      h += head('Brand Library', 'Light / Dark tokens', 'Semantic tokens from the Abbott Brand Master File. Emails are always built in the light values; the dark values describe how the design is expected to look once an inbox applies its own dark mode.');
+      h += '<section class="section"><div class="table-wrap"><table class="doc"><thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Used for</th></tr></thead><tbody>';
       B.tokens.forEach(function (t) {
-        h += '<tr><td><strong>' + esc(t.name) + '</strong></td><td>' + chip(t.light) + '</td><td>' + chip(t.dark) + '</td><td>' + esc(t.use) + '</td><td class="mono">' + esc(t.cls) + '</td></tr>';
+        h += '<tr><td><strong>' + esc(t.name) + '</strong></td><td>' + chip(t.light) + '</td><td>' + chip(t.dark) + '</td><td>' + esc(t.use) + '</td></tr>';
       });
       h += '</tbody></table></div></section>';
-      h += '<section class="section"><h2>How dark mode works</h2><div class="grid grid--3">' +
-        card('Apple Mail, iOS, Outlook for Mac', 'Honour <code>prefers-color-scheme</code>, so the token classes switch every surface, text and link colour.') +
-        card('Outlook.com and new Outlook', 'Use the <code>[data-ogsc]</code> and <code>[data-ogsb]</code> rules in the head CSS.') +
-        card('Gmail apps', 'Ignore dark-mode CSS and apply their own partial inversion. The light colours still render safely.') +
+      h += '<section class="section"><h2>How dark mode works</h2><p class="section__desc">Emails ship no dark-mode CSS. Each inbox recolours the email itself; the Dark preview in Modules emulates that.</p><div class="grid grid--3">' +
+        card('Apple Mail &amp; iOS', 'Leave emails as designed unless they opt in. Results shown in the preview are the Figma dark intent.') +
+        card('Outlook (Mac, Windows, .com)', 'Partially invert: light backgrounds go dark and dark text goes light. Brand colours land close to the dark token values.') +
+        card('Gmail apps', 'Apply their own full or partial inversion depending on platform. Always check a real send.') +
         '</div></section>';
     }
     else if (page === 'typography') {
@@ -370,11 +370,11 @@
       h += '</div></section>';
     }
     else if (page === 'spacing') {
-      h += head('Brand Library', 'Spacing & layout', 'Spacing tokens step down on mobile. In email, padding is set inline at the web value and a class swaps in the mobile value.');
+      h += head('Brand Library', 'Spacing & layout', 'Spacing tokens step down on mobile. In email, padding is set inline at the web value; ADC’s named mobile classes (listed under each token, as horizontal · top · bottom) snap it to the nearest mobile value.');
       h += '<section class="section"><h2>Spacing scale</h2><p class="legend"><span><i style="background:var(--yellow)"></i>Web</span><span><i style="background:var(--border-strong)"></i>Mobile</span></p><div class="table-wrap">';
       B.spacing.forEach(function (s) {
         var n = s.token.split('/')[1];
-        h += '<div class="space-row"><div><strong>' + esc(s.token) + '</strong><br><code>.mfs-p' + n + '</code></div><div class="space-bars"><div class="space-bar" style="width:' + s.web * 3 + 'px;max-width:100%"></div><div class="space-bar space-bar--m" style="width:' + s.mobile * 3 + 'px;max-width:100%"></div></div><div class="type-cell"><strong>' + s.web + ' / ' + s.mobile + ' px</strong></div></div>';
+        h += '<div class="space-row"><div style="min-width:0"><strong>' + esc(s.token) + '</strong><br><span style="font-size:12.5px;color:var(--muted)">' + esc(s.adc || '') + '</span></div><div class="space-bars"><div class="space-bar" style="width:' + s.web * 3 + 'px;max-width:100%"></div><div class="space-bar space-bar--m" style="width:' + s.mobile * 3 + 'px;max-width:100%"></div></div><div class="type-cell"><strong>' + s.web + ' / ' + s.mobile + ' px</strong></div></div>';
       });
       h += '</div></section><section class="section"><h2>Layout rules</h2><div class="grid grid--3">';
       B.layout.forEach(function (l) { h += card(esc(l.title), esc(l.value)); });
@@ -388,7 +388,7 @@
       });
       h += '</div></section><section class="section"><h2>Specs</h2><div class="table-wrap"><table class="doc"><tbody>' +
         '<tr><td>Label</td><td>Calibri Bold 18 / 23 px</td></tr><tr><td>Padding</td><td>14 px × 32 px</td></tr><tr><td>Radius</td><td>48 px (pill). Square in Outlook for Windows.</td></tr>' +
-        '<tr><td>Outlook</td><td>VML <code>v:roundrect</code> fallback, sized to the label + 64 px</td></tr><tr><td>Dark mode</td><td>Primary: <code>.mfs-dm-bg-charcoal</code> on the cell + <code>.mfs-dm-text-inv</code> on the link. Yellow: no classes.</td></tr>' +
+        '<tr><td>Outlook</td><td>VML <code>v:roundrect</code> fallback, sized to the label + 64 px</td></tr><tr><td>Mobile</td><td>Add <code>.fluid</code> to the button table only for a full-width mobile button</td></tr>' +
         '</tbody></table></div></section>';
       h += '<section class="section"><h2>Markup</h2><div class="code-block"><pre>' + highlight(BUTTON_SNIPPET) + '</pre></div><div class="cta-row"><button class="btn btn--sm" data-copy-snippet>Copy button HTML</button></div></section>';
     }
@@ -411,20 +411,20 @@
     else if (page === 'setup') {
       h += head('Developer', 'Email setup', 'How the modules plug into ADC’s Salesforce Marketing Cloud templates.');
       h += '<section class="section"><div class="grid grid--2">' +
-        card('1 · Template head', 'The modules expect the ADC template’s head CSS plus the MyFreeStyle additions (mobile sizing and dark mode). Both are in <a href="email-head.css" target="_blank">email-head.css</a>.') +
-        card('2 · Paste modules', 'Each module is a self-contained 600px table. Paste it into the template body in order: Header → Hero → Body → Support → Poll → Disclaimer.') +
+        card('1 · Template head', 'The modules rely on the ADC template’s existing head CSS — no additions. A copy is in <a href="email-head.css" target="_blank">email-head.css</a>.') +
+        card('2 · Paste modules', 'Each module is one or more SFMC <code>stylingblock-content-wrapper</code> blocks. Paste them inside the template’s 600px container in order: Header → Hero → Body → Support → Poll → Disclaimer.') +
         card('3 · Swap content', 'Edit text in place and replace image <code>src</code> with the hosted 2× image. Keep <code>width</code> and <code>height</code> at the 1× size.') +
         card('4 · Links & aliases', 'Every link is <code>href="#"</code> with an empty <code>alias</code>. Fill both with the ADC link-alias format before sending.') +
         '</div></section>';
-      h += '<section class="section"><h2>Mobile classes</h2><div class="table-wrap"><table class="doc"><thead><tr><th>Class</th><th>Effect at ≤ 640px</th></tr></thead><tbody>' +
-        row('.mfs-w100', 'Fixed-width table becomes 100% wide') + row('.mfs-img', 'Image scales to 100% width, auto height') + row('.mfs-stack', 'Table cell becomes a full-width block (columns stack)') +
-        row('.mfs-h1 / .mfs-h2', 'Headline 38 → 28 px · Subheadline 28 → 24 px') + row('.mfs-p{n} .mfs-px{n} .mfs-py{n} .mfs-pt{n} .mfs-pb{n}', 'Spacing token n at its mobile value') +
-        row('.mfs-hide / .mfs-show', 'Hide on mobile / show only on mobile') + row('.mfs-center / .mfs-auto', 'Centre text / centre a block') +
+      h += '<section class="section"><h2>Mobile classes (ADC template)</h2><p class="section__desc">Modules use only the classes in ADC’s template stylesheet — the same CSS the Sumeru Email Builder plugin ships for ADC. Columns stack with the <code>.drop</code> pattern at ≤ 480px.</p><div class="table-wrap"><table class="doc"><thead><tr><th>Class</th><th>Effect on mobile</th></tr></thead><tbody>' +
+        row('.drop', 'Column cell becomes a full-width block — put it on every column AND every gutter cell, at every nesting level') +
+        row('.drop.mob-h25 (mob-h15 / mob-hegt20 / mob-h35 / mob-rht)', 'Gutter cell becomes a 25 (15 / 20 / 35 / 40) px vertical gap') +
+        row('.fluid', 'Image or table goes 100% wide') + row('.f28 / .f24', 'Headline 38 → 28 px · Subheadline 28 → 24 px (other .fN steps 10–78)') +
+        row('.mobPad32 / .mobCont / .pad15 / .mobile-prl / .mob-pad-non', 'Left + right padding 32 / 20 / 15 / 10 / 0 px') +
+        row('.padd-top / .himobtop / .padd-none / .padd-topnone', 'Top padding 40 / 20 / 10 / 0 px') + row('.padd-bottom / .mob-pad-bot', 'Bottom padding 40 / 30 px') +
+        row('.mobPad16', '16 px on all sides') + row('.centered', 'Centre text') + row('.mobile-hidden / .dis-block', 'Hide on mobile / show only on mobile') +
         '</tbody></table></div></section>';
-      h += '<section class="section"><h2>Dark-mode classes</h2><div class="table-wrap"><table class="doc"><thead><tr><th>Class</th><th>Light → Dark</th></tr></thead><tbody>';
-      B.tokens.filter(function (t) { return t.cls !== '—'; }).forEach(function (t) { h += '<tr><td class="mono">.' + t.cls + '</td><td>' + chip(t.light) + ' → ' + chip(t.dark) + '</td></tr>'; });
-      h += row('.mfs-light-img / .mfs-dark-img', 'Swap an image (e.g. a logo) in dark mode') + '</tbody></table></div></section>';
-      h += '<section class="section"><div class="callout"><p><strong>Heads-up:</strong> ADC’s current template locks <code>color-scheme</code> to light. The dark-mode classes only take effect once the head CSS from this site replaces that lock. Without it, emails stay in light mode — safely.</p></div></section>';
+      h += '<section class="section"><div class="callout"><p><strong>Dark mode:</strong> emails carry no dark-mode CSS — inboxes recolour them automatically. The Dark preview emulates that so you can spot problems (e.g. images with white backgrounds) before sending.</p></div></section>';
     }
     h += pagerFor('#/brand/' + page) + '</div>';
     main.innerHTML = h;
@@ -450,9 +450,9 @@
   var BUTTON_SNIPPET = [
     '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">',
     '  <tr>',
-    '    <td align="center" class="mfs-dm-bg-charcoal" style="border-radius:48px; background-color:#222731;" bgcolor="#222731">',
+    '    <td align="center" bgcolor="#222731" style="background-color:#222731; border-radius:48px;">',
     '      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:51px; v-text-anchor:middle; width:220px;" arcsize="50%" stroke="f" fillcolor="#222731"><w:anchorlock/><center style="color:#FFFFFF; font-family:Calibri, Arial, sans-serif; font-size:18px; font-weight:bold;">Get my free sensor</center></v:roundrect><![endif]-->',
-    '      <!--[if !mso]><!-- --><a href="#" alias="" target="_blank" class="mfs-dm-text-inv" style="display:inline-block; padding:14px 32px; font-family:Calibri, Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; font-weight:bold; color:#FFFFFF; text-decoration:none; border-radius:48px; mso-line-height-rule:exactly;">Get my free sensor</a><!--<![endif]-->',
+    '      <!--[if !mso]><!-- --><a href="#" alias="" target="_blank" role="button" style="display:block; padding:14px 32px; font-family:Calibri, arial, helvetica, sans-serif; font-size:18px; line-height:23px; font-weight:bold; color:#FFFFFF; text-decoration:none; text-align:center; border-radius:48px; mso-line-height-rule:exactly;">Get my free sensor</a><!--<![endif]-->',
     '    </td>',
     '  </tr>',
     '</table>'

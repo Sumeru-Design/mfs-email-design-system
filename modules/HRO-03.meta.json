@@ -4,15 +4,32 @@
   "category": "hero",
   "description": "Process emails where the next action is explained in the body below.",
   "usage": "Step-forward hero. Headline and explanation first, supporting photo closes the band. Locked layout — edit only image fills and text.",
-  "editable": ["Headline", "Body", "Photo"],
+  "editable": [
+    "Headline",
+    "Body",
+    "Photo"
+  ],
   "seenIn": "Voucher 9, 11",
-  "chars": { "Headline": "≤ 60", "Body": "≤ 200" },
-  "images": [{ "slot": "Photo", "w": 504, "h": 320, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
-  "tokens": ["surface/yellow", "text/charcoal"],
+  "chars": {
+    "Headline": "≤ 60",
+    "Body": "≤ 200"
+  },
+  "images": [
+    {
+      "slot": "Photo",
+      "w": 504,
+      "h": 320,
+      "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+    }
+  ],
+  "tokens": [
+    "surface/yellow",
+    "text/charcoal"
+  ],
   "notes": [
     "[3/2] is a product-version merge field shown in magenta (#FF00F5) — replace before send.",
     "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners.",
-    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+    "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
   ],
   "figmaNode": "94:760"
 }

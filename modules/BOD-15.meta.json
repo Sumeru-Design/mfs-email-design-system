@@ -28,7 +28,8 @@
   ],
   "notes": [
     "Add a 4th row by duplicating a feature row (24px top padding).",
-    "Mobile Figma gap between icon and text is 16px; there is no mfs-pl class, so it stays 24px on mobile.",
+    "Icon and text stay side by side on mobile (no drop). Mobile Figma gap between icon and text is 16px; ADC has no left-only padding class, so it stays 24px on mobile.",
+    "Mobile (ADC snapping): row gaps 24 → 20 (himobtop, Figma 16).",
     "Icons are decorative (alt=\"\")."
   ],
   "figmaNode": "101:1385"

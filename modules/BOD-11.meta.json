@@ -37,6 +37,7 @@
   ],
   "notes": [
     "Secondary link is optional; delete its row if unused.",
+    "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; block gaps 24 → 20 (himobtop, Figma 16); photo goes full width (fluid).",
     "Outlook shows square photo corners."
   ],
   "figmaNode": "101:1101"

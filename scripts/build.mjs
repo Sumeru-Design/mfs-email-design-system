@@ -18,6 +18,12 @@ for (const id of htmlIds) if (!metaIds.includes(id)) errors.push(`${id}: missing
 for (const id of metaIds) if (!htmlIds.includes(id)) errors.push(`${id}: missing ${id}.html`);
 
 const catIds = brand.categories.map(c => c.id);
+
+// Allowed classes = every class selector defined in email-head.css (the plugin's ADC
+// stylesheet + the dark-mode add-on) plus SFMC's block-wrapper classes.
+const headCss = readFileSync(join(root, 'email-head.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+const allowed = new Set([...headCss.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map(m => m[1]));
+for (const c of ['stylingblock-content-wrapper', 'camarker-inner']) allowed.add(c);
 const modules = [];
 let total = 0;
 for (const id of metaIds.filter(i => htmlIds.includes(i))) {
@@ -39,7 +45,10 @@ for (const id of metaIds.filter(i => htmlIds.includes(i))) {
   if (/<\/?(html|head|body|style|script|div)\b/i.test(code)) errors.push(`${id}: contains html/head/body/style/script/div tag`);
   if (/display\s*:\s*(flex|grid)|(?<![-\w])gap\s*:|position\s*:\s*(absolute|relative|fixed)|float\s*:/i.test(html)) errors.push(`${id}: uses flex/grid/gap/position/float`);
   if (/figma\.com\/api\/mcp/i.test(html)) errors.push(`${id}: still references a temporary Figma asset URL`);
-  if (!/class="[^"]*mfs-w100/.test(html)) errors.push(`${id}: outer table missing mfs-w100`);
+  if (!/^\s*<table\b[^>]*class="stylingblock-content-wrapper/.test(code.trimStart())) errors.push(`${id}: must start with a <table class="stylingblock-content-wrapper …"> section wrapper`);
+  const unknown = new Set();
+  for (const m of code.matchAll(/\sclass="([^"]*)"/g)) for (const c of m[1].split(/\s+/).filter(Boolean)) if (!allowed.has(c)) unknown.add(c);
+  if (unknown.size) errors.push(`${id}: classes not in email-head.css: ${[...unknown].join(', ')}`);
   for (const tag of code.match(/<table\b[^>]*>/gi) || []) {
     if (!/role="presentation"/.test(tag) && !/data-table/.test(tag)) errors.push(`${id}: table without role="presentation": ${tag.slice(0, 80)}`);
   }

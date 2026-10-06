@@ -20,8 +20,8 @@
   ],
   "notes": [
     "Editable: none — logo is locked.",
-    "Dark mode: one image, no swap. The logo is baked onto the white tile that the Desktop · Dark frame shows, so it is invisible on white in light mode and appears as the white logo tile when the background turns #222731. This also keeps the logo legible in clients that darken backgrounds without supporting the mfs-light-img / mfs-dark-img swap (e.g. Outlook.com).",
-    "Padding 16/48 desktop → 16/32 mobile (mfs-px6). Figma's mobile vertical padding is token 3 at 16px, so the vertical value is unchanged and has no class."
+    "The logo is baked onto a white 8px-rounded tile, so it is invisible on white and appears as a white logo tile when an inbox darkens the background.",
+    "Mobile (≤480px): side padding 48→32 (mobPad32). Vertical padding stays 16px, as in Figma's mobile frame."
   ],
   "figmaNode": "93:527"
 }

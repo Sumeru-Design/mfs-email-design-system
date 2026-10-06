@@ -4,17 +4,31 @@
   "category": "body",
   "description": "Switching emails. Exactly 4 rows; keep each cell under 10 words.",
   "usage": "Two-column “us vs them” comparison on charcoal. Left = competitor pain, right = Libre benefit. Locked layout — edit only text.",
-  "editable": ["Heading", "Column headers", "8 cell texts"],
+  "editable": [
+    "Heading",
+    "Column headers",
+    "8 cell texts"
+  ],
   "seenIn": "Voucher 1, 4, 7, 8",
-  "chars": { "Heading": "≤ 35", "Column header": "≤ 22", "Cell": "≤ 60 (under 10 words)" },
+  "chars": {
+    "Heading": "≤ 35",
+    "Column header": "≤ 22",
+    "Cell": "≤ 60 (under 10 words)"
+  },
   "images": [],
-  "tokens": ["surface/charcoal-1000", "text/white", "surface/white", "text/charcoal", "border/primary"],
+  "tokens": [
+    "surface/charcoal-1000",
+    "text/white",
+    "surface/white",
+    "text/charcoal",
+    "border/primary"
+  ],
   "notes": [
-    "Stays a two-column table on mobile (as in the Mobile frame); cell side padding drops from 16px to 8px.",
-    "The 16px column gutter is a fixed spacer cell; Figma narrows it to 8px on mobile.",
-    "Row gaps are spacer rows with mfs-pt3 (24px → 16px).",
-    "Dark mode inverts: panel goes white, left cells get charcoal text, right cells go charcoal with white text. The #7B8290 border (border/primary) is unchanged.",
-    "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+    "Stays a two-column table on mobile (no drop), as in the Mobile frame; cell side padding drops from 16px to 10px (mobile-prl; Figma 8).",
+    "The 16px column gutter is fixed padding on a spacer cell; Figma narrows it to 8px on mobile but no ADC class gets close without collapsing the gutter.",
+    "Mobile: section padding 48/24 snaps to 40 top (padd-top), 30 bottom (mob-pad-bot), 15 sides (pad15); row gaps 24 snap to 20 (himobtop; Figma 16).",
+    "The #7B8290 border (border/primary) is left to the inbox in dark mode.",
+    "Heading uses f24 (28 → 24) per the convention table; the Figma Mobile frame keeps 28px.",
     "Outlook shows square cell corners."
   ],
   "figmaNode": "99:1500"

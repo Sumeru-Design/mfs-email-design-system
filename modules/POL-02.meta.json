@@ -21,10 +21,10 @@
     "text/charcoal"
   ],
   "notes": [
-    "Options are outline pills. The 2px ring uses the text/charcoal variable, which turns white in dark mode, and no border-colour utility class exists. The ring is therefore an outer td with padding:2px and mfs-dm-bg-charcoal, around an inner td with mfs-dm-bg-white. Outlook gets a VML roundrect with a 2px stroke instead (no dark flip).",
-    "Mobile compromise: the options stack (centred, 8px apart) instead of sitting side by side as in Mobile · Light. In Figma the pair only fits by bleeding into the 32px side padding, and it would overflow at 375px with the Arial fallback (iOS has no Calibri).",
+    "Options are outline pills: the 2px charcoal ring is an outer td with padding:2px around a white inner td. Outlook gets a VML roundrect with a 2px stroke instead.",
+    "Mobile compromise: the options stack (drop, centred, 10px apart via padd-none) instead of sitting side by side as in Mobile · Light. In Figma the pair only fits by bleeding into the 32px side padding, and it would overflow at 375px with the Arial fallback (iOS has no Calibri).",
     "VML widths are 216px and 132px. Re-check them if the labels change.",
-    "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS."
+    "The heading uses f24 (28 → 24 on mobile) per CONVENTIONS."
   ],
   "figmaNode": "102:1600"
 }

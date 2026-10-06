@@ -317,7 +317,7 @@ table.doc .mono { font-family: var(--font-mono); font-size: 13px; }
 .family-card h3 { font-family: var(--font-email); font-size: 32px; margin: 0; }
 
 /* ---------- Spacing ---------- */
-.space-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 120px; gap: 16px; align-items: center; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+.space-row { display: grid; grid-template-columns: 250px minmax(0, 1fr) 120px; gap: 16px; align-items: center; padding: 12px 20px; border-bottom: 1px solid var(--border); }
 .space-row:last-child { border-bottom: 0; }
 .space-bars { display: flex; flex-direction: column; gap: 6px; }
 .space-bar { height: 12px; border-radius: 3px; background: var(--yellow); }
@@ -460,7 +460,7 @@ table.doc .mono { font-family: var(--font-mono); font-size: 13px; }
   .mod__panel { padding: 18px 16px; }
   .type-row { grid-template-columns: minmax(0, 1fr) 110px; padding: 14px 16px; }
   .type-row > :nth-child(3) { display: none; }
-  .space-row { grid-template-columns: 84px minmax(0, 1fr); }
+  .space-row { grid-template-columns: 130px minmax(0, 1fr); }
   .space-row > :nth-child(3) { display: none; }
   .pager { flex-direction: column; }
   .pager a { max-width: none; }

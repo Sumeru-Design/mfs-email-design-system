@@ -9,16 +9,10 @@
   "chars": {},
   "images": [
     {
-      "slot": "Logo (light)",
+      "slot": "Logo",
       "w": 255,
       "h": 97,
       "notes": "Locked. White butterfly + charcoal type on a #FFD100 16px-rounded tile (invisible on the yellow band)."
-    },
-    {
-      "slot": "Logo (dark)",
-      "w": 255,
-      "h": 97,
-      "notes": "Locked. Figma's dark-instance vector on the same #FFD100 tile, shown on #5B4A00 via mfs-dark-img."
     }
   ],
   "tokens": [
@@ -26,9 +20,8 @@
   ],
   "notes": [
     "Editable: none — logo is locked.",
-    "Both logos carry the yellow tile, so even without the swap (clients that darken the band but ignore mfs-dark-img) the logo still sits on brand yellow.",
-    "Figma's mobile dark tile uses an 8px radius vs 16px on desktop; the image uses 16px at both sizes.",
-    "Padding 16/48 desktop → 16/32 mobile (mfs-px6)."
+    "The logo carries the yellow tile, so if an inbox darkens the band the logo still sits on brand yellow.",
+    "Mobile (≤480px): side padding 48→32 (mobPad32); vertical stays 16."
   ],
   "figmaNode": "93:707"
 }

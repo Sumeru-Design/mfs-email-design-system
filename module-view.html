@@ -13,18 +13,22 @@
     /* Preview frame only — not part of the email. */
     html, body { margin: 0 !important; padding: 0 !important; overflow: hidden; }
     body { background: #FFFFFF; }
-    body.mfs-dark { background: #222731; }
+    body.mfs-dark { background: #222731; }  /* the inbox's own dark canvas */
     #mfs-msg { font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #7B8290; padding: 24px; text-align: center; }
   </style>
 </head>
 <body>
-  <div id="mfs-root"></div>
+  <!-- Same outer container as ADC's SFMC template: modules are pasted inside it. -->
+  <table role="presentation" class="container" width="600" align="center" cellpadding="0" cellspacing="0" border="0" style="width:600px; margin:0 auto;">
+    <tr><td id="mfs-root" align="left" valign="top"></td></tr>
+  </table>
   <script>
     (function () {
       var q = new URLSearchParams(location.search);
       var id = (q.get('id') || '').replace(/[^A-Z0-9-]/gi, '');
       var root = document.getElementById('mfs-root');
-      if (q.get('scheme') === 'dark') document.body.classList.add('mfs-dark');
+      var dark = q.get('scheme') === 'dark';
+      if (dark) document.body.classList.add('mfs-dark');
 
       var ready = false;
       function post() {
@@ -38,6 +42,7 @@
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
         .then(function (html) {
           root.innerHTML = html;
+          if (dark) emulateDarkMode(root);
           ready = true;
           [].forEach.call(root.querySelectorAll('img'), function (img) { img.addEventListener('load', post); });
           if ('ResizeObserver' in window) new ResizeObserver(post).observe(document.documentElement);
@@ -46,6 +51,66 @@
         .catch(function () { root.innerHTML = '<p id="mfs-msg">Module ' + id + ' not found.</p>'; ready = true; post(); });
       window.addEventListener('load', post);
     })();
+
+    /* ---------------------------------------------------------------------------
+       Dark-mode EMULATION (preview only — nothing here ships in the email).
+       Inboxes (Apple Mail, Outlook, Gmail apps) recolour emails themselves. This
+       mimics that: brand colours map to the Figma Dark token values; any other
+       light background / dark text is lightness-inverted the way partial-invert
+       clients do. Images, yellow pill buttons and MLR magenta are left alone.
+       --------------------------------------------------------------------------- */
+    function emulateDarkMode(root) {
+      var BG = { 'FFFFFF': '#222731', 'FFD100': '#5B4A00', 'F4F4F3': '#464646', '222731': '#FFFFFF' };
+      var FG = { '222731': '#FFFFFF', 'FFFFFF': '#222731', '001489': '#D0A0EC' };
+      var KEEP = { 'FF00F5': 1 };
+
+      function hex(c) {
+        if (!c) return null;
+        c = String(c).trim();
+        var m = c.match(/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i);
+        if (m) { var h = m[1]; if (h.length === 3) h = h.replace(/./g, '$&$&'); return h.toUpperCase(); }
+        m = c.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)$/i);
+        if (m && (m[4] === undefined || +m[4] > 0)) return [m[1], m[2], m[3]].map(function (v) { return (+v).toString(16).padStart(2, '0'); }).join('').toUpperCase();
+        if (/^white$/i.test(c)) return 'FFFFFF';
+        if (/^black$/i.test(c)) return '000000';
+        return null;
+      }
+      function rgb(h) { return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16) / 255; }); }
+      function lum(h) { var c = rgb(h); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; }
+      // Invert lightness, keep hue + saturation (what partial-invert clients do).
+      function invert(h) {
+        var c = rgb(h), max = Math.max.apply(0, c), min = Math.min.apply(0, c), l = (max + min) / 2, s = 0, hu = 0, d = max - min;
+        if (d) {
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          hu = max === c[0] ? (c[1] - c[2]) / d + (c[1] < c[2] ? 6 : 0) : max === c[1] ? (c[2] - c[0]) / d + 2 : (c[0] - c[1]) / d + 4;
+          hu /= 6;
+        }
+        l = 1 - l; l = Math.min(0.92, Math.max(0.1, l));
+        var q2 = l < 0.5 ? l * (1 + s) : l + s - l * s, p2 = 2 * l - q2;
+        function f(t) { t = (t + 1) % 1; return t < 1 / 6 ? p2 + (q2 - p2) * 6 * t : t < 1 / 2 ? q2 : t < 2 / 3 ? p2 + (q2 - p2) * (2 / 3 - t) * 6 : p2; }
+        return '#' + [f(hu + 1 / 3), f(hu), f(hu - 1 / 3)].map(function (v) { return Math.round(v * 255).toString(16).padStart(2, '0'); }).join('').toUpperCase();
+      }
+      function mapBg(h) { if (KEEP[h]) return null; if (BG[h]) return BG[h]; return lum(h) > 0.6 ? invert(h) : null; }
+      function mapFg(h) { if (KEEP[h]) return null; if (FG[h]) return FG[h]; return lum(h) < 0.35 ? invert(h) : null; }
+      function isYellowPill(el, h) { return h === 'FFD100' && parseFloat(el.style.borderRadius) >= 20; }
+
+      var all = [root].concat([].slice.call(root.querySelectorAll('*')));
+      var frozen = [];
+      all.forEach(function (el) {
+        if (el.tagName === 'IMG') return;
+        if (frozen.some(function (f) { return f.contains(el); })) return;
+        var bgH = hex(el.style.backgroundColor) || hex(el.getAttribute('bgcolor'));
+        if (bgH && isYellowPill(el, bgH)) { frozen.push(el); return; }   // components/button/yellow is constant
+        if (bgH) {
+          var nb = mapBg(bgH);
+          if (nb) { el.style.backgroundColor = nb; if (el.hasAttribute('bgcolor')) el.setAttribute('bgcolor', nb); }
+        }
+        var fgH = hex(el.style.color);
+        if (fgH) { var nf = mapFg(fgH); if (nf) el.style.color = nf; }
+      });
+      // Unstyled body text inherits the page colour, so give the root one too.
+      root.style.color = '#FFFFFF';
+    }
   </script>
 </body>
 </html>

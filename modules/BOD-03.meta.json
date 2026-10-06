@@ -4,18 +4,41 @@
   "category": "body",
   "description": "Mirror of BOD-02. On mobile the photo stacks above the copy.",
   "usage": "Feature card on a grey panel. Short benefit headline + 2–3 lines of copy; the photo carries the proof. Locked layout — edit only image fills and text.",
-  "editable": ["Heading", "Body", "Photo"],
-  "seenIn": "Voucher 1, 4, 7, 8",
-  "chars": { "Heading": "≤ 40", "Body": "≤ 140" },
-  "images": [
-    { "slot": "Photo (desktop)", "w": 276, "h": 250, "notes": "JPG, cover. Left corners rounded 8px inline." },
-    { "slot": "Photo (mobile)", "w": 343, "h": 150, "notes": "JPG, cover crop of the same photo. Shown above the copy on mobile; top corners rounded 8px inline." }
+  "editable": [
+    "Heading",
+    "Body",
+    "Photo"
   ],
-  "tokens": ["surface/light-grey-30", "surface/white", "text/charcoal"],
+  "seenIn": "Voucher 1, 4, 7, 8",
+  "chars": {
+    "Heading": "≤ 40",
+    "Body": "≤ 140"
+  },
+  "images": [
+    {
+      "slot": "Photo (desktop)",
+      "w": 276,
+      "h": 250,
+      "notes": "JPG, cover. Left corners rounded 8px inline."
+    },
+    {
+      "slot": "Photo (mobile)",
+      "w": 343,
+      "h": 150,
+      "notes": "JPG, cover crop of the same photo. Shown above the copy on mobile; top corners rounded 8px inline."
+    }
+  ],
+  "tokens": [
+    "surface/light-grey-30",
+    "surface/white",
+    "text/charcoal"
+  ],
   "notes": [
-    "Columns stack on mobile with mfs-stack; source order already puts the photo first, so no dir=\"rtl\" trick is needed.",
-    "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has mfs-hide and the mobile crop has mfs-show. Replace both when swapping the photo.",
-    "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+    "Columns stack on mobile with drop (≤ 480px); source order already puts the photo first, so no dir=\"rtl\" trick is needed.",
+    "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has h and the mobile crop has dis-block + fluid (hidden inline with display:none; mso-hide:all). Replace both when swapping the photo.",
+    "The swap uses h rather than mobile-hidden because mobile-hidden also fires at 481–640px, where dis-block and drop don't, which would leave no photo at all.",
+    "Mobile: panel padding 16/24 snaps to 10 top (padd-none) and 15 sides (pad15); bottom stays 16 (Figma 8). Card padding is mobPad16 (exact). Heading-to-body gap 16 snaps to 10 (padd-none; Figma 8).",
+    "Heading uses f24 (28 → 24), matching the Mobile frame.",
     "Outlook shows square card corners."
   ],
   "figmaNode": "99:859"

@@ -4,17 +4,34 @@
   "category": "hero",
   "description": "Voucher expiry reminders. Number = days remaining (merge field).",
   "usage": "Urgency hero. The number is the hero asset. Deadline-driven sends only. Locked layout — edit only text.",
-  "editable": ["Eyebrow", "Number", "Unit", "Body", "CTA label + link"],
+  "editable": [
+    "Eyebrow",
+    "Number",
+    "Unit",
+    "Body",
+    "CTA label + link"
+  ],
   "seenIn": "Voucher 10",
-  "chars": { "Eyebrow": "≤ 60", "Number": "≤ 3", "Unit": "≤ 12", "Body": "≤ 90", "CTA": "≤ 22" },
+  "chars": {
+    "Eyebrow": "≤ 60",
+    "Number": "≤ 3",
+    "Unit": "≤ 12",
+    "Body": "≤ 90",
+    "CTA": "≤ 22"
+  },
   "images": [],
-  "tokens": ["surface/yellow", "text/charcoal", "surface/charcoal-1000", "text/white"],
+  "tokens": [
+    "surface/yellow",
+    "text/charcoal",
+    "surface/charcoal-1000",
+    "text/white"
+  ],
   "notes": [
     "The number is static live text (Calibri Bold 160/160) in its own table cell — populate it with a days-remaining merge field / AMPscript at send time.",
     "A live, ticking countdown requires a timer-GIF vendor (e.g. Sendtric, MotionMail, NiftyImages): replace the number cell with the vendor's <img> and keep 'DAYS LEFT' as text.",
     "Unit label uses letter-spacing:4px (Figma tracking 4px).",
     "Figma keeps the number at 160px on mobile; there is no mobile class for it, so it stays 160px (fits 3 digits at 375px).",
-    "Eyebrow 28→24px on mobile; padding 48→32px, gaps 16→8px."
+    "Mobile (≤480px): eyebrow 28→24 (f24); side padding 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32; 16px gaps → 10 (padd-none) vs Figma's 8."
   ],
   "figmaNode": "101:1453"
 }

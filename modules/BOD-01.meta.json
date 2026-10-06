@@ -4,15 +4,29 @@
   "category": "body",
   "description": "Any single message that needs one action. Use on white between richer modules.",
   "usage": "Workhorse 1-column block. One idea, one action. Centre-aligned. Locked layout — edit only image fills and text.",
-  "editable": ["Heading", "Body", "CTA label + link"],
+  "editable": [
+    "Heading",
+    "Body",
+    "CTA label + link"
+  ],
   "seenIn": "Nudges 2, 4, 5",
-  "chars": { "Heading": "≤ 60", "Body": "≤ 200", "CTA": "≤ 22" },
+  "chars": {
+    "Heading": "≤ 60",
+    "Body": "≤ 200",
+    "CTA": "≤ 22"
+  },
   "images": [],
-  "tokens": ["surface/white", "text/charcoal", "surface/charcoal-1000", "text/white"],
+  "tokens": [
+    "surface/white",
+    "text/charcoal",
+    "surface/charcoal-1000",
+    "text/white"
+  ],
   "notes": [
     "Keep to one CTA.",
-    "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps it at 28px.",
-    "Padding drops from 48px to 32px and the stack gaps from 24px to 16px on mobile."
+    "Mobile: section padding 48 snaps to 32 left/right (mobPad32), 40 top (padd-top) and 30 bottom (mob-pad-bot); Figma is 32 all round.",
+    "Mobile: stack gaps 24 snap to 20 (himobtop); Figma is 16.",
+    "Heading uses f24 (28 → 24, line-height normal) per the convention table; the Figma Mobile frame keeps 28px."
   ],
   "figmaNode": "99:776"
 }

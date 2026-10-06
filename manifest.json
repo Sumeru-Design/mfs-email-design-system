@@ -38,7 +38,7 @@
     },
     {
       "title": "Dark mode",
-      "body": "Modules carry light-mode colours inline and switch to the Dark token values through the classes in the email head CSS. Without that CSS, emails fall back to light mode safely."
+      "body": "Inboxes apply dark mode themselves; emails carry no dark-mode CSS. The Dark preview emulates it, mapping brand colours to the Dark token values and inverting other light backgrounds, the way Apple Mail and Outlook do. Gmail’s results vary."
     }
   ],
   "colours": {
@@ -120,64 +120,55 @@
       "name": "surface/white",
       "light": "#FFFFFF",
       "dark": "#222731",
-      "use": "Email background",
-      "cls": "mfs-dm-bg-white"
+      "use": "Email background"
     },
     {
       "name": "surface/yellow",
       "light": "#FFD100",
       "dark": "#5B4A00",
-      "use": "Hero / CTA band",
-      "cls": "mfs-dm-bg-yellow"
+      "use": "Hero / CTA band"
     },
     {
       "name": "surface/light-grey-30",
       "light": "#F4F4F3",
       "dark": "#464646",
-      "use": "Panels, support block",
-      "cls": "mfs-dm-bg-grey"
+      "use": "Panels, support block"
     },
     {
       "name": "surface/charcoal-1000",
       "light": "#222731",
       "dark": "#FFFFFF",
-      "use": "Primary button, comparison",
-      "cls": "mfs-dm-bg-charcoal"
+      "use": "Primary button, comparison"
     },
     {
       "name": "text/charcoal",
       "light": "#222731",
       "dark": "#FFFFFF",
-      "use": "All body & headline type",
-      "cls": "mfs-dm-text"
+      "use": "All body & headline type"
     },
     {
       "name": "text/white",
       "light": "#FFFFFF",
       "dark": "#222731",
-      "use": "Type on charcoal",
-      "cls": "mfs-dm-text-inv"
+      "use": "Type on charcoal"
     },
     {
       "name": "text/hyperlink",
       "light": "#001489",
       "dark": "#D0A0EC",
-      "use": "Inline links",
-      "cls": "mfs-dm-link"
+      "use": "Inline links"
     },
     {
       "name": "border/primary",
       "light": "#7B8290",
       "dark": "#7B8290",
-      "use": "Card & option borders",
-      "cls": "—"
+      "use": "Card & option borders"
     },
     {
       "name": "components/button/yellow",
       "light": "#FFD100",
       "dark": "#FFD100",
-      "use": "Yellow button (constant)",
-      "cls": "—"
+      "use": "Yellow button (constant)"
     }
   ],
   "typography": {
@@ -195,7 +186,7 @@
         "lh": 1.15,
         "spec": "Bold · 115%",
         "use": "Hero headlines",
-        "cls": "mfs-h1",
+        "cls": "f28",
         "sample": "See why we’re the #1 CGM"
       },
       {
@@ -207,7 +198,7 @@
         "lh": 1.15,
         "spec": "Bold · 115%",
         "use": "Module headings",
-        "cls": "mfs-h2",
+        "cls": "f24",
         "sample": "Your free sensor is waiting"
       },
       {
@@ -272,37 +263,44 @@
     {
       "token": "spacing/1",
       "web": 8,
-      "mobile": 8
+      "mobile": 8,
+      "adc": "— (no change)"
     },
     {
       "token": "spacing/2",
       "web": 16,
-      "mobile": 8
+      "mobile": 8,
+      "adc": "mobile-prl · padd-none"
     },
     {
       "token": "spacing/3",
       "web": 24,
-      "mobile": 16
+      "mobile": 16,
+      "adc": "pad15 · himobtop"
     },
     {
       "token": "spacing/4",
       "web": 32,
-      "mobile": 24
+      "mobile": 24,
+      "adc": "mobCont · himobtop · mob-pad-bot"
     },
     {
       "token": "spacing/5",
       "web": 40,
-      "mobile": 24
+      "mobile": 24,
+      "adc": "mobCont · himobtop · mob-pad-bot"
     },
     {
       "token": "spacing/6",
       "web": 48,
-      "mobile": 32
+      "mobile": 32,
+      "adc": "mobPad32 · padd-top · mob-pad-bot"
     },
     {
       "token": "spacing/8",
       "web": 64,
-      "mobile": 48
+      "mobile": 48,
+      "adc": "mobPad32 · padd-top · padd-bottom"
     }
   ],
   "layout": [
@@ -340,7 +338,7 @@
     }
   ],
   "buttons": {
-    "note": "Pill buttons, label in Calibri Bold 18. Primary flips to white in Dark Mode; yellow stays yellow. Buttons are bulletproof: a rounded table cell for most clients and a VML roundrect for Outlook.",
+    "note": "Pill buttons, label in Calibri Bold 18. In inbox dark mode the primary button usually flips to white; yellow stays yellow. Buttons are bulletproof: a rounded table cell for most clients and a VML roundrect for Outlook.",
     "variants": [
       {
         "name": "Primary · Light",
@@ -540,11 +538,11 @@
       ],
       "notes": [
         "Editable: none — logo is locked.",
-        "Dark mode: one image, no swap. The logo is baked onto the white tile that the Desktop · Dark frame shows, so it is invisible on white in light mode and appears as the white logo tile when the background turns #222731. This also keeps the logo legible in clients that darken backgrounds without supporting the mfs-light-img / mfs-dark-img swap (e.g. Outlook.com).",
-        "Padding 16/48 desktop → 16/32 mobile (mfs-px6). Figma's mobile vertical padding is token 3 at 16px, so the vertical value is unchanged and has no class."
+        "The logo is baked onto a white 8px-rounded tile, so it is invisible on white and appears as a white logo tile when an inbox darkens the background.",
+        "Mobile (≤480px): side padding 48→32 (mobPad32). Vertical padding stays 16px, as in Figma's mobile frame."
       ],
       "figmaNode": "93:527",
-      "bytes": 792
+      "bytes": 924
     },
     {
       "id": "HDR-02",
@@ -565,12 +563,6 @@
           "w": 276,
           "h": 90,
           "notes": "FreeStyle Libre 3 Plus lockup, charcoal type. Transparent PNG, contain."
-        },
-        {
-          "slot": "Logo (dark)",
-          "w": 276,
-          "h": 90,
-          "notes": "Same lockup with white type, shown via mfs-dark-img."
         }
       ],
       "tokens": [
@@ -578,13 +570,13 @@
         "components/button/yellow"
       ],
       "notes": [
-        "Desktop: logo left, yellow CTA right. Mobile: both stack and centre (mfs-stack + mfs-center + mfs-auto), 8px apart (mfs-pt2).",
-        "Figma's mobile vertical padding grows to 24px (token 4) from 16px on desktop; mfs-py4 is used on top of the 16px inline value because its mobile override is exactly 24px.",
-        "Yellow button is the same in both modes (no dm classes). VML width 216px.",
-        "Logo light/dark swap needs the head CSS; clients without it (Outlook.com dark, Gmail) keep the charcoal lockup."
+        "Desktop: logo left, yellow CTA right. Mobile (≤480px): both columns carry drop + centered and stack; the logo and button sit in centered m-auto tables so they centre. The button gets 10px above it (padd-none) vs 8px in Figma.",
+        "Padding: sides 48→32 (mobPad32). Figma grows the vertical padding from 16 to 24 on mobile; top snaps to 20 (himobtop), bottom has no ADC class near 24 and stays 16.",
+        "Yellow button has no colour changes. VML width 216px.",
+        "Single (light) logo; dark mode is left to the inbox."
       ],
       "figmaNode": "93:650",
-      "bytes": 2503
+      "bytes": 2601
     },
     {
       "id": "HDR-03",
@@ -597,16 +589,10 @@
       "chars": {},
       "images": [
         {
-          "slot": "Logo (light)",
+          "slot": "Logo",
           "w": 255,
           "h": 97,
           "notes": "Locked. White butterfly + charcoal type on a #FFD100 16px-rounded tile (invisible on the yellow band)."
-        },
-        {
-          "slot": "Logo (dark)",
-          "w": 255,
-          "h": 97,
-          "notes": "Locked. Figma's dark-instance vector on the same #FFD100 tile, shown on #5B4A00 via mfs-dark-img."
         }
       ],
       "tokens": [
@@ -614,12 +600,11 @@
       ],
       "notes": [
         "Editable: none — logo is locked.",
-        "Both logos carry the yellow tile, so even without the swap (clients that darken the band but ignore mfs-dark-img) the logo still sits on brand yellow.",
-        "Figma's mobile dark tile uses an 8px radius vs 16px on desktop; the image uses 16px at both sizes.",
-        "Padding 16/48 desktop → 16/32 mobile (mfs-px6)."
+        "The logo carries the yellow tile, so if an inbox darkens the band the logo still sits on brand yellow.",
+        "Mobile (≤480px): side padding 48→32 (mobPad32); vertical stays 16."
       ],
       "figmaNode": "93:707",
-      "bytes": 1085
+      "bytes": 940
     },
     {
       "id": "HRO-01",
@@ -658,7 +643,7 @@
         "Headline drops from 38px to 28px on mobile; padding drops from 48px to 32px."
       ],
       "figmaNode": "94:684",
-      "bytes": 2964
+      "bytes": 3168
     },
     {
       "id": "HRO-02",
@@ -691,10 +676,10 @@
       "notes": [
         "[Name] is a merge field shown in magenta (#FF00F5) — replace with the SFMC personalisation string before send.",
         "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners (accepted per CONVENTIONS).",
-        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+        "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
       ],
       "figmaNode": "94:725",
-      "bytes": 1567
+      "bytes": 1797
     },
     {
       "id": "HRO-03",
@@ -727,10 +712,10 @@
       "notes": [
         "[3/2] is a product-version merge field shown in magenta (#FF00F5) — replace before send.",
         "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners.",
-        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+        "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
       ],
       "figmaNode": "94:760",
-      "bytes": 1679
+      "bytes": 1909
     },
     {
       "id": "HRO-04",
@@ -765,10 +750,10 @@
       "notes": [
         "Quote body is italic 20/26; attribution is bold 18/23.",
         "Use real patient testimonials only, with MLR-approved copy.",
-        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+        "Mobile (≤480px): headline 38→28 (f28); side padding 48→32 (mobPad32); top padding 48→40 (padd-top) and bottom 48→30 (mob-pad-bot) vs Figma's 32; gaps 32→20 (himobtop) vs Figma's 24."
       ],
       "figmaNode": "94:796",
-      "bytes": 2039
+      "bytes": 2271
     },
     {
       "id": "HRO-05",
@@ -824,15 +809,16 @@
         "text/hyperlink"
       ],
       "notes": [
-        "Celebration band text is the primitive color/charcoal/1000 (#222731) in Figma, so it stays charcoal in dark mode over the light confetti image — no dm class.",
-        "Wallet buttons sit side by side with a 16px spacer on desktop and stack with an 8px gap on mobile (spacer td also carries mfs-stack and collapses to an 8px row). Images centred on mobile with mfs-auto.",
-        "Fallback link is #001489 underlined with mfs-dm-link (purple in dark mode, matching the Figma Dark frame).",
+        "Built as three SFMC wrappers back to back: confetti band, yellow next-step strip, white voucher band.",
+        "Celebration band text is the primitive color/charcoal/1000 (#222731) in Figma, fixed over the light confetti image.",
+        "Wallet buttons sit side by side with a 16px spacer on desktop. Both columns and the spacer carry drop, so on mobile they stack, centred by the td align, with the spacer's 8px line box as the gap (matches Figma; no mob-h* class needed).",
+        "Fallback link is #001489 underlined.",
         "Voucher artwork contains magenta [XXXX] placeholders for member / NRC / expiration — these must be produced per recipient by the voucher system, not edited here.",
         "Outlook desktop renders the confetti via VML; if background images are blocked the band falls back to pale yellow #FFEFAA.",
-        "Headline 38→28px and eyebrow 28→24px on mobile; padding 48→32px."
+        "Mobile (≤480px): headline 38→28 (f28), eyebrow 28→24 (f24); celebration padding sides 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32. Strip: sides 48→32, top 16→10 (padd-none), bottom stays 16 (no ADC class) vs Figma's 8. Voucher band: sides 48→32, top 32→20 (himobtop), bottom 32→30 (mob-pad-bot) vs Figma's 24; 24px gaps → 20 (himobtop) vs Figma's 16."
       ],
       "figmaNode": "96:771",
-      "bytes": 5350
+      "bytes": 6503
     },
     {
       "id": "HRO-06",
@@ -867,10 +853,10 @@
         "A live, ticking countdown requires a timer-GIF vendor (e.g. Sendtric, MotionMail, NiftyImages): replace the number cell with the vendor's <img> and keep 'DAYS LEFT' as text.",
         "Unit label uses letter-spacing:4px (Figma tracking 4px).",
         "Figma keeps the number at 160px on mobile; there is no mobile class for it, so it stays 160px (fits 3 digits at 375px).",
-        "Eyebrow 28→24px on mobile; padding 48→32px, gaps 16→8px."
+        "Mobile (≤480px): eyebrow 28→24 (f24); side padding 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32; 16px gaps → 10 (padd-none) vs Figma's 8."
       ],
       "figmaNode": "101:1453",
-      "bytes": 3341
+      "bytes": 3553
     },
     {
       "id": "BOD-01",
@@ -898,11 +884,12 @@
       ],
       "notes": [
         "Keep to one CTA.",
-        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps it at 28px.",
-        "Padding drops from 48px to 32px and the stack gaps from 24px to 16px on mobile."
+        "Mobile: section padding 48 snaps to 32 left/right (mobPad32), 40 top (padd-top) and 30 bottom (mob-pad-bot); Figma is 32 all round.",
+        "Mobile: stack gaps 24 snap to 20 (himobtop); Figma is 16.",
+        "Heading uses f24 (28 → 24, line-height normal) per the convention table; the Figma Mobile frame keeps 28px."
       ],
       "figmaNode": "99:776",
-      "bytes": 2467
+      "bytes": 2679
     },
     {
       "id": "BOD-02",
@@ -941,13 +928,15 @@
         "text/hyperlink"
       ],
       "notes": [
-        "Columns stack on mobile with mfs-stack; copy stays first, photo below, matching the Mobile frame.",
-        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has mfs-hide and the mobile crop has mfs-show. Replace both when swapping the photo.",
-        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Columns stack on mobile with drop (≤ 480px); copy stays first, photo below, matching the Mobile frame.",
+        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has h and the mobile crop has dis-block + fluid (hidden inline with display:none; mso-hide:all). Replace both when swapping the photo.",
+        "The swap uses h rather than mobile-hidden because mobile-hidden also fires at 481–640px, where dis-block and drop don't, which would leave no photo at all.",
+        "Mobile: panel padding 16/24 snaps to 10 top (padd-none) and 15 sides (pad15); bottom stays 16 (Figma 8). Card padding is mobPad16 (exact). Heading-to-body gap 16 snaps to 10 (padd-none; Figma 8).",
+        "Heading uses f24 (28 → 24), matching the Mobile frame.",
         "Outlook shows square card corners."
       ],
       "figmaNode": "99:816",
-      "bytes": 2972
+      "bytes": 3415
     },
     {
       "id": "BOD-03",
@@ -985,13 +974,15 @@
         "text/charcoal"
       ],
       "notes": [
-        "Columns stack on mobile with mfs-stack; source order already puts the photo first, so no dir=\"rtl\" trick is needed.",
-        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has mfs-hide and the mobile crop has mfs-show. Replace both when swapping the photo.",
-        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Columns stack on mobile with drop (≤ 480px); source order already puts the photo first, so no dir=\"rtl\" trick is needed.",
+        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has h and the mobile crop has dis-block + fluid (hidden inline with display:none; mso-hide:all). Replace both when swapping the photo.",
+        "The swap uses h rather than mobile-hidden because mobile-hidden also fires at 481–640px, where dis-block and drop don't, which would leave no photo at all.",
+        "Mobile: panel padding 16/24 snaps to 10 top (padd-none) and 15 sides (pad15); bottom stays 16 (Figma 8). Card padding is mobPad16 (exact). Heading-to-body gap 16 snaps to 10 (padd-none; Figma 8).",
+        "Heading uses f24 (28 → 24), matching the Mobile frame.",
         "Outlook shows square card corners."
       ],
       "figmaNode": "99:859",
-      "bytes": 2839
+      "bytes": 3300
     },
     {
       "id": "BOD-04",
@@ -1024,13 +1015,14 @@
         "text/hyperlink"
       ],
       "notes": [
-        "The icon circle is hard-coded white in Figma, so it stays white in dark mode (baked into the PNG).",
+        "The icon circle is hard-coded white in Figma (baked into the PNG).",
         "The icon stays to the right of the copy on mobile, as in the Mobile frame.",
-        "Copy-to-icon gap is a fixed 16px inline; Figma drops it to 8px on mobile (no padding-left utility class exists).",
+        "Mobile: callout padding is mobPad16 (exact); panel padding snaps to 10 top / 15 sides (padd-none, pad15), bottom stays 16 (Figma 8).",
+        "Copy-to-icon gap is a 16px spacer cell that drops to 10px on mobile (bw10; Figma 8).",
         "One callout per email."
       ],
       "figmaNode": "99:1435",
-      "bytes": 2327
+      "bytes": 2663
     },
     {
       "id": "BOD-05",
@@ -1058,15 +1050,15 @@
         "border/primary"
       ],
       "notes": [
-        "Stays a two-column table on mobile (as in the Mobile frame); cell side padding drops from 16px to 8px.",
-        "The 16px column gutter is a fixed spacer cell; Figma narrows it to 8px on mobile.",
-        "Row gaps are spacer rows with mfs-pt3 (24px → 16px).",
-        "Dark mode inverts: panel goes white, left cells get charcoal text, right cells go charcoal with white text. The #7B8290 border (border/primary) is unchanged.",
-        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Stays a two-column table on mobile (no drop), as in the Mobile frame; cell side padding drops from 16px to 10px (mobile-prl; Figma 8).",
+        "The 16px column gutter is fixed padding on a spacer cell; Figma narrows it to 8px on mobile but no ADC class gets close without collapsing the gutter.",
+        "Mobile: section padding 48/24 snaps to 40 top (padd-top), 30 bottom (mob-pad-bot), 15 sides (pad15); row gaps 24 snap to 20 (himobtop; Figma 16).",
+        "The #7B8290 border (border/primary) is left to the inbox in dark mode.",
+        "Heading uses f24 (28 → 24) per the convention table; the Figma Mobile frame keeps 28px.",
         "Outlook shows square cell corners."
       ],
       "figmaNode": "99:1500",
-      "bytes": 6104
+      "bytes": 6151
     },
     {
       "id": "BOD-06",
@@ -1095,7 +1087,7 @@
           "slot": "Portrait (mobile)",
           "w": 64,
           "h": 64,
-          "notes": "Same portrait at 64px, shown on mobile via mfs-show."
+          "notes": "Same portrait at 64px, shown on mobile via dis-block."
         }
       ],
       "tokens": [
@@ -1103,13 +1095,13 @@
         "text/charcoal"
       ],
       "notes": [
-        "Portrait and quote stay side by side on mobile, as in the Mobile frame; the portrait shrinks 100 → 64px by swapping images (mfs-hide / mfs-show). Replace both when swapping the portrait.",
+        "Portrait and quote stay side by side on mobile, as in the Mobile frame; the portrait shrinks 100 → 64px by swapping images (h on the desktop one, dis-block on the mobile one, hidden inline with display:none; mso-hide:all). Replace both when swapping the portrait.",
         "The portrait PNG carries its own circular mask, so it stays round in Outlook.",
-        "Mobile right padding is 40px instead of Figma's 32px: the left gutter and gap scale with mfs-px3, but the quote's 24px right padding is fixed (no padding-right utility).",
+        "Mobile: side padding 48 → 32 (mobPad32, exact); top 32 → 20 (himobtop) and bottom 32 → 30 (mob-pad-bot), Figma 24; portrait-to-quote gutter 24 → 20 (bw20 spacer cell; Figma 16).",
         "Max one testimonial per email."
       ],
       "figmaNode": "100:925",
-      "bytes": 2244
+      "bytes": 2520
     },
     {
       "id": "BOD-07",
@@ -1131,16 +1123,10 @@
       },
       "images": [
         {
-          "slot": "Faces (light)",
+          "slot": "Faces",
           "w": 264,
           "h": 64,
           "notes": "Transparent PNG: five 64px circular faces with a white ring, overlapping by 14px, composited into one image (Outlook can't overlap images)."
-        },
-        {
-          "slot": "Faces (dark)",
-          "w": 264,
-          "h": 64,
-          "notes": "Same composite with charcoal (#222731) rings, shown in dark mode via mfs-dark-img."
         },
         {
           "slot": "Rating",
@@ -1154,12 +1140,14 @@
         "text/charcoal"
       ],
       "notes": [
-        "To swap faces, rebuild both composites (light and dark ring) from the five portraits: 64px circles, 50px step, later faces on top.",
-        "The 64px stat keeps its size on mobile (as in the Mobile frame); the statement uses mfs-h2 per CONVENTIONS (28 → 24), while the Mobile frame keeps 28px.",
+        "To swap faces, rebuild the composite from the five portraits: 64px circles with a white ring, 50px step, later faces on top.",
+        "The 64px stat keeps its size on mobile (as in the Mobile frame); the statement uses f24 (28 → 24) per the convention table, while the Mobile frame keeps 28px.",
+        "Mobile: padding 48 snaps to 32 sides (mobPad32), 40 top (padd-top), 30 bottom (mob-pad-bot); stack gaps 24 snap to 20 (himobtop).",
+        "The faces' white rings are baked into the PNG, so they stay white when the inbox applies dark mode.",
         "The Figma label mentions a magenta stat, but the component renders it in charcoal; built in charcoal. If the number is a merge field, mark it #FF00F5 until it is claim-checked."
       ],
       "figmaNode": "100:975",
-      "bytes": 3079
+      "bytes": 2941
     },
     {
       "id": "BOD-08",
@@ -1184,12 +1172,12 @@
       ],
       "notes": [
         "Exactly three quotes.",
-        "The #7B8290 card border (border/primary) is unchanged in dark mode.",
-        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
-        "Padding drops from 48px to 32px, card gaps from 24px to 16px and card padding from 16/24 to 8/16 on mobile."
+        "The #7B8290 card border (border/primary) is left to the inbox in dark mode.",
+        "Heading uses f24 (28 → 24) per the convention table; the Figma Mobile frame keeps 28px.",
+        "Mobile: padding 48 snaps to 32 sides (mobPad32), 40 top (padd-top), 30 bottom (mob-pad-bot); card gaps 24 snap to 20 (himobtop); card padding 16/24 snaps to 10 top / 15 sides (padd-none, pad15), bottom stays 16 (Figma 8)."
       ],
       "figmaNode": "100:1050",
-      "bytes": 2869
+      "bytes": 3183
     },
     {
       "id": "BOD-09",
@@ -1223,12 +1211,12 @@
       "notes": [
         "No JavaScript/clipboard in email: the copy hint is a plain text link (href=\"#\") — point it at a landing page with the message, or leave it as a cue for the reader to select the text manually.",
         "Copy hint is right-aligned bold caps with 0.96px letter-spacing, as in Figma.",
-        "Card border (#7B8290) is unchanged in dark mode; card fill flips to #464646 via mfs-dm-bg-grey.",
+        "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom (mobPad32 padd-top mob-pad-bot); block gaps 24 → 20 (himobtop); card padding 24 → 16 (mobPad16).",
         "Outlook shows square card corners.",
         "[Name] is a placeholder — replace or personalise before send."
       ],
       "figmaNode": "100:1100",
-      "bytes": 2996
+      "bytes": 3089
     },
     {
       "id": "BOD-10",
@@ -1267,12 +1255,12 @@
         "components/button/yellow"
       ],
       "notes": [
-        "Mobile Figma shows 64px thumbnails with a 16px gap; there is no mfs-* class to resize them, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
-        "Yellow button is unchanged in dark mode.",
+        "Mobile Figma shows 64px thumbnails with a 16px gap; ADC has no class for either, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
+        "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; heading 28 → 24 (f24); step gaps 32 → 20 (himobtop, Figma 24).",
         "Outlook shows square thumbnail corners."
       ],
       "figmaNode": "100:1162",
-      "bytes": 7767
+      "bytes": 7756
     },
     {
       "id": "BOD-11",
@@ -1313,10 +1301,11 @@
       ],
       "notes": [
         "Secondary link is optional; delete its row if unused.",
+        "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; block gaps 24 → 20 (himobtop, Figma 16); photo goes full width (fluid).",
         "Outlook shows square photo corners."
       ],
       "figmaNode": "101:1101",
-      "bytes": 3633
+      "bytes": 3665
     },
     {
       "id": "BOD-12",
@@ -1362,11 +1351,12 @@
         "text/charcoal"
       ],
       "notes": [
-        "Badges are black with a grey border and work on both light and dark backgrounds; do not recolour.",
-        "Badge gap is 16px desktop / 8px mobile (mfs-pr0 removes the first badge's 8px right padding)."
+        "Badges are black with a grey border; do not recolour.",
+        "Badges stay side by side on mobile. Gap is 16px desktop / 8px mobile (mob-pad-non removes the first badge's 8px right padding).",
+        "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; block gaps 24 → 20 (himobtop, Figma 16)."
       ],
       "figmaNode": "101:1166",
-      "bytes": 3250
+      "bytes": 3399
     },
     {
       "id": "BOD-13",
@@ -1396,12 +1386,12 @@
       ],
       "notes": [
         "Figma's stepper is three yellow icon circles separated by › chevrons (no numbered dots or connector lines), so it is built as 30% / 5% table cells; the circles are images, so they stay round in Outlook.",
-        "Does not stack on mobile — labels wrap instead.",
-        "Icons are decorative (alt=\"\"); the labels carry the meaning.",
-        "Yellow circles are hard-coded #FFD100 in Figma and stay yellow in dark mode."
+        "Does not stack on mobile (no drop) — labels wrap instead.",
+        "Mobile (ADC snapping): padding 32/24 → 20 top / 15 sides / 30 bottom (himobtop pad15 mob-pad-bot; Figma 24/16/24).",
+        "Icons are decorative (alt=\"\"); the labels carry the meaning."
       ],
       "figmaNode": "101:1269",
-      "bytes": 4081
+      "bytes": 4149
     },
     {
       "id": "BOD-14",
@@ -1427,10 +1417,11 @@
       ],
       "notes": [
         "One per email, directly before Customer Support.",
-        "VML button width is 310px for the default label; adjust if the label changes length."
+        "VML button width is 310px for the default label; adjust if the label changes length.",
+        "Mobile (ADC snapping): padding 48 → 32 sides / 40 top / 30 bottom; heading 28 → 24 (f24); button gap 24 → 20 (himobtop)."
       ],
       "figmaNode": "101:1337",
-      "bytes": 2125
+      "bytes": 2210
     },
     {
       "id": "BOD-15",
@@ -1462,11 +1453,12 @@
       ],
       "notes": [
         "Add a 4th row by duplicating a feature row (24px top padding).",
-        "Mobile Figma gap between icon and text is 16px; there is no mfs-pl class, so it stays 24px on mobile.",
+        "Icon and text stay side by side on mobile (no drop). Mobile Figma gap between icon and text is 16px; ADC has no left-only padding class, so it stays 24px on mobile.",
+        "Mobile (ADC snapping): row gaps 24 → 20 (himobtop, Figma 16).",
         "Icons are decorative (alt=\"\")."
       ],
       "figmaNode": "101:1385",
-      "bytes": 3327
+      "bytes": 3435
     },
     {
       "id": "SUP-01",
@@ -1513,14 +1505,14 @@
         "text/hyperlink"
       ],
       "notes": [
-        "Icons are locked. The circle is baked into each PNG because border-radius circles are unreliable in Outlook. The circle stays white in dark mode, as in Figma, so there is no swap.",
+        "Icons are locked. The circle is baked into each PNG because border-radius circles are unreliable in Outlook.",
         "The Figma icon exports are only 72px (1×), so the 2× PNGs were rebuilt from the matching brand icons (assets/brand/icon-call, icon-question, icon-faq) at the exact positions measured from the Figma export.",
         "[3/2] is a magenta merge placeholder and must be replaced before send.",
-        "The three columns stay side by side on mobile, matching Mobile · Light.",
-        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps the subheadline at 28px."
+        "The three columns stay side by side on mobile (no drop), matching Mobile · Light.",
+        "Mobile (≤480px): heading 28→24 (f24) per CONVENTIONS; Figma's mobile frame keeps it at 28. Side padding 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32; intro gap 16→10 (padd-none), columns gap 32→20 (himobtop) vs Figma's 24."
       ],
       "figmaNode": "102:1340",
-      "bytes": 5261
+      "bytes": 5303
     },
     {
       "id": "SUP-02",
@@ -1546,19 +1538,19 @@
           "slot": "Icon · sensor replacement",
           "w": 72,
           "h": 72,
-          "notes": "Locked. 44px laptop icon in a 72px circle (#F4F4F3 light / #464646 dark, swapped)."
+          "notes": "Locked. 44px laptop icon in a 72px #F4F4F3 circle."
         },
         {
           "slot": "Icon · call",
           "w": 72,
           "h": 72,
-          "notes": "Locked. 44px phone icon in a 72px circle, light/dark pair."
+          "notes": "Locked. 44px phone icon in a 72px #F4F4F3 circle."
         },
         {
           "slot": "Icon · FAQ",
           "w": 72,
           "h": 72,
-          "notes": "Locked. 44px FAQ icon in a 72px circle, light/dark pair."
+          "notes": "Locked. 44px FAQ icon in a 72px #F4F4F3 circle."
         }
       ],
       "tokens": [
@@ -1568,12 +1560,12 @@
         "text/hyperlink"
       ],
       "notes": [
-        "Icons are locked. Each circle (surface/light-grey-30) is baked into the PNG with a light/dark pair via mfs-light-img / mfs-dark-img, so Outlook never shows a square box.",
-        "The three columns stay side by side on mobile, and long labels wrap ('Call customer service').",
-        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+        "Icons are locked. Each circle (surface/light-grey-30) is baked into the PNG, so Outlook never shows a square box.",
+        "The three columns stay side by side on mobile (no drop), and long labels wrap ('Call customer service').",
+        "Mobile (≤480px): heading 28→24 (f24) per CONVENTIONS; Figma's mobile frame keeps it at 28. Side padding 48→32 (mobPad32), top 48→40 (padd-top), bottom 48→30 (mob-pad-bot) vs Figma's 32; columns gap 32→20 (himobtop) vs Figma's 24."
       ],
       "figmaNode": "102:1430",
-      "bytes": 6226
+      "bytes": 5179
     },
     {
       "id": "POL-01",
@@ -1598,12 +1590,6 @@
           "w": 24,
           "h": 24,
           "notes": "Locked. 2px #222731 ring, transparent."
-        },
-        {
-          "slot": "Radio (dark)",
-          "w": 24,
-          "h": 24,
-          "notes": "Locked. 2px white ring, shown via mfs-dark-img."
         }
       ],
       "tokens": [
@@ -1615,12 +1601,12 @@
       "notes": [
         "No forms or JS. Each option is a bordered row whose radio and label link to the same tracked URL, so each row needs one alias. In most clients the label link is display:block and spans the row.",
         "Max 4 options, one poll per email.",
-        "Mobile: row padding 16/24 → 8/16 (mfs-py2 mfs-px3), gap between rows 16 → 8 (mfs-pt2), and the radio-to-label gap 16 → 8 (mfs-px2, which also adds 8px of right padding to the label).",
-        "The 4px option radius shows as square corners in Outlook. border/primary #7B8290 is unchanged in dark mode.",
-        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+        "Mobile (ADC snapping): option padding 16/24 → 16 all round (mobPad16; Figma 8/16 — no ADC class for 8px vertical); gap between rows 16 → 10 (padd-none, Figma 8); radio-to-label gap 16 → 10 (mobile-prl, which also adds 10px right padding to the label; Figma 8).",
+        "The 4px option radius shows as square corners in Outlook.",
+        "The heading uses f24 (28 → 24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
       ],
       "figmaNode": "102:1525",
-      "bytes": 8951
+      "bytes": 7707
     },
     {
       "id": "POL-02",
@@ -1645,13 +1631,13 @@
         "text/charcoal"
       ],
       "notes": [
-        "Options are outline pills. The 2px ring uses the text/charcoal variable, which turns white in dark mode, and no border-colour utility class exists. The ring is therefore an outer td with padding:2px and mfs-dm-bg-charcoal, around an inner td with mfs-dm-bg-white. Outlook gets a VML roundrect with a 2px stroke instead (no dark flip).",
-        "Mobile compromise: the options stack (centred, 8px apart) instead of sitting side by side as in Mobile · Light. In Figma the pair only fits by bleeding into the 32px side padding, and it would overflow at 375px with the Arial fallback (iOS has no Calibri).",
+        "Options are outline pills: the 2px charcoal ring is an outer td with padding:2px around a white inner td. Outlook gets a VML roundrect with a 2px stroke instead.",
+        "Mobile compromise: the options stack (drop, centred, 10px apart via padd-none) instead of sitting side by side as in Mobile · Light. In Figma the pair only fits by bleeding into the 32px side padding, and it would overflow at 375px with the Arial fallback (iOS has no Calibri).",
         "VML widths are 216px and 132px. Re-check them if the labels change.",
-        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS."
+        "The heading uses f24 (28 → 24 on mobile) per CONVENTIONS."
       ],
       "figmaNode": "102:1600",
-      "bytes": 5231
+      "bytes": 5187
     },
     {
       "id": "DIS-01",
@@ -1677,11 +1663,10 @@
         "Editable: text only — supplied by Regulatory. Never restyle.",
         "Legal type is 13/18 throughout. Figma uses a 1.4/1.3 line height, normalised to the 18px legal token.",
         "Keep the footnote symbols (*) and the [ADC code] / [MM/YY] / [Offer terms…] / [ISI…] placeholders verbatim. The magenta #FF00F5 placeholders must be replaced before send.",
-        "Blank lines between footnotes are 18px top padding (one legal line). Block gaps are 24 → 16 on mobile (mfs-pt3).",
-        "Footer links are hard-coded #001489 in Figma, even in the Dark frame. They get mfs-dm-link per the CONVENTIONS link rule so they stay readable on #222731."
+        "Blank lines between footnotes are 18px top padding (one legal line), unchanged on mobile. Block gaps are 24 → 20 on mobile (himobtop, Figma 16); section padding 48 → 32 sides / 40 top / 30 bottom."
       ],
       "figmaNode": "102:1649",
-      "bytes": 4042
+      "bytes": 4038
     },
     {
       "id": "DIS-02",
@@ -1704,12 +1689,11 @@
       "notes": [
         "Editable: text only — supplied by Regulatory.",
         "Legal type is 13/18. Keep the [XXXXX] / [MM/YY] magenta placeholders verbatim.",
-        "Padding 32/48 → 24/32 on mobile (mfs-py4 mfs-px6). Gaps are 16 → 8 (mfs-pt2).",
-        "Footer links get mfs-dm-link (Figma hard-codes #001489 in dark too). See DIS-01."
+        "Mobile (ADC snapping): padding 32/48 → 20 top / 32 sides / 30 bottom (himobtop mobPad32 mob-pad-bot; Figma 24/32). Gaps 16 → 10 (padd-none, Figma 8)."
       ],
       "figmaNode": "102:1690",
-      "bytes": 2040
+      "bytes": 2111
     }
   ],
-  "built": "2026-10-06T20:56:24.749Z"
+  "built": "2026-10-06T21:14:41.876Z"
 }

@@ -42,8 +42,9 @@
     "text/charcoal"
   ],
   "notes": [
-    "Badges are black with a grey border and work on both light and dark backgrounds; do not recolour.",
-    "Badge gap is 16px desktop / 8px mobile (mfs-pr0 removes the first badge's 8px right padding)."
+    "Badges are black with a grey border; do not recolour.",
+    "Badges stay side by side on mobile. Gap is 16px desktop / 8px mobile (mob-pad-non removes the first badge's 8px right padding).",
+    "Mobile (ADC snapping): section padding 48 → 32 sides / 40 top / 30 bottom; block gaps 24 → 20 (himobtop, Figma 16)."
   ],
   "figmaNode": "101:1166"
 }
