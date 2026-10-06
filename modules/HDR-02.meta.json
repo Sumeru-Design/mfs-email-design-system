@@ -1,0 +1,39 @@
+{
+  "id": "HDR-02",
+  "title": "Product lockup + CTA",
+  "category": "header",
+  "description": "Transactional voucher journeys where the user needs one-tap access to their offer.",
+  "usage": "Header for voucher / offer journeys. FreeStyle Libre 3 Plus lockup with a persistent utility CTA. Locked layout — edit only image fills and text.",
+  "editable": [
+    "CTA label + link"
+  ],
+  "seenIn": "Voucher 9",
+  "chars": {
+    "CTA": "≤ 22"
+  },
+  "images": [
+    {
+      "slot": "Logo (light)",
+      "w": 276,
+      "h": 90,
+      "notes": "FreeStyle Libre 3 Plus lockup, charcoal type. Transparent PNG, contain."
+    },
+    {
+      "slot": "Logo (dark)",
+      "w": 276,
+      "h": 90,
+      "notes": "Same lockup with white type, shown via mfs-dark-img."
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "components/button/yellow"
+  ],
+  "notes": [
+    "Desktop: logo left, yellow CTA right. Mobile: both stack and centre (mfs-stack + mfs-center + mfs-auto), 8px apart (mfs-pt2).",
+    "Figma's mobile vertical padding grows to 24px (token 4) from 16px on desktop; mfs-py4 is used on top of the 16px inline value because its mobile override is exactly 24px.",
+    "Yellow button is the same in both modes (no dm classes). VML width 216px.",
+    "Logo light/dark swap needs the head CSS; clients without it (Outlook.com dark, Gmail) keep the charcoal lockup."
+  ],
+  "figmaNode": "93:650"
+}

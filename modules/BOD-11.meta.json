@@ -1,0 +1,43 @@
+{
+  "id": "BOD-11",
+  "title": "Photo + heading + body + CTA",
+  "category": "body",
+  "description": "Programme or service promotion (training, coaching, resource hub).",
+  "usage": "Service / programme promo. Wide photo, heading, short body, one CTA and an optional secondary link. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "Photo",
+    "Body",
+    "CTA label + link",
+    "Secondary link",
+    "Footnote"
+  ],
+  "seenIn": "Nudges 1, 4",
+  "chars": {
+    "Heading": "≤ 60",
+    "Body": "≤ 160",
+    "CTA": "≤ 22",
+    "Secondary link": "≤ 30",
+    "Footnote": "≤ 80"
+  },
+  "images": [
+    {
+      "slot": "Photo",
+      "w": 504,
+      "h": 270,
+      "notes": "JPG, cover; rounded 16px via inline border-radius"
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal",
+    "surface/charcoal-1000",
+    "text/white",
+    "text/hyperlink"
+  ],
+  "notes": [
+    "Secondary link is optional; delete its row if unused.",
+    "Outlook shows square photo corners."
+  ],
+  "figmaNode": "101:1101"
+}

@@ -1,0 +1,121 @@
+{
+  "site": {
+    "title": "MyFreeStyle Email Design System",
+    "short": "Email Design System",
+    "version": "1.0",
+    "updated": "2026-10-06",
+    "figmaFile": "https://www.figma.com/design/zF8mGxQX2LtDOb6gT2MTtM/Templates-v-s-Modules",
+    "intro": "30 modules across 6 categories, distilled from the Voucher Optimization (1–19) and Nudge (1–7) emails. Every module is a locked layout: swap the image and edit the text — nothing else. Each one ships as live, table-based HTML that renders at Desktop 600px and Mobile 375px, in Light and Dark mode."
+  },
+  "guidelines": [
+    { "title": "Locked layouts", "body": "Modules are fixed compositions. Swap images and edit copy only; don’t re-order rows, change colours or add elements. If a layout doesn’t fit, pick a different module." },
+    { "title": "Email order", "body": "Header → one Hero → up to four or five Body modules → Customer Support → optional Poll → Disclaimer. Support and Disclaimer are mandatory in every email." },
+    { "title": "Retina images", "body": "Export every image at 2× its displayed size. Specs list the 1× slot size; the HTML displays at 1× with explicit width and height." },
+    { "title": "Character counts", "body": "Limits are approximations based on the placeholder copy and the text box width. Real words vary — always check the Mobile preview for wrapping." },
+    { "title": "Fonts", "body": "Emails use Calibri, with Arial as the fallback for Gmail and other clients without Calibri. Don’t use web fonts in email." },
+    { "title": "Merge fields & MLR", "body": "[Magenta bracketed] text marks dynamic merge fields or MLR-flagged copy. Magenta is an annotation colour only — it must never ship." },
+    { "title": "Accessibility", "body": "Keep text at WCAG AA contrast against its background (badges on each colour show the ratio). Every meaningful image needs alt text; never put essential copy in an image." },
+    { "title": "Dark mode", "body": "Modules carry light-mode colours inline and switch to the Dark token values through the classes in the email head CSS. Without that CSS, emails fall back to light mode safely." }
+  ],
+  "colours": {
+    "primary": [
+      { "name": "Libre Yellow", "hex": "#FFD100", "tokens": "color/yellow/300 · surface/yellow" },
+      { "name": "Charcoal", "hex": "#222731", "tokens": "color/charcoal/1000 · text/charcoal" },
+      { "name": "White", "hex": "#FFFFFF", "tokens": "color/neutrals/0 · surface/white" }
+    ],
+    "primaryNote": "The yellow + charcoal pairing carries every email. Yellow is the hero surface; charcoal is all type and primary buttons.",
+    "secondary": [
+      { "name": "Light Yellow", "hex": "#FFEFAA", "tokens": "color/yellow/200" },
+      { "name": "Neutral 200", "hex": "#F4F4F3", "tokens": "surface/light-grey-30" },
+      { "name": "Neutral 400", "hex": "#D9D9D6", "tokens": "surface/light-grey" },
+      { "name": "Neutral 600", "hex": "#888B8D", "tokens": "text/medium-grey" },
+      { "name": "Charcoal 200", "hex": "#F8F9FC", "tokens": "color/charcoal/200-nb" },
+      { "name": "Charcoal 400", "hex": "#D7D9DE", "tokens": "surface/charcoal-400" },
+      { "name": "Charcoal 600", "hex": "#7B8290", "tokens": "border/primary" },
+      { "name": "Charcoal 800", "hex": "#464D5C", "tokens": "surface/charcoal-800" },
+      { "name": "Abbott Blue", "hex": "#001489", "tokens": "text/hyperlink" },
+      { "name": "MLR Magenta", "hex": "#FF00F5", "tokens": "annotation only", "annotation": true }
+    ],
+    "secondaryNote": "Supporting surfaces, borders and links. Magenta is an MLR / merge-field annotation colour — never ship it as a design colour."
+  },
+  "tokens": [
+    { "name": "surface/white", "light": "#FFFFFF", "dark": "#222731", "use": "Email background", "cls": "mfs-dm-bg-white" },
+    { "name": "surface/yellow", "light": "#FFD100", "dark": "#5B4A00", "use": "Hero / CTA band", "cls": "mfs-dm-bg-yellow" },
+    { "name": "surface/light-grey-30", "light": "#F4F4F3", "dark": "#464646", "use": "Panels, support block", "cls": "mfs-dm-bg-grey" },
+    { "name": "surface/charcoal-1000", "light": "#222731", "dark": "#FFFFFF", "use": "Primary button, comparison", "cls": "mfs-dm-bg-charcoal" },
+    { "name": "text/charcoal", "light": "#222731", "dark": "#FFFFFF", "use": "All body & headline type", "cls": "mfs-dm-text" },
+    { "name": "text/white", "light": "#FFFFFF", "dark": "#222731", "use": "Type on charcoal", "cls": "mfs-dm-text-inv" },
+    { "name": "text/hyperlink", "light": "#001489", "dark": "#D0A0EC", "use": "Inline links", "cls": "mfs-dm-link" },
+    { "name": "border/primary", "light": "#7B8290", "dark": "#7B8290", "use": "Card & option borders", "cls": "—" },
+    { "name": "components/button/yellow", "light": "#FFD100", "dark": "#FFD100", "use": "Yellow button (constant)", "cls": "—" }
+  ],
+  "typography": {
+    "family": "Calibri",
+    "stack": "Calibri, Arial, Helvetica, sans-serif",
+    "weights": "Regular · Italic · Bold",
+    "fallbackNote": "Gmail and most Android clients don’t have Calibri and render Arial, which runs about 10% wider. Leave headroom in character counts.",
+    "scale": [
+      { "style": "Headline", "token": "text/headline", "web": 38, "mobile": 28, "weight": "bold", "lh": 1.15, "spec": "Bold · 115%", "use": "Hero headlines", "cls": "mfs-h1", "sample": "See why we’re the #1 CGM" },
+      { "style": "Subheadline", "token": "text/subheadline", "web": 28, "mobile": 24, "weight": "bold", "lh": 1.15, "spec": "Bold · 115%", "use": "Module headings", "cls": "mfs-h2", "sample": "Your free sensor is waiting" },
+      { "style": "Body LG", "token": "text/body-lg", "web": 20, "mobile": 20, "weight": "normal", "lh": 1.3, "spec": "Regular · 130%", "use": "Hero body, lead", "sample": "See your glucose levels in real time." },
+      { "style": "Body MD", "token": "text/body-md", "web": 18, "mobile": 18, "weight": "normal", "lh": 1.3, "spec": "Regular · 130%", "use": "Body, CTA labels", "sample": "Make confident choices every day." },
+      { "style": "Body SM", "token": "text/body-sm", "web": 16, "mobile": 16, "weight": "normal", "lh": 1.3, "spec": "Regular · 130%", "use": "Captions, cells", "sample": "Works with compatible smartphones." },
+      { "style": "Eyebrow", "token": "text/eyebrow", "web": 16, "mobile": 16, "weight": "bold", "lh": 1.3, "spec": "Bold · caps", "use": "Stepper labels", "caps": true, "sample": "Step 1 of 3" },
+      { "style": "Legal", "token": "fixed", "web": 13, "mobile": 13, "weight": "normal", "lh": 1.4, "spec": "Regular · 140%", "use": "Disclaimer only", "sample": "*Data on file. Abbott Diabetes Care, Inc." }
+    ]
+  },
+  "spacing": [
+    { "token": "spacing/1", "web": 8, "mobile": 8 },
+    { "token": "spacing/2", "web": 16, "mobile": 8 },
+    { "token": "spacing/3", "web": 24, "mobile": 16 },
+    { "token": "spacing/4", "web": 32, "mobile": 24 },
+    { "token": "spacing/5", "web": 40, "mobile": 24 },
+    { "token": "spacing/6", "web": 48, "mobile": 32 },
+    { "token": "spacing/8", "web": 64, "mobile": 48 }
+  ],
+  "layout": [
+    { "title": "Email width", "value": "600 px desktop · 375 px mobile" },
+    { "title": "Content width", "value": "504 px (48 px gutters) · 311 px (32 px)" },
+    { "title": "Button radius", "value": "48 px pill (components/button/radius)" },
+    { "title": "Card radius", "value": "8 px · images 16 px" },
+    { "title": "Image swap", "value": "Replace the image file; keep the slot size" },
+    { "title": "Merge fields", "value": "[Magenta brackets] = dynamic / MLR-flagged" },
+    { "title": "Breakpoint", "value": "Mobile styles apply at ≤ 640 px (ADC template)" },
+    { "title": "Rounded corners", "value": "Outlook (Windows) renders square corners — by design" }
+  ],
+  "buttons": {
+    "note": "Pill buttons, label in Calibri Bold 18. Primary flips to white in Dark Mode; yellow stays yellow. Buttons are bulletproof: a rounded table cell for most clients and a VML roundrect for Outlook.",
+    "variants": [
+      { "name": "Primary · Light", "bg": "#222731", "fg": "#FFFFFF", "stage": "#FFFFFF", "label": "Get my free sensor" },
+      { "name": "Primary · Dark", "bg": "#FFFFFF", "fg": "#222731", "stage": "#222731", "label": "Get my free sensor" },
+      { "name": "Yellow · both modes", "bg": "#FFD100", "fg": "#222731", "stage": "#FFFFFF", "label": "Access your voucher" }
+    ]
+  },
+  "icons": {
+    "note": "Abbott icon set. Icons sit centred in a 64 px circle (Yellow, White, Charcoal or Blue background). Use only these — never draw new icons.",
+    "items": [
+      ["Call", "icon-call.png"], ["FAQ", "icon-faq.png"], ["Laptop", "icon-laptop.png"], ["Question", "icon-question.png"],
+      ["Doctor", "icon-doctor.png"], ["Doctor Patient", "icon-doctor-patient.png"], ["Phone", "icon-phone.png"], ["Phone WiFi", "icon-phone-wifi.png"],
+      ["Sensor Box", "icon-sensor-box.png"], ["Small Sensor", "icon-small-sensor.png"], ["15 days", "icon-15-days.png"], ["14 Days", "icon-14-days.png"],
+      ["No Budget", "icon-no-budget.png"], ["Low Cost", "icon-low-cost.png"], ["Budget", "icon-budget.png"], ["Check", "icon-check.png"],
+      ["Target", "icon-target.png"], ["Water Drop", "icon-water-drop.png"], ["Swim", "icon-swim.png"], ["Digital Solution", "icon-digital-solution.png"]
+    ]
+  },
+  "logos": {
+    "note": "MyFreeStyle for relationship emails; product lockups for offer emails. Never recolour, stretch or place the logo on a busy photo.",
+    "items": [
+      { "name": "MyFreeStyle", "variant": "on white", "file": "logo-mfs-white.svg", "bg": "#FFFFFF" },
+      { "name": "MyFreeStyle", "variant": "on yellow", "file": "logo-mfs-yellow.svg", "bg": "#FFD100" },
+      { "name": "FreeStyle Libre 3 Plus", "variant": "on white", "file": "logo-fsl3plus-white.png", "bg": "#FFFFFF" },
+      { "name": "FreeStyle Libre 3 Plus", "variant": "on charcoal", "file": "logo-fsl3plus-charcoal.png", "bg": "#222731" }
+    ]
+  },
+  "categories": [
+    { "id": "header", "name": "Header", "prefix": "HDR", "blurb": "Fixed. Pick one per email based on journey type." },
+    { "id": "hero", "name": "Hero", "prefix": "HRO", "blurb": "Exactly one per email, directly under the header." },
+    { "id": "body", "name": "Body", "prefix": "BOD", "blurb": "Stack freely between the hero and support. Keep to four or five body modules per email." },
+    { "id": "support", "name": "Customer Support", "prefix": "SUP", "blurb": "Mandatory. One per email, always the last content module before the disclaimer." },
+    { "id": "polls", "name": "Polls", "prefix": "POL", "blurb": "Optional zero-party data capture. One per email, and only when each answer maps to a follow-up." },
+    { "id": "disclaimer", "name": "Disclaimer", "prefix": "DIS", "blurb": "Mandatory legal footer. Copy is controlled by Regulatory; layout never changes. Always last." }
+  ]
+}

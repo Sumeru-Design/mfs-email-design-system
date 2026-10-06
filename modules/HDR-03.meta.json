@@ -1,0 +1,34 @@
+{
+  "id": "HDR-03",
+  "title": "Logo on yellow",
+  "category": "header",
+  "description": "Use only above a yellow hero (HRO-01 to HRO-03) so the band reads as one block.",
+  "usage": "Header that bleeds into a yellow hero. MyFreeStyle lockup on brand yellow. Locked layout — edit only image fills and text.",
+  "editable": [],
+  "seenIn": "Nudges 1, 4, 5",
+  "chars": {},
+  "images": [
+    {
+      "slot": "Logo (light)",
+      "w": 255,
+      "h": 97,
+      "notes": "Locked. White butterfly + charcoal type on a #FFD100 16px-rounded tile (invisible on the yellow band)."
+    },
+    {
+      "slot": "Logo (dark)",
+      "w": 255,
+      "h": 97,
+      "notes": "Locked. Figma's dark-instance vector on the same #FFD100 tile, shown on #5B4A00 via mfs-dark-img."
+    }
+  ],
+  "tokens": [
+    "surface/yellow"
+  ],
+  "notes": [
+    "Editable: none — logo is locked.",
+    "Both logos carry the yellow tile, so even without the swap (clients that darken the band but ignore mfs-dark-img) the logo still sits on brand yellow.",
+    "Figma's mobile dark tile uses an 8px radius vs 16px on desktop; the image uses 16px at both sizes.",
+    "Padding 16/48 desktop → 16/32 mobile (mfs-px6)."
+  ],
+  "figmaNode": "93:707"
+}

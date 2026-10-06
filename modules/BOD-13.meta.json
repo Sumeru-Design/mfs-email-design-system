@@ -1,0 +1,34 @@
+{
+  "id": "BOD-13",
+  "title": "Journey stepper",
+  "category": "body",
+  "description": "Directly under the hero in transactional journeys. Labels max 4 words.",
+  "usage": "Shows where the user is in a 3-step journey. Icons from the Abbott icon set. Locked layout — edit only image fills and text.",
+  "editable": [
+    "3 step labels",
+    "3 icons (Abbott icon set)"
+  ],
+  "seenIn": "Voucher 9, 13",
+  "chars": {
+    "Step label": "≤ 25 (max 4 words)"
+  },
+  "images": [
+    {
+      "slot": "Step icon (×3)",
+      "w": 64,
+      "h": 64,
+      "notes": "Yellow circle + icon flattened into one transparent PNG"
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
+  "notes": [
+    "Figma's stepper is three yellow icon circles separated by › chevrons (no numbered dots or connector lines), so it is built as 30% / 5% table cells; the circles are images, so they stay round in Outlook.",
+    "Does not stack on mobile — labels wrap instead.",
+    "Icons are decorative (alt=\"\"); the labels carry the meaning.",
+    "Yellow circles are hard-coded #FFD100 in Figma and stay yellow in dark mode."
+  ],
+  "figmaNode": "101:1269"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "HRO-04",
+  "title": "Yellow · testimonial quote",
+  "category": "hero",
+  "description": "Switching / consideration emails where a real patient voice leads.",
+  "usage": "Social-proof hero. The patient quote is the headline; photo and full quote support it. Locked layout — edit only image fills and text.",
+  "editable": ["Quote headline", "Portrait", "Quote body", "Attribution"],
+  "seenIn": "Voucher 6",
+  "chars": { "Quote headline": "≤ 65", "Quote body": "≤ 220", "Attribution": "≤ 45" },
+  "images": [{ "slot": "Portrait", "w": 504, "h": 400, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
+  "tokens": ["surface/yellow", "text/charcoal"],
+  "notes": [
+    "Quote body is italic 20/26; attribution is bold 18/23.",
+    "Use real patient testimonials only, with MLR-approved copy.",
+    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+  ],
+  "figmaNode": "94:796"
+}

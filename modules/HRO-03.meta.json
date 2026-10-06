@@ -1,0 +1,18 @@
+{
+  "id": "HRO-03",
+  "title": "Yellow · headline + body + photo",
+  "category": "hero",
+  "description": "Process emails where the next action is explained in the body below.",
+  "usage": "Step-forward hero. Headline and explanation first, supporting photo closes the band. Locked layout — edit only image fills and text.",
+  "editable": ["Headline", "Body", "Photo"],
+  "seenIn": "Voucher 9, 11",
+  "chars": { "Headline": "≤ 60", "Body": "≤ 200" },
+  "images": [{ "slot": "Photo", "w": 504, "h": 320, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
+  "tokens": ["surface/yellow", "text/charcoal"],
+  "notes": [
+    "[3/2] is a product-version merge field shown in magenta (#FF00F5) — replace before send.",
+    "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners.",
+    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+  ],
+  "figmaNode": "94:760"
+}

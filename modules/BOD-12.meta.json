@@ -1,0 +1,49 @@
+{
+  "id": "BOD-12",
+  "title": "App download · store badges",
+  "category": "body",
+  "description": "App feature education. Always pair the badges with a one-line prompt.",
+  "usage": "App feature + download prompt. Store badges are locked artwork. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "Feature image",
+    "Body",
+    "Download prompt",
+    "Badge links"
+  ],
+  "seenIn": "Nudges 4, 5",
+  "chars": {
+    "Heading": "≤ 40",
+    "Body": "≤ 140",
+    "Download prompt": "≤ 45"
+  },
+  "images": [
+    {
+      "slot": "Feature image",
+      "w": 190,
+      "h": 310,
+      "notes": "Transparent PNG, phone render (contain)"
+    },
+    {
+      "slot": "App Store badge",
+      "w": 150,
+      "h": 50,
+      "notes": "Locked artwork, exported from Figma at 2x"
+    },
+    {
+      "slot": "Google Play badge",
+      "w": 150,
+      "h": 50,
+      "notes": "Locked artwork, exported from Figma at 2x"
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
+  "notes": [
+    "Badges are black with a grey border and work on both light and dark backgrounds; do not recolour.",
+    "Badge gap is 16px desktop / 8px mobile (mfs-pr0 removes the first badge's 8px right padding)."
+  ],
+  "figmaNode": "101:1166"
+}

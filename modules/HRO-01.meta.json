@@ -1,0 +1,14 @@
+{
+  "id": "HRO-01",
+  "title": "Yellow · headline + product image + body + CTA",
+  "category": "hero",
+  "description": "Default hero for voucher / acquisition emails with a single product claim.",
+  "usage": "Product-led hero. Headline states the claim, product render proves it, one CTA. Locked layout — edit only image fills and text.",
+  "editable": ["Headline", "Product image", "Body", "CTA label + link"],
+  "seenIn": "Voucher 1, 4, 8",
+  "chars": { "Headline": "≤ 55", "Body": "≤ 200", "CTA": "≤ 22" },
+  "images": [{ "slot": "Product image", "w": 504, "h": 380, "notes": "Transparent PNG, product render centred (contain)" }],
+  "tokens": ["surface/yellow", "text/charcoal", "surface/charcoal-1000", "text/white"],
+  "notes": ["Keep to one CTA.", "Headline drops from 38px to 28px on mobile; padding drops from 48px to 32px."],
+  "figmaNode": "94:684"
+}

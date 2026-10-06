@@ -1,0 +1,28 @@
+{
+  "id": "BOD-14",
+  "title": "Yellow CTA band",
+  "category": "body",
+  "description": "Closing action before the support block. Never two yellow bands in a row.",
+  "usage": "Full-bleed closing CTA. One per email, directly before Customer Support. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "CTA label + link"
+  ],
+  "seenIn": "Voucher 1, 2, 4, 6, 7",
+  "chars": {
+    "Heading": "≤ 80",
+    "CTA": "≤ 30"
+  },
+  "images": [],
+  "tokens": [
+    "surface/yellow",
+    "text/charcoal",
+    "surface/charcoal-1000",
+    "text/white"
+  ],
+  "notes": [
+    "One per email, directly before Customer Support.",
+    "VML button width is 310px for the default label; adjust if the label changes length."
+  ],
+  "figmaNode": "101:1337"
+}

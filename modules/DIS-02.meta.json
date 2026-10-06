@@ -1,0 +1,26 @@
+{
+  "id": "DIS-02",
+  "title": "Compact disclaimer · legal + ADC code",
+  "category": "disclaimer",
+  "description": "Nudge / education emails with no offer or pricing claims.",
+  "usage": "Short legal footer for Nudge / education emails without offer terms. Locked layout — edit only text.",
+  "editable": [
+    "Legal (Regulatory-supplied)",
+    "Footer links",
+    "ADC code"
+  ],
+  "seenIn": "Nudges 1–7",
+  "chars": {},
+  "images": [],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
+  "notes": [
+    "Editable: text only — supplied by Regulatory.",
+    "Legal type is 13/18. Keep the [XXXXX] / [MM/YY] magenta placeholders verbatim.",
+    "Padding 32/48 → 24/32 on mobile (mfs-py4 mfs-px6). Gaps are 16 → 8 (mfs-pt2).",
+    "Footer links get mfs-dm-link (Figma hard-codes #001489 in dark too). See DIS-01."
+  ],
+  "figmaNode": "102:1690"
+}

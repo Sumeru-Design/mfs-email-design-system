@@ -1,0 +1,46 @@
+{
+  "id": "POL-01",
+  "title": "Single-select poll · 4 options",
+  "category": "polls",
+  "description": "Resource-hub and Nudge emails when intent is unknown. Max 4 options, one poll per email.",
+  "usage": "Zero-party data capture. Each option is a tracked link mapped to a follow-up journey. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "Body",
+    "4 option labels + tracked links"
+  ],
+  "seenIn": "Nudges 1, 2, 4, 5",
+  "chars": {
+    "Heading": "≤ 40",
+    "Body": "≤ 120",
+    "Option": "≤ 60"
+  },
+  "images": [
+    {
+      "slot": "Radio (light)",
+      "w": 24,
+      "h": 24,
+      "notes": "Locked. 2px #222731 ring, transparent."
+    },
+    {
+      "slot": "Radio (dark)",
+      "w": 24,
+      "h": 24,
+      "notes": "Locked. 2px white ring, shown via mfs-dark-img."
+    }
+  ],
+  "tokens": [
+    "surface/yellow",
+    "surface/white",
+    "border/primary",
+    "text/charcoal"
+  ],
+  "notes": [
+    "No forms or JS. Each option is a bordered row whose radio and label link to the same tracked URL, so each row needs one alias. In most clients the label link is display:block and spans the row.",
+    "Max 4 options, one poll per email.",
+    "Mobile: row padding 16/24 → 8/16 (mfs-py2 mfs-px3), gap between rows 16 → 8 (mfs-pt2), and the radio-to-label gap 16 → 8 (mfs-px2, which also adds 8px of right padding to the label).",
+    "The 4px option radius shows as square corners in Outlook. border/primary #7B8290 is unchanged in dark mode.",
+    "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+  ],
+  "figmaNode": "102:1525"
+}

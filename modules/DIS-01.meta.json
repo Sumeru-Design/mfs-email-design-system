@@ -1,0 +1,29 @@
+{
+  "id": "DIS-01",
+  "title": "Full disclaimer · footnotes + legal + ADC code",
+  "category": "disclaimer",
+  "description": "Every voucher / offer email. Always the last module.",
+  "usage": "Mandatory legal footer. Copy is MLR-controlled; layout never changes. Locked layout — edit only text.",
+  "editable": [
+    "Footnotes / legal (Regulatory-supplied)",
+    "ISI",
+    "Trademark + address",
+    "Footer links",
+    "ADC code"
+  ],
+  "seenIn": "Voucher 1–19",
+  "chars": {},
+  "images": [],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
+  "notes": [
+    "Editable: text only — supplied by Regulatory. Never restyle.",
+    "Legal type is 13/18 throughout. Figma uses a 1.4/1.3 line height, normalised to the 18px legal token.",
+    "Keep the footnote symbols (*) and the [ADC code] / [MM/YY] / [Offer terms…] / [ISI…] placeholders verbatim. The magenta #FF00F5 placeholders must be replaced before send.",
+    "Blank lines between footnotes are 18px top padding (one legal line). Block gaps are 24 → 16 on mobile (mfs-pt3).",
+    "Footer links are hard-coded #001489 in Figma, even in the Dark frame. They get mfs-dm-link per the CONVENTIONS link rule so they stay readable on #222731."
+  ],
+  "figmaNode": "102:1649"
+}

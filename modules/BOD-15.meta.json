@@ -1,0 +1,35 @@
+{
+  "id": "BOD-15",
+  "title": "Icon feature list",
+  "category": "body",
+  "description": "Quick product truths after a hero. 3–4 rows, one sentence each.",
+  "usage": "3 product truths, icon + one sentence each. Replaces paragraphs of body copy. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "3 feature lines",
+    "3 icons (Abbott icon set)"
+  ],
+  "seenIn": "Nudges 5 · Voucher 15",
+  "chars": {
+    "Heading": "≤ 40",
+    "Feature line": "≤ 90"
+  },
+  "images": [
+    {
+      "slot": "Feature icon (×3)",
+      "w": 64,
+      "h": 64,
+      "notes": "Yellow circle + icon flattened into one transparent PNG"
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal"
+  ],
+  "notes": [
+    "Add a 4th row by duplicating a feature row (24px top padding).",
+    "Mobile Figma gap between icon and text is 16px; there is no mfs-pl class, so it stays 24px on mobile.",
+    "Icons are decorative (alt=\"\")."
+  ],
+  "figmaNode": "101:1385"
+}

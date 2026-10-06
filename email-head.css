@@ -1,0 +1,273 @@
+/* ADC SFMC template head CSS (from ADC's template-onboarding.html; light-only colour-scheme lock removed) */
+ReadMsgBody{ width: 100%;}
+.ExternalClass {width: 100%;}
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;font-family:calibri, arial,helvetica,sans-serif !important;}
+p { margin: 1em 0;}
+table td { border-collapse: collapse;}
+img {outline:0;}
+a img {border:none;}
+@-ms-viewport{ width: device-width;}
+
+@media only screen and (max-width: 640px) {
+  .container { width:100% !important; }
+  .mobile-hidden { display:none !important; }
+  .logo { display:block !important; padding:0 !important; }
+  .photo img { width:100% !important; height:auto !important;}
+  .nav5, .nav6 { display: none !important;}
+  .fluid, .fluid-centered {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .fluid-centered {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mob-icon-left{padding-right: 20px !important;}
+  .mob-height-hide{height:50px !important;}
+  .dis-block{display:block !important;}
+
+  .mob-hegt20{height:20px !important;}
+
+  .container {width: 100% !important;}
+  .footer { width:auto !important; margin-left:0; }
+  .mobile-hidden { display:none !important; }
+  .logo { display:block !important; padding:0 !important; }
+  img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+  .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+  .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+  .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+  .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+  .nav4, .nav5, .nav6 { display: none !important; }
+  .tableBlock {width:100% !important;}
+  .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+  .fluid, .fluid-centered {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .fluid-centered {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+  body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+  h1 { font-size: 22px !important; line-height: normal !important;font-family:arial,helvetica,sans-serif !important;}
+  h2 { font-size: 20px !important; line-height: normal !important;font-family:arial,helvetica,sans-serif !important;}
+  h3 { font-size: 18px !important; line-height: normal !important;font-family:arial,helvetica,sans-serif !important;}
+  .buttonstyles {
+    font-family:Calibri, arial, helvetica, sans-serif !important;
+    font-size: 16px !important;
+    color: #FFFFFF !important;
+    padding: 10px !important;
+  }
+  .mobCont{padding-left:20px !important; padding-right:20px !important;}
+  .mobLeft{padding-right:20px !important;}
+  .bd-none{border:0 !important;}
+  .paddHIPad{padding:20px 30px !important;}
+  .mobBtn{width:100% !important;}
+  .mob-img-logo{ width:150px !important; height:auto !important;}
+  .mob-logo-right{ padding-top:20px;}
+  .himobtop{padding-top:20px !important;}
+  .mob-rht{height:40px !important;}
+  .mob-box{width:92% !important;}
+  .mobTxt18{font-size:18px !important; line-height:20px !important;}
+  .mobTxt20{font-size:20px !important; font-weight:bold !important; line-height:47px !important;}
+  .mobW100{width:100% !important;}
+  table.centered.m-auto { margin: 0 auto; }
+  .centered{text-align:center !important;}
+  .mobColBlock{display:block !important; width:100% !important;}
+  .mobColBlock td{text-align:center !important;}
+  .dblock-col50{ width:100% !important; display:block !important;}
+  .drop{display: block !important; width: 100% !important;}
+  .fz36{font-size: 36px !important; line-height: 1.2 !important;}
+  .hauto{height:250px !important;}
+  .pt0{padding-top: 0 !important;}
+  .h{display: none !important;}
+  .footer1{width: 60px !important; height: 60px !important; max-width: 60px !important; min-width: 60px !important;max-height: 60px !important;}
+  .footer2{width: 25px !important; height: 25px !important; max-width: 25px !important;max-height: 25px !important;}
+  .mobImag{padding-top:30px !important;}
+  .img-border{border-radius: 20px !important;width: 100% !important;}
+  .padd-bottom{padding-bottom: 40px !important;}
+  .padd-top{padding-top: 40px !important;}
+  .bg-color{background-color: #FFFFFF !important;}
+  .border-rad{border-radius: 20px !important;}
+  .text-img{width: 65% !important;}
+  .mob-size-img{width: 220px !important;}
+  .padd-none{padding-top: 10px !important;}
+  .heading1_size{font-size: 30px !important;}
+  .mob-w70{width:90% !important;}
+  .mob-pad-bot{padding-bottom:30px !important;}
+  .mob1{width:100% !important;height:auto !important}
+  .mobBlock3{width:50% !important;}
+  .padd-topnone{padding-top:0px !important;}
+  .padd-rnone{padding-right:0px !important;}
+  .content-padd{padding:0px 25px !important;}
+  .mob-height{height:auto !important;}
+  img.mobLogo {
+      width: 150px !important;
+  }
+  img.mobRhtLogo {
+      width: 90px !important;
+  }
+  .mobile-hd-left img{
+     max-width: 84% !important;
+     width: 150px !important;
+     height: auto !important;
+  }
+  .mobile-hd-left{text-align:left !important;}
+  .mobile-hd-right img{
+     max-width: 80% !important;
+     width:100px !important;
+     height: auto !important;
+  }
+  .mobCont{padding-left:20px !important; padding-right:20px !important;}
+  .mobWH{width:auto !important; height:auto !important;}
+
+  .f18, .f20, .f22, .f24, .f26, .f28{font-size:20px !important; line-height:normal !important;}
+  .f10{font-size:10px !important; line-height:normal !important;}
+  .f11{font-size:11px !important; line-height:normal !important;}
+  .f12{font-size:12px !important; line-height:12px !important;}
+  .f13{font-size:13px !important; line-height:15px !important;}
+  .f14{font-size:14px !important; line-height:normal !important;}
+  .f15{font-size:15px !important; line-height:normal !important;}
+  .f16{font-size:16px !important; line-height:normal !important;}
+  .f18{font-size:18px !important; line-height:normal !important;}
+  .f22{font-size:22px !important; line-height:normal !important;}
+  .f24{font-size:24px !important;}
+  .f26{font-size:26px !important;}
+  .f78{font-size:78px !important; line-height:78px !important;}
+  .f28{font-size:28px !important;}
+  .f36{font-size:36px !important; line-height:normal !important;}
+  .f60{font-size:60px !important; line-height:60px !important;}
+  .mob-height{height:auto !important;}
+  .mobWidth90{width:98% !important;}
+  .w10{width:10px !important;}
+  .mob-fs32{font-size:32px !important; padding:0 1rem !important; line-height:normal !important;}
+  .f22{font-size:22px !important; line-height:auto !important;}
+  .pad15{padding-left:15px !important; padding-right:15px !important;}
+  .mobile-prl{padding-left:10px !important; padding-right:10px !important;}
+  .mob-pad-non{ padding-left:0 !important; padding-right:0 !important;}
+  .w40 img{width:40px !important;}
+  .dis-block{display:block !important;}
+  .mob-h15{height:15px !important;}
+  .mob-h25{height:25px !important;}
+  .mob-h35{height:35px !important;}
+
+  /* css for background voucher card block */
+  .bw{width:33px !important;}
+  .bw10{width:10px !important;}
+  .bw20{width:20px !important;}
+  .mob-width{max-width: 293px !important;}
+  .hdimg{width: 86% !important;}
+  .mobCardCont{padding-top:10px !important;}
+  /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+}
+
+@media only screen and (max-width: 480px) {
+  .cir-width{width:40px !important; height:auto;  font-size:12px !important;}
+  .mobPadTop { padding-top: 8px !important;}
+  .hgtCardLogo {  height: 158px !important; }
+  td.cardMem.mobCardCont { line-height: 14px !important; }
+  .white-text {
+      color: #000000 !important;
+      font-size: 10px !important;
+      line-height: 12px !important;
+  }
+  .cardMem.mobCardCont {
+      line-height: 14px !important; font-size:12px !important;
+  }
+  .mobCardCont{padding-top:0px !important;}
+  .hauto { height: 257px !important; }
+  .widthMidTab{ width:306px !important; }
+  .mobPad16{padding:16px !important;}
+  .mobPad32{padding-left:32px !important; padding-right:32px !important;}
+}
+
+@media only screen and (max-width: 400px) {
+  .hgtCardLogo { height: 128px !important; }
+  .hauto { height: 195px !important; }
+  .white-text {   font-size: 9px !important;  line-height: 10px !important; }
+  .widthMidTab { width: 230px !important; }
+  .mobPadTop { padding-top: 0 !important; }
+  .white-text { padding-bottom: 2px !important; }
+  .w82{width:82% !important;}
+  .ht-img{height:175px !important;}
+  .LHAuto{line-height:normal !important;}
+  .lw{width:15px !important}
+  .mobWdh{width:10% !important;}
+}
+
+/* =====================================================================
+   MyFreeStyle Email Design System: proposed additions to the ADC template head.
+   Everything below is NEW. Modules carry their light-mode look entirely inline,
+   so if this block is missing from a production template the email still
+   renders correctly, just without mobile sizing tweaks and dark mode.
+   ===================================================================== */
+
+/* ---- Mobile (Sizing mode = Mobile in Figma). 640px matches ADC's first breakpoint. */
+@media only screen and (max-width: 640px) {
+  .mfs-w100   { width: 100% !important; max-width: 100% !important; }
+  .mfs-img    { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .mfs-stack  { display: block !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+  .mfs-hide   { display: none !important; max-height: 0 !important; overflow: hidden !important; }
+  .mfs-show   { display: block !important; max-height: none !important; overflow: visible !important; }
+  .mfs-center { text-align: center !important; }
+  .mfs-auto   { margin-left: auto !important; margin-right: auto !important; }
+
+  /* Type scale: headline 38 to 28, subheadline 28 to 24. Body sizes are the same on both. */
+  .mfs-h1 { font-size: 28px !important; line-height: 32px !important; }
+  .mfs-h2 { font-size: 24px !important; line-height: 28px !important; }
+
+  /* Spacing tokens, desktop/mobile: 1=8/8 2=16/8 3=24/16 4=32/24 5=40/24 6=48/32 8=64/48 */
+  .mfs-p2 { padding: 8px !important; }   .mfs-px2 { padding-left: 8px !important; padding-right: 8px !important; }   .mfs-py2 { padding-top: 8px !important; padding-bottom: 8px !important; }   .mfs-pt2 { padding-top: 8px !important; }   .mfs-pb2 { padding-bottom: 8px !important; }
+  .mfs-p3 { padding: 16px !important; }  .mfs-px3 { padding-left: 16px !important; padding-right: 16px !important; } .mfs-py3 { padding-top: 16px !important; padding-bottom: 16px !important; } .mfs-pt3 { padding-top: 16px !important; } .mfs-pb3 { padding-bottom: 16px !important; }
+  .mfs-p4 { padding: 24px !important; }  .mfs-px4 { padding-left: 24px !important; padding-right: 24px !important; } .mfs-py4 { padding-top: 24px !important; padding-bottom: 24px !important; } .mfs-pt4 { padding-top: 24px !important; } .mfs-pb4 { padding-bottom: 24px !important; }
+  .mfs-p5 { padding: 24px !important; }  .mfs-px5 { padding-left: 24px !important; padding-right: 24px !important; } .mfs-py5 { padding-top: 24px !important; padding-bottom: 24px !important; } .mfs-pt5 { padding-top: 24px !important; } .mfs-pb5 { padding-bottom: 24px !important; }
+  .mfs-p6 { padding: 32px !important; }  .mfs-px6 { padding-left: 32px !important; padding-right: 32px !important; } .mfs-py6 { padding-top: 32px !important; padding-bottom: 32px !important; } .mfs-pt6 { padding-top: 32px !important; } .mfs-pb6 { padding-bottom: 32px !important; }
+  .mfs-p8 { padding: 48px !important; }  .mfs-px8 { padding-left: 48px !important; padding-right: 48px !important; } .mfs-py8 { padding-top: 48px !important; padding-bottom: 48px !important; } .mfs-pt8 { padding-top: 48px !important; } .mfs-pb8 { padding-bottom: 48px !important; }
+  .mfs-pt0 { padding-top: 0 !important; } .mfs-pb0 { padding-bottom: 0 !important; } .mfs-pl0 { padding-left: 0 !important; } .mfs-pr0 { padding-right: 0 !important; }
+}
+
+/* ---- Dark mode (Tokens mode = Dark in Figma).
+   Apple Mail / iOS / Outlook macOS use prefers-color-scheme. Outlook.com uses [data-ogsc] for text
+   and [data-ogsb] for backgrounds. Gmail ignores both and applies its own inversion. */
+@media (prefers-color-scheme: dark) {
+  .mfs-dm-bg-white    { background-color: #222731 !important; }
+  .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
+  .mfs-dm-bg-grey     { background-color: #464646 !important; }
+  .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
+  .mfs-dm-text        { color: #FFFFFF !important; }
+  .mfs-dm-text-inv    { color: #222731 !important; }
+  .mfs-dm-link        { color: #D0A0EC !important; }
+  .mfs-dm-border      { border-color: #7B8290 !important; }
+  .mfs-light-img      { display: none !important; max-height: 0 !important; overflow: hidden !important; }
+  .mfs-dark-img       { display: block !important; max-height: none !important; overflow: visible !important; }
+}
+[data-ogsb] .mfs-dm-bg-white    { background-color: #222731 !important; }
+[data-ogsb] .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
+[data-ogsb] .mfs-dm-bg-grey     { background-color: #464646 !important; }
+[data-ogsb] .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
+[data-ogsc] .mfs-dm-text        { color: #FFFFFF !important; }
+[data-ogsc] .mfs-dm-text-inv    { color: #222731 !important; }
+[data-ogsc] .mfs-dm-link        { color: #D0A0EC !important; }
+
+/* Doc-site preview only: module-view adds .mfs-dark to <body> to show the dark result in any browser. */
+.mfs-dark .mfs-dm-bg-white    { background-color: #222731 !important; }
+.mfs-dark .mfs-dm-bg-yellow   { background-color: #5B4A00 !important; }
+.mfs-dark .mfs-dm-bg-grey     { background-color: #464646 !important; }
+.mfs-dark .mfs-dm-bg-charcoal { background-color: #FFFFFF !important; }
+.mfs-dark .mfs-dm-text        { color: #FFFFFF !important; }
+.mfs-dark .mfs-dm-text-inv    { color: #222731 !important; }
+.mfs-dark .mfs-dm-link        { color: #D0A0EC !important; }
+.mfs-dark .mfs-dm-border      { border-color: #7B8290 !important; }
+.mfs-dark .mfs-light-img      { display: none !important; max-height: 0 !important; overflow: hidden !important; }
+.mfs-dark .mfs-dark-img       { display: block !important; max-height: none !important; overflow: visible !important; }

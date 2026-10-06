@@ -1,0 +1,19 @@
+{
+  "id": "BOD-08",
+  "title": "Quote stack",
+  "category": "body",
+  "description": "Pair with BOD-07 or after a feature run. Exactly three quotes, each under 25 words.",
+  "usage": "Three short peer quotes in bordered cards under one heading. Locked layout — edit only text.",
+  "editable": ["Heading", "3 quotes"],
+  "seenIn": "Voucher 6",
+  "chars": { "Heading": "≤ 70", "Quote": "≤ 130 (under 25 words)" },
+  "images": [],
+  "tokens": ["surface/white", "text/charcoal", "border/primary"],
+  "notes": [
+    "Exactly three quotes.",
+    "The #7B8290 card border (border/primary) is unchanged in dark mode.",
+    "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+    "Padding drops from 48px to 32px, card gaps from 24px to 16px and card padding from 16/24 to 8/16 on mobile."
+  ],
+  "figmaNode": "100:1050"
+}

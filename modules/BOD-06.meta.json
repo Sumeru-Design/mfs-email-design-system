@@ -1,0 +1,22 @@
+{
+  "id": "BOD-06",
+  "title": "Testimonial · avatar + quote",
+  "category": "body",
+  "description": "Directly under a hero or a product claim to add a human voice. Max one per email.",
+  "usage": "Single named patient quote with circular portrait. Locked layout — edit only image fills and text.",
+  "editable": ["Portrait", "Quote", "Name"],
+  "seenIn": "Voucher 1, 4",
+  "chars": { "Quote": "≤ 90", "Name": "≤ 24" },
+  "images": [
+    { "slot": "Portrait (desktop)", "w": 100, "h": 100, "notes": "Transparent PNG, circle-masked portrait (lavender backdrop), contain." },
+    { "slot": "Portrait (mobile)", "w": 64, "h": 64, "notes": "Same portrait at 64px, shown on mobile via mfs-show." }
+  ],
+  "tokens": ["surface/white", "text/charcoal"],
+  "notes": [
+    "Portrait and quote stay side by side on mobile, as in the Mobile frame; the portrait shrinks 100 → 64px by swapping images (mfs-hide / mfs-show). Replace both when swapping the portrait.",
+    "The portrait PNG carries its own circular mask, so it stays round in Outlook.",
+    "Mobile right padding is 40px instead of Figma's 32px: the left gutter and gap scale with mfs-px3, but the quote's 24px right padding is fixed (no padding-right utility).",
+    "Max one testimonial per email."
+  ],
+  "figmaNode": "100:925"
+}

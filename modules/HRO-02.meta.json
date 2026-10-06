@@ -1,0 +1,18 @@
+{
+  "id": "HRO-02",
+  "title": "Yellow · headline + lifestyle photo + body",
+  "category": "hero",
+  "description": "Nudge / re-engagement emails. Magenta [tokens] mark personalised merge fields.",
+  "usage": "Relationship hero. Personal headline, warm lifestyle photo, short supporting copy. Locked layout — edit only image fills and text.",
+  "editable": ["Headline", "Photo", "Body"],
+  "seenIn": "Nudges 1, 4",
+  "chars": { "Headline": "≤ 50", "Body": "≤ 150" },
+  "images": [{ "slot": "Lifestyle photo", "w": 504, "h": 400, "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)." }],
+  "tokens": ["surface/yellow", "text/charcoal"],
+  "notes": [
+    "[Name] is a merge field shown in magenta (#FF00F5) — replace with the SFMC personalisation string before send.",
+    "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners (accepted per CONVENTIONS).",
+    "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+  ],
+  "figmaNode": "94:725"
+}

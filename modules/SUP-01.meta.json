@@ -1,0 +1,53 @@
+{
+  "id": "SUP-01",
+  "title": "Support · 3 links (call / chat / FAQ)",
+  "category": "support",
+  "description": "Voucher / offer journeys. Always the last content module before the disclaimer.",
+  "usage": "Full Customer Care block for voucher / offer journeys. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "Intro",
+    "Link labels",
+    "Links"
+  ],
+  "seenIn": "Voucher 1–19",
+  "chars": {
+    "Heading": "≤ 70",
+    "Intro": "≤ 140",
+    "Link label": "≤ 16",
+    "Link text": "≤ 14"
+  },
+  "images": [
+    {
+      "slot": "Icon · call",
+      "w": 72,
+      "h": 72,
+      "notes": "Locked. White circle + phone icon composite."
+    },
+    {
+      "slot": "Icon · chat",
+      "w": 72,
+      "h": 72,
+      "notes": "Locked. White circle + question-bubble icon composite."
+    },
+    {
+      "slot": "Icon · FAQ",
+      "w": 72,
+      "h": 72,
+      "notes": "Locked. White circle + FAQ bubbles composite."
+    }
+  ],
+  "tokens": [
+    "surface/light-grey-30",
+    "text/charcoal",
+    "text/hyperlink"
+  ],
+  "notes": [
+    "Icons are locked. The circle is baked into each PNG because border-radius circles are unreliable in Outlook. The circle stays white in dark mode, as in Figma, so there is no swap.",
+    "The Figma icon exports are only 72px (1×), so the 2× PNGs were rebuilt from the matching brand icons (assets/brand/icon-call, icon-question, icon-faq) at the exact positions measured from the Figma export.",
+    "[3/2] is a magenta merge placeholder and must be replaced before send.",
+    "The three columns stay side by side on mobile, matching Mobile · Light.",
+    "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps the subheadline at 28px."
+  ],
+  "figmaNode": "102:1340"
+}

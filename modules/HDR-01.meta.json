@@ -1,0 +1,27 @@
+{
+  "id": "HDR-01",
+  "title": "MyFreeStyle logo",
+  "category": "header",
+  "description": "Default header for Nudge, education and relationship emails.",
+  "usage": "Default header for Nudge / relationship emails. Centered MyFreeStyle lockup on white. Locked layout — edit only image fills and text.",
+  "editable": [],
+  "seenIn": "Nudges 1–7",
+  "chars": {},
+  "images": [
+    {
+      "slot": "Logo",
+      "w": 255,
+      "h": 97,
+      "notes": "Locked. MyFreeStyle lockup baked onto a white 8px-rounded tile (transparent corners), rendered at 2× from the Figma vector."
+    }
+  ],
+  "tokens": [
+    "surface/white"
+  ],
+  "notes": [
+    "Editable: none — logo is locked.",
+    "Dark mode: one image, no swap. The logo is baked onto the white tile that the Desktop · Dark frame shows, so it is invisible on white in light mode and appears as the white logo tile when the background turns #222731. This also keeps the logo legible in clients that darken backgrounds without supporting the mfs-light-img / mfs-dark-img swap (e.g. Outlook.com).",
+    "Padding 16/48 desktop → 16/32 mobile (mfs-px6). Figma's mobile vertical padding is token 3 at 16px, so the vertical value is unchanged and has no class."
+  ],
+  "figmaNode": "93:527"
+}

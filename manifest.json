@@ -1,0 +1,1715 @@
+{
+  "site": {
+    "title": "MyFreeStyle Email Design System",
+    "short": "Email Design System",
+    "version": "1.0",
+    "updated": "2026-10-06",
+    "figmaFile": "https://www.figma.com/design/zF8mGxQX2LtDOb6gT2MTtM/Templates-v-s-Modules",
+    "intro": "30 modules across 6 categories, distilled from the Voucher Optimization (1–19) and Nudge (1–7) emails. Every module is a locked layout: swap the image and edit the text — nothing else. Each one ships as live, table-based HTML that renders at Desktop 600px and Mobile 375px, in Light and Dark mode."
+  },
+  "guidelines": [
+    {
+      "title": "Locked layouts",
+      "body": "Modules are fixed compositions. Swap images and edit copy only; don’t re-order rows, change colours or add elements. If a layout doesn’t fit, pick a different module."
+    },
+    {
+      "title": "Email order",
+      "body": "Header → one Hero → up to four or five Body modules → Customer Support → optional Poll → Disclaimer. Support and Disclaimer are mandatory in every email."
+    },
+    {
+      "title": "Retina images",
+      "body": "Export every image at 2× its displayed size. Specs list the 1× slot size; the HTML displays at 1× with explicit width and height."
+    },
+    {
+      "title": "Character counts",
+      "body": "Limits are approximations based on the placeholder copy and the text box width. Real words vary — always check the Mobile preview for wrapping."
+    },
+    {
+      "title": "Fonts",
+      "body": "Emails use Calibri, with Arial as the fallback for Gmail and other clients without Calibri. Don’t use web fonts in email."
+    },
+    {
+      "title": "Merge fields & MLR",
+      "body": "[Magenta bracketed] text marks dynamic merge fields or MLR-flagged copy. Magenta is an annotation colour only — it must never ship."
+    },
+    {
+      "title": "Accessibility",
+      "body": "Keep text at WCAG AA contrast against its background (badges on each colour show the ratio). Every meaningful image needs alt text; never put essential copy in an image."
+    },
+    {
+      "title": "Dark mode",
+      "body": "Modules carry light-mode colours inline and switch to the Dark token values through the classes in the email head CSS. Without that CSS, emails fall back to light mode safely."
+    }
+  ],
+  "colours": {
+    "primary": [
+      {
+        "name": "Libre Yellow",
+        "hex": "#FFD100",
+        "tokens": "color/yellow/300 · surface/yellow"
+      },
+      {
+        "name": "Charcoal",
+        "hex": "#222731",
+        "tokens": "color/charcoal/1000 · text/charcoal"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF",
+        "tokens": "color/neutrals/0 · surface/white"
+      }
+    ],
+    "primaryNote": "The yellow + charcoal pairing carries every email. Yellow is the hero surface; charcoal is all type and primary buttons.",
+    "secondary": [
+      {
+        "name": "Light Yellow",
+        "hex": "#FFEFAA",
+        "tokens": "color/yellow/200"
+      },
+      {
+        "name": "Neutral 200",
+        "hex": "#F4F4F3",
+        "tokens": "surface/light-grey-30"
+      },
+      {
+        "name": "Neutral 400",
+        "hex": "#D9D9D6",
+        "tokens": "surface/light-grey"
+      },
+      {
+        "name": "Neutral 600",
+        "hex": "#888B8D",
+        "tokens": "text/medium-grey"
+      },
+      {
+        "name": "Charcoal 200",
+        "hex": "#F8F9FC",
+        "tokens": "color/charcoal/200-nb"
+      },
+      {
+        "name": "Charcoal 400",
+        "hex": "#D7D9DE",
+        "tokens": "surface/charcoal-400"
+      },
+      {
+        "name": "Charcoal 600",
+        "hex": "#7B8290",
+        "tokens": "border/primary"
+      },
+      {
+        "name": "Charcoal 800",
+        "hex": "#464D5C",
+        "tokens": "surface/charcoal-800"
+      },
+      {
+        "name": "Abbott Blue",
+        "hex": "#001489",
+        "tokens": "text/hyperlink"
+      },
+      {
+        "name": "MLR Magenta",
+        "hex": "#FF00F5",
+        "tokens": "annotation only",
+        "annotation": true
+      }
+    ],
+    "secondaryNote": "Supporting surfaces, borders and links. Magenta is an MLR / merge-field annotation colour — never ship it as a design colour."
+  },
+  "tokens": [
+    {
+      "name": "surface/white",
+      "light": "#FFFFFF",
+      "dark": "#222731",
+      "use": "Email background",
+      "cls": "mfs-dm-bg-white"
+    },
+    {
+      "name": "surface/yellow",
+      "light": "#FFD100",
+      "dark": "#5B4A00",
+      "use": "Hero / CTA band",
+      "cls": "mfs-dm-bg-yellow"
+    },
+    {
+      "name": "surface/light-grey-30",
+      "light": "#F4F4F3",
+      "dark": "#464646",
+      "use": "Panels, support block",
+      "cls": "mfs-dm-bg-grey"
+    },
+    {
+      "name": "surface/charcoal-1000",
+      "light": "#222731",
+      "dark": "#FFFFFF",
+      "use": "Primary button, comparison",
+      "cls": "mfs-dm-bg-charcoal"
+    },
+    {
+      "name": "text/charcoal",
+      "light": "#222731",
+      "dark": "#FFFFFF",
+      "use": "All body & headline type",
+      "cls": "mfs-dm-text"
+    },
+    {
+      "name": "text/white",
+      "light": "#FFFFFF",
+      "dark": "#222731",
+      "use": "Type on charcoal",
+      "cls": "mfs-dm-text-inv"
+    },
+    {
+      "name": "text/hyperlink",
+      "light": "#001489",
+      "dark": "#D0A0EC",
+      "use": "Inline links",
+      "cls": "mfs-dm-link"
+    },
+    {
+      "name": "border/primary",
+      "light": "#7B8290",
+      "dark": "#7B8290",
+      "use": "Card & option borders",
+      "cls": "—"
+    },
+    {
+      "name": "components/button/yellow",
+      "light": "#FFD100",
+      "dark": "#FFD100",
+      "use": "Yellow button (constant)",
+      "cls": "—"
+    }
+  ],
+  "typography": {
+    "family": "Calibri",
+    "stack": "Calibri, Arial, Helvetica, sans-serif",
+    "weights": "Regular · Italic · Bold",
+    "fallbackNote": "Gmail and most Android clients don’t have Calibri and render Arial, which runs about 10% wider. Leave headroom in character counts.",
+    "scale": [
+      {
+        "style": "Headline",
+        "token": "text/headline",
+        "web": 38,
+        "mobile": 28,
+        "weight": "bold",
+        "lh": 1.15,
+        "spec": "Bold · 115%",
+        "use": "Hero headlines",
+        "cls": "mfs-h1",
+        "sample": "See why we’re the #1 CGM"
+      },
+      {
+        "style": "Subheadline",
+        "token": "text/subheadline",
+        "web": 28,
+        "mobile": 24,
+        "weight": "bold",
+        "lh": 1.15,
+        "spec": "Bold · 115%",
+        "use": "Module headings",
+        "cls": "mfs-h2",
+        "sample": "Your free sensor is waiting"
+      },
+      {
+        "style": "Body LG",
+        "token": "text/body-lg",
+        "web": 20,
+        "mobile": 20,
+        "weight": "normal",
+        "lh": 1.3,
+        "spec": "Regular · 130%",
+        "use": "Hero body, lead",
+        "sample": "See your glucose levels in real time."
+      },
+      {
+        "style": "Body MD",
+        "token": "text/body-md",
+        "web": 18,
+        "mobile": 18,
+        "weight": "normal",
+        "lh": 1.3,
+        "spec": "Regular · 130%",
+        "use": "Body, CTA labels",
+        "sample": "Make confident choices every day."
+      },
+      {
+        "style": "Body SM",
+        "token": "text/body-sm",
+        "web": 16,
+        "mobile": 16,
+        "weight": "normal",
+        "lh": 1.3,
+        "spec": "Regular · 130%",
+        "use": "Captions, cells",
+        "sample": "Works with compatible smartphones."
+      },
+      {
+        "style": "Eyebrow",
+        "token": "text/eyebrow",
+        "web": 16,
+        "mobile": 16,
+        "weight": "bold",
+        "lh": 1.3,
+        "spec": "Bold · caps",
+        "use": "Stepper labels",
+        "caps": true,
+        "sample": "Step 1 of 3"
+      },
+      {
+        "style": "Legal",
+        "token": "fixed",
+        "web": 13,
+        "mobile": 13,
+        "weight": "normal",
+        "lh": 1.4,
+        "spec": "Regular · 140%",
+        "use": "Disclaimer only",
+        "sample": "*Data on file. Abbott Diabetes Care, Inc."
+      }
+    ]
+  },
+  "spacing": [
+    {
+      "token": "spacing/1",
+      "web": 8,
+      "mobile": 8
+    },
+    {
+      "token": "spacing/2",
+      "web": 16,
+      "mobile": 8
+    },
+    {
+      "token": "spacing/3",
+      "web": 24,
+      "mobile": 16
+    },
+    {
+      "token": "spacing/4",
+      "web": 32,
+      "mobile": 24
+    },
+    {
+      "token": "spacing/5",
+      "web": 40,
+      "mobile": 24
+    },
+    {
+      "token": "spacing/6",
+      "web": 48,
+      "mobile": 32
+    },
+    {
+      "token": "spacing/8",
+      "web": 64,
+      "mobile": 48
+    }
+  ],
+  "layout": [
+    {
+      "title": "Email width",
+      "value": "600 px desktop · 375 px mobile"
+    },
+    {
+      "title": "Content width",
+      "value": "504 px (48 px gutters) · 311 px (32 px)"
+    },
+    {
+      "title": "Button radius",
+      "value": "48 px pill (components/button/radius)"
+    },
+    {
+      "title": "Card radius",
+      "value": "8 px · images 16 px"
+    },
+    {
+      "title": "Image swap",
+      "value": "Replace the image file; keep the slot size"
+    },
+    {
+      "title": "Merge fields",
+      "value": "[Magenta brackets] = dynamic / MLR-flagged"
+    },
+    {
+      "title": "Breakpoint",
+      "value": "Mobile styles apply at ≤ 640 px (ADC template)"
+    },
+    {
+      "title": "Rounded corners",
+      "value": "Outlook (Windows) renders square corners — by design"
+    }
+  ],
+  "buttons": {
+    "note": "Pill buttons, label in Calibri Bold 18. Primary flips to white in Dark Mode; yellow stays yellow. Buttons are bulletproof: a rounded table cell for most clients and a VML roundrect for Outlook.",
+    "variants": [
+      {
+        "name": "Primary · Light",
+        "bg": "#222731",
+        "fg": "#FFFFFF",
+        "stage": "#FFFFFF",
+        "label": "Get my free sensor"
+      },
+      {
+        "name": "Primary · Dark",
+        "bg": "#FFFFFF",
+        "fg": "#222731",
+        "stage": "#222731",
+        "label": "Get my free sensor"
+      },
+      {
+        "name": "Yellow · both modes",
+        "bg": "#FFD100",
+        "fg": "#222731",
+        "stage": "#FFFFFF",
+        "label": "Access your voucher"
+      }
+    ]
+  },
+  "icons": {
+    "note": "Abbott icon set. Icons sit centred in a 64 px circle (Yellow, White, Charcoal or Blue background). Use only these — never draw new icons.",
+    "items": [
+      [
+        "Call",
+        "icon-call.png"
+      ],
+      [
+        "FAQ",
+        "icon-faq.png"
+      ],
+      [
+        "Laptop",
+        "icon-laptop.png"
+      ],
+      [
+        "Question",
+        "icon-question.png"
+      ],
+      [
+        "Doctor",
+        "icon-doctor.png"
+      ],
+      [
+        "Doctor Patient",
+        "icon-doctor-patient.png"
+      ],
+      [
+        "Phone",
+        "icon-phone.png"
+      ],
+      [
+        "Phone WiFi",
+        "icon-phone-wifi.png"
+      ],
+      [
+        "Sensor Box",
+        "icon-sensor-box.png"
+      ],
+      [
+        "Small Sensor",
+        "icon-small-sensor.png"
+      ],
+      [
+        "15 days",
+        "icon-15-days.png"
+      ],
+      [
+        "14 Days",
+        "icon-14-days.png"
+      ],
+      [
+        "No Budget",
+        "icon-no-budget.png"
+      ],
+      [
+        "Low Cost",
+        "icon-low-cost.png"
+      ],
+      [
+        "Budget",
+        "icon-budget.png"
+      ],
+      [
+        "Check",
+        "icon-check.png"
+      ],
+      [
+        "Target",
+        "icon-target.png"
+      ],
+      [
+        "Water Drop",
+        "icon-water-drop.png"
+      ],
+      [
+        "Swim",
+        "icon-swim.png"
+      ],
+      [
+        "Digital Solution",
+        "icon-digital-solution.png"
+      ]
+    ]
+  },
+  "logos": {
+    "note": "MyFreeStyle for relationship emails; product lockups for offer emails. Never recolour, stretch or place the logo on a busy photo.",
+    "items": [
+      {
+        "name": "MyFreeStyle",
+        "variant": "on white",
+        "file": "logo-mfs-white.svg",
+        "bg": "#FFFFFF"
+      },
+      {
+        "name": "MyFreeStyle",
+        "variant": "on yellow",
+        "file": "logo-mfs-yellow.svg",
+        "bg": "#FFD100"
+      },
+      {
+        "name": "FreeStyle Libre 3 Plus",
+        "variant": "on white",
+        "file": "logo-fsl3plus-white.png",
+        "bg": "#FFFFFF"
+      },
+      {
+        "name": "FreeStyle Libre 3 Plus",
+        "variant": "on charcoal",
+        "file": "logo-fsl3plus-charcoal.png",
+        "bg": "#222731"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "header",
+      "name": "Header",
+      "prefix": "HDR",
+      "blurb": "Fixed. Pick one per email based on journey type."
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "prefix": "HRO",
+      "blurb": "Exactly one per email, directly under the header."
+    },
+    {
+      "id": "body",
+      "name": "Body",
+      "prefix": "BOD",
+      "blurb": "Stack freely between the hero and support. Keep to four or five body modules per email."
+    },
+    {
+      "id": "support",
+      "name": "Customer Support",
+      "prefix": "SUP",
+      "blurb": "Mandatory. One per email, always the last content module before the disclaimer."
+    },
+    {
+      "id": "polls",
+      "name": "Polls",
+      "prefix": "POL",
+      "blurb": "Optional zero-party data capture. One per email, and only when each answer maps to a follow-up."
+    },
+    {
+      "id": "disclaimer",
+      "name": "Disclaimer",
+      "prefix": "DIS",
+      "blurb": "Mandatory legal footer. Copy is controlled by Regulatory; layout never changes. Always last."
+    }
+  ],
+  "modules": [
+    {
+      "id": "HDR-01",
+      "title": "MyFreeStyle logo",
+      "category": "header",
+      "description": "Default header for Nudge, education and relationship emails.",
+      "usage": "Default header for Nudge / relationship emails. Centered MyFreeStyle lockup on white. Locked layout — edit only image fills and text.",
+      "editable": [],
+      "seenIn": "Nudges 1–7",
+      "chars": {},
+      "images": [
+        {
+          "slot": "Logo",
+          "w": 255,
+          "h": 97,
+          "notes": "Locked. MyFreeStyle lockup baked onto a white 8px-rounded tile (transparent corners), rendered at 2× from the Figma vector."
+        }
+      ],
+      "tokens": [
+        "surface/white"
+      ],
+      "notes": [
+        "Editable: none — logo is locked.",
+        "Dark mode: one image, no swap. The logo is baked onto the white tile that the Desktop · Dark frame shows, so it is invisible on white in light mode and appears as the white logo tile when the background turns #222731. This also keeps the logo legible in clients that darken backgrounds without supporting the mfs-light-img / mfs-dark-img swap (e.g. Outlook.com).",
+        "Padding 16/48 desktop → 16/32 mobile (mfs-px6). Figma's mobile vertical padding is token 3 at 16px, so the vertical value is unchanged and has no class."
+      ],
+      "figmaNode": "93:527",
+      "bytes": 792
+    },
+    {
+      "id": "HDR-02",
+      "title": "Product lockup + CTA",
+      "category": "header",
+      "description": "Transactional voucher journeys where the user needs one-tap access to their offer.",
+      "usage": "Header for voucher / offer journeys. FreeStyle Libre 3 Plus lockup with a persistent utility CTA. Locked layout — edit only image fills and text.",
+      "editable": [
+        "CTA label + link"
+      ],
+      "seenIn": "Voucher 9",
+      "chars": {
+        "CTA": "≤ 22"
+      },
+      "images": [
+        {
+          "slot": "Logo (light)",
+          "w": 276,
+          "h": 90,
+          "notes": "FreeStyle Libre 3 Plus lockup, charcoal type. Transparent PNG, contain."
+        },
+        {
+          "slot": "Logo (dark)",
+          "w": 276,
+          "h": 90,
+          "notes": "Same lockup with white type, shown via mfs-dark-img."
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "components/button/yellow"
+      ],
+      "notes": [
+        "Desktop: logo left, yellow CTA right. Mobile: both stack and centre (mfs-stack + mfs-center + mfs-auto), 8px apart (mfs-pt2).",
+        "Figma's mobile vertical padding grows to 24px (token 4) from 16px on desktop; mfs-py4 is used on top of the 16px inline value because its mobile override is exactly 24px.",
+        "Yellow button is the same in both modes (no dm classes). VML width 216px.",
+        "Logo light/dark swap needs the head CSS; clients without it (Outlook.com dark, Gmail) keep the charcoal lockup."
+      ],
+      "figmaNode": "93:650",
+      "bytes": 2503
+    },
+    {
+      "id": "HDR-03",
+      "title": "Logo on yellow",
+      "category": "header",
+      "description": "Use only above a yellow hero (HRO-01 to HRO-03) so the band reads as one block.",
+      "usage": "Header that bleeds into a yellow hero. MyFreeStyle lockup on brand yellow. Locked layout — edit only image fills and text.",
+      "editable": [],
+      "seenIn": "Nudges 1, 4, 5",
+      "chars": {},
+      "images": [
+        {
+          "slot": "Logo (light)",
+          "w": 255,
+          "h": 97,
+          "notes": "Locked. White butterfly + charcoal type on a #FFD100 16px-rounded tile (invisible on the yellow band)."
+        },
+        {
+          "slot": "Logo (dark)",
+          "w": 255,
+          "h": 97,
+          "notes": "Locked. Figma's dark-instance vector on the same #FFD100 tile, shown on #5B4A00 via mfs-dark-img."
+        }
+      ],
+      "tokens": [
+        "surface/yellow"
+      ],
+      "notes": [
+        "Editable: none — logo is locked.",
+        "Both logos carry the yellow tile, so even without the swap (clients that darken the band but ignore mfs-dark-img) the logo still sits on brand yellow.",
+        "Figma's mobile dark tile uses an 8px radius vs 16px on desktop; the image uses 16px at both sizes.",
+        "Padding 16/48 desktop → 16/32 mobile (mfs-px6)."
+      ],
+      "figmaNode": "93:707",
+      "bytes": 1085
+    },
+    {
+      "id": "HRO-01",
+      "title": "Yellow · headline + product image + body + CTA",
+      "category": "hero",
+      "description": "Default hero for voucher / acquisition emails with a single product claim.",
+      "usage": "Product-led hero. Headline states the claim, product render proves it, one CTA. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Headline",
+        "Product image",
+        "Body",
+        "CTA label + link"
+      ],
+      "seenIn": "Voucher 1, 4, 8",
+      "chars": {
+        "Headline": "≤ 55",
+        "Body": "≤ 200",
+        "CTA": "≤ 22"
+      },
+      "images": [
+        {
+          "slot": "Product image",
+          "w": 504,
+          "h": 380,
+          "notes": "Transparent PNG, product render centred (contain)"
+        }
+      ],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal",
+        "surface/charcoal-1000",
+        "text/white"
+      ],
+      "notes": [
+        "Keep to one CTA.",
+        "Headline drops from 38px to 28px on mobile; padding drops from 48px to 32px."
+      ],
+      "figmaNode": "94:684",
+      "bytes": 2964
+    },
+    {
+      "id": "HRO-02",
+      "title": "Yellow · headline + lifestyle photo + body",
+      "category": "hero",
+      "description": "Nudge / re-engagement emails. Magenta [tokens] mark personalised merge fields.",
+      "usage": "Relationship hero. Personal headline, warm lifestyle photo, short supporting copy. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Headline",
+        "Photo",
+        "Body"
+      ],
+      "seenIn": "Nudges 1, 4",
+      "chars": {
+        "Headline": "≤ 50",
+        "Body": "≤ 150"
+      },
+      "images": [
+        {
+          "slot": "Lifestyle photo",
+          "w": 504,
+          "h": 400,
+          "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+        }
+      ],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal"
+      ],
+      "notes": [
+        "[Name] is a merge field shown in magenta (#FF00F5) — replace with the SFMC personalisation string before send.",
+        "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners (accepted per CONVENTIONS).",
+        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+      ],
+      "figmaNode": "94:725",
+      "bytes": 1567
+    },
+    {
+      "id": "HRO-03",
+      "title": "Yellow · headline + body + photo",
+      "category": "hero",
+      "description": "Process emails where the next action is explained in the body below.",
+      "usage": "Step-forward hero. Headline and explanation first, supporting photo closes the band. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Headline",
+        "Body",
+        "Photo"
+      ],
+      "seenIn": "Voucher 9, 11",
+      "chars": {
+        "Headline": "≤ 60",
+        "Body": "≤ 200"
+      },
+      "images": [
+        {
+          "slot": "Photo",
+          "w": 504,
+          "h": 320,
+          "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+        }
+      ],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal"
+      ],
+      "notes": [
+        "[3/2] is a product-version merge field shown in magenta (#FF00F5) — replace before send.",
+        "Photo corners are rounded with inline border-radius:16px; Outlook desktop shows square corners.",
+        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+      ],
+      "figmaNode": "94:760",
+      "bytes": 1679
+    },
+    {
+      "id": "HRO-04",
+      "title": "Yellow · testimonial quote",
+      "category": "hero",
+      "description": "Switching / consideration emails where a real patient voice leads.",
+      "usage": "Social-proof hero. The patient quote is the headline; photo and full quote support it. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Quote headline",
+        "Portrait",
+        "Quote body",
+        "Attribution"
+      ],
+      "seenIn": "Voucher 6",
+      "chars": {
+        "Quote headline": "≤ 65",
+        "Quote body": "≤ 220",
+        "Attribution": "≤ 45"
+      },
+      "images": [
+        {
+          "slot": "Portrait",
+          "w": 504,
+          "h": 400,
+          "notes": "JPG, cover crop. 16px corner radius applied inline via CSS (square in Outlook)."
+        }
+      ],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Quote body is italic 20/26; attribution is bold 18/23.",
+        "Use real patient testimonials only, with MLR-approved copy.",
+        "Headline drops from 38px to 28px on mobile; padding 48→32px, gaps 32→24px."
+      ],
+      "figmaNode": "94:796",
+      "bytes": 2039
+    },
+    {
+      "id": "HRO-05",
+      "title": "Celebration · voucher reveal",
+      "category": "hero",
+      "description": "Offer-delivery email only. Place the voucher as high as possible.",
+      "usage": "Offer-delivery hero. Confetti band, next-step strip, the voucher artefact and wallet buttons. The voucher artwork is never restyled. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Eyebrow",
+        "Headline",
+        "Next-step strip",
+        "Body",
+        "Fallback link"
+      ],
+      "seenIn": "Voucher 13, 10",
+      "chars": {
+        "Eyebrow": "≤ 30",
+        "Headline": "≤ 65",
+        "Next-step strip": "≤ 55",
+        "Body": "≤ 220",
+        "Fallback link": "≤ 40"
+      },
+      "images": [
+        {
+          "slot": "Celebration background",
+          "w": 600,
+          "h": 268,
+          "notes": "JPG, cover. Applied as a td background (background attr + CSS + VML v:fill for Outlook); bgcolor #FFEFAA fallback. Locked."
+        },
+        {
+          "slot": "Voucher artwork",
+          "w": 504,
+          "h": 306,
+          "notes": "Transparent PNG, locked. Card is 423px wide centred in the slot, as in Figma."
+        },
+        {
+          "slot": "Add to Apple Wallet",
+          "w": 192,
+          "h": 59,
+          "notes": "Transparent PNG, locked badge."
+        },
+        {
+          "slot": "Add to Google Wallet",
+          "w": 192,
+          "h": 59,
+          "notes": "Transparent PNG, locked badge."
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "surface/yellow",
+        "text/charcoal",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "Celebration band text is the primitive color/charcoal/1000 (#222731) in Figma, so it stays charcoal in dark mode over the light confetti image — no dm class.",
+        "Wallet buttons sit side by side with a 16px spacer on desktop and stack with an 8px gap on mobile (spacer td also carries mfs-stack and collapses to an 8px row). Images centred on mobile with mfs-auto.",
+        "Fallback link is #001489 underlined with mfs-dm-link (purple in dark mode, matching the Figma Dark frame).",
+        "Voucher artwork contains magenta [XXXX] placeholders for member / NRC / expiration — these must be produced per recipient by the voucher system, not edited here.",
+        "Outlook desktop renders the confetti via VML; if background images are blocked the band falls back to pale yellow #FFEFAA.",
+        "Headline 38→28px and eyebrow 28→24px on mobile; padding 48→32px."
+      ],
+      "figmaNode": "96:771",
+      "bytes": 5350
+    },
+    {
+      "id": "HRO-06",
+      "title": "Yellow · countdown",
+      "category": "hero",
+      "description": "Voucher expiry reminders. Number = days remaining (merge field).",
+      "usage": "Urgency hero. The number is the hero asset. Deadline-driven sends only. Locked layout — edit only text.",
+      "editable": [
+        "Eyebrow",
+        "Number",
+        "Unit",
+        "Body",
+        "CTA label + link"
+      ],
+      "seenIn": "Voucher 10",
+      "chars": {
+        "Eyebrow": "≤ 60",
+        "Number": "≤ 3",
+        "Unit": "≤ 12",
+        "Body": "≤ 90",
+        "CTA": "≤ 22"
+      },
+      "images": [],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal",
+        "surface/charcoal-1000",
+        "text/white"
+      ],
+      "notes": [
+        "The number is static live text (Calibri Bold 160/160) in its own table cell — populate it with a days-remaining merge field / AMPscript at send time.",
+        "A live, ticking countdown requires a timer-GIF vendor (e.g. Sendtric, MotionMail, NiftyImages): replace the number cell with the vendor's <img> and keep 'DAYS LEFT' as text.",
+        "Unit label uses letter-spacing:4px (Figma tracking 4px).",
+        "Figma keeps the number at 160px on mobile; there is no mobile class for it, so it stays 160px (fits 3 digits at 375px).",
+        "Eyebrow 28→24px on mobile; padding 48→32px, gaps 16→8px."
+      ],
+      "figmaNode": "101:1453",
+      "bytes": 3341
+    },
+    {
+      "id": "BOD-01",
+      "title": "Heading + body + CTA",
+      "category": "body",
+      "description": "Any single message that needs one action. Use on white between richer modules.",
+      "usage": "Workhorse 1-column block. One idea, one action. Centre-aligned. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body",
+        "CTA label + link"
+      ],
+      "seenIn": "Nudges 2, 4, 5",
+      "chars": {
+        "Heading": "≤ 60",
+        "Body": "≤ 200",
+        "CTA": "≤ 22"
+      },
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal",
+        "surface/charcoal-1000",
+        "text/white"
+      ],
+      "notes": [
+        "Keep to one CTA.",
+        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps it at 28px.",
+        "Padding drops from 48px to 32px and the stack gaps from 24px to 16px on mobile."
+      ],
+      "figmaNode": "99:776",
+      "bytes": 2467
+    },
+    {
+      "id": "BOD-02",
+      "title": "Feature card · copy + image right",
+      "category": "body",
+      "description": "Product-benefit rows. Alternate with BOD-03; stack up to three in one panel.",
+      "usage": "Feature card on a grey panel. Short benefit headline + 2–3 lines of copy; the photo carries the proof. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body (with inline link)",
+        "Photo"
+      ],
+      "seenIn": "Voucher 1, 4, 7, 8",
+      "chars": {
+        "Heading": "≤ 30",
+        "Body": "≤ 140"
+      },
+      "images": [
+        {
+          "slot": "Photo (desktop)",
+          "w": 276,
+          "h": 250,
+          "notes": "JPG, cover. Right corners rounded 8px inline."
+        },
+        {
+          "slot": "Photo (mobile)",
+          "w": 343,
+          "h": 150,
+          "notes": "JPG, cover crop of the same photo. Shown below the copy on mobile; bottom corners rounded 8px inline."
+        }
+      ],
+      "tokens": [
+        "surface/light-grey-30",
+        "surface/white",
+        "text/charcoal",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "Columns stack on mobile with mfs-stack; copy stays first, photo below, matching the Mobile frame.",
+        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has mfs-hide and the mobile crop has mfs-show. Replace both when swapping the photo.",
+        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Outlook shows square card corners."
+      ],
+      "figmaNode": "99:816",
+      "bytes": 2972
+    },
+    {
+      "id": "BOD-03",
+      "title": "Feature card · image left + copy",
+      "category": "body",
+      "description": "Mirror of BOD-02. On mobile the photo stacks above the copy.",
+      "usage": "Feature card on a grey panel. Short benefit headline + 2–3 lines of copy; the photo carries the proof. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body",
+        "Photo"
+      ],
+      "seenIn": "Voucher 1, 4, 7, 8",
+      "chars": {
+        "Heading": "≤ 40",
+        "Body": "≤ 140"
+      },
+      "images": [
+        {
+          "slot": "Photo (desktop)",
+          "w": 276,
+          "h": 250,
+          "notes": "JPG, cover. Left corners rounded 8px inline."
+        },
+        {
+          "slot": "Photo (mobile)",
+          "w": 343,
+          "h": 150,
+          "notes": "JPG, cover crop of the same photo. Shown above the copy on mobile; top corners rounded 8px inline."
+        }
+      ],
+      "tokens": [
+        "surface/light-grey-30",
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Columns stack on mobile with mfs-stack; source order already puts the photo first, so no dir=\"rtl\" trick is needed.",
+        "The photo changes aspect ratio on mobile (276x250 to full-width x 150), so the module ships two crops: the desktop image has mfs-hide and the mobile crop has mfs-show. Replace both when swapping the photo.",
+        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Outlook shows square card corners."
+      ],
+      "figmaNode": "99:859",
+      "bytes": 2839
+    },
+    {
+      "id": "BOD-04",
+      "title": "Highlight callout · icon + copy",
+      "category": "body",
+      "description": "Cost, coverage or “what happens next” notes that must not be missed. One per email.",
+      "usage": "Yellow callout card for a cost / coverage message. Icon is locked to the brand icon set. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body + link",
+        "Icon (Abbott icon set only)"
+      ],
+      "seenIn": "Voucher 1, 4, 7, 8, 10",
+      "chars": {
+        "Heading": "≤ 40",
+        "Body + link": "≤ 160"
+      },
+      "images": [
+        {
+          "slot": "Icon",
+          "w": 75,
+          "h": 75,
+          "notes": "Transparent PNG: white 75px circle with the Abbott icon (No Budget Burden) centred at ~46x44. Composite of Figma node 99:1432. Decorative, alt=\"\"."
+        }
+      ],
+      "tokens": [
+        "surface/light-grey-30",
+        "surface/yellow",
+        "text/charcoal",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "The icon circle is hard-coded white in Figma, so it stays white in dark mode (baked into the PNG).",
+        "The icon stays to the right of the copy on mobile, as in the Mobile frame.",
+        "Copy-to-icon gap is a fixed 16px inline; Figma drops it to 8px on mobile (no padding-left utility class exists).",
+        "One callout per email."
+      ],
+      "figmaNode": "99:1435",
+      "bytes": 2327
+    },
+    {
+      "id": "BOD-05",
+      "title": "Comparison table",
+      "category": "body",
+      "description": "Switching emails. Exactly 4 rows; keep each cell under 10 words.",
+      "usage": "Two-column “us vs them” comparison on charcoal. Left = competitor pain, right = Libre benefit. Locked layout — edit only text.",
+      "editable": [
+        "Heading",
+        "Column headers",
+        "8 cell texts"
+      ],
+      "seenIn": "Voucher 1, 4, 7, 8",
+      "chars": {
+        "Heading": "≤ 35",
+        "Column header": "≤ 22",
+        "Cell": "≤ 60 (under 10 words)"
+      },
+      "images": [],
+      "tokens": [
+        "surface/charcoal-1000",
+        "text/white",
+        "surface/white",
+        "text/charcoal",
+        "border/primary"
+      ],
+      "notes": [
+        "Stays a two-column table on mobile (as in the Mobile frame); cell side padding drops from 16px to 8px.",
+        "The 16px column gutter is a fixed spacer cell; Figma narrows it to 8px on mobile.",
+        "Row gaps are spacer rows with mfs-pt3 (24px → 16px).",
+        "Dark mode inverts: panel goes white, left cells get charcoal text, right cells go charcoal with white text. The #7B8290 border (border/primary) is unchanged.",
+        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Outlook shows square cell corners."
+      ],
+      "figmaNode": "99:1500",
+      "bytes": 6104
+    },
+    {
+      "id": "BOD-06",
+      "title": "Testimonial · avatar + quote",
+      "category": "body",
+      "description": "Directly under a hero or a product claim to add a human voice. Max one per email.",
+      "usage": "Single named patient quote with circular portrait. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Portrait",
+        "Quote",
+        "Name"
+      ],
+      "seenIn": "Voucher 1, 4",
+      "chars": {
+        "Quote": "≤ 90",
+        "Name": "≤ 24"
+      },
+      "images": [
+        {
+          "slot": "Portrait (desktop)",
+          "w": 100,
+          "h": 100,
+          "notes": "Transparent PNG, circle-masked portrait (lavender backdrop), contain."
+        },
+        {
+          "slot": "Portrait (mobile)",
+          "w": 64,
+          "h": 64,
+          "notes": "Same portrait at 64px, shown on mobile via mfs-show."
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Portrait and quote stay side by side on mobile, as in the Mobile frame; the portrait shrinks 100 → 64px by swapping images (mfs-hide / mfs-show). Replace both when swapping the portrait.",
+        "The portrait PNG carries its own circular mask, so it stays round in Outlook.",
+        "Mobile right padding is 40px instead of Figma's 32px: the left gutter and gap scale with mfs-px3, but the quote's 24px right padding is fixed (no padding-right utility).",
+        "Max one testimonial per email."
+      ],
+      "figmaNode": "100:925",
+      "bytes": 2244
+    },
+    {
+      "id": "BOD-07",
+      "title": "Big stat + faces + rating",
+      "category": "body",
+      "description": "When the argument is adoption or scale, not features. Magenta stat = merge field / claim-checked number.",
+      "usage": "Scale argument. The number is the hero; faces and stars back it up. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Stat",
+        "Statement",
+        "5 faces",
+        "Rating caption"
+      ],
+      "seenIn": "Voucher 6",
+      "chars": {
+        "Stat": "≤ 12",
+        "Statement": "≤ 110",
+        "Rating caption": "≤ 50"
+      },
+      "images": [
+        {
+          "slot": "Faces (light)",
+          "w": 264,
+          "h": 64,
+          "notes": "Transparent PNG: five 64px circular faces with a white ring, overlapping by 14px, composited into one image (Outlook can't overlap images)."
+        },
+        {
+          "slot": "Faces (dark)",
+          "w": 264,
+          "h": 64,
+          "notes": "Same composite with charcoal (#222731) rings, shown in dark mode via mfs-dark-img."
+        },
+        {
+          "slot": "Rating",
+          "w": 164,
+          "h": 28,
+          "notes": "Transparent PNG of five #FFD100 stars (rasterised from the Figma vector). Same in both modes."
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "To swap faces, rebuild both composites (light and dark ring) from the five portraits: 64px circles, 50px step, later faces on top.",
+        "The 64px stat keeps its size on mobile (as in the Mobile frame); the statement uses mfs-h2 per CONVENTIONS (28 → 24), while the Mobile frame keeps 28px.",
+        "The Figma label mentions a magenta stat, but the component renders it in charcoal; built in charcoal. If the number is a merge field, mark it #FF00F5 until it is claim-checked."
+      ],
+      "figmaNode": "100:975",
+      "bytes": 3079
+    },
+    {
+      "id": "BOD-08",
+      "title": "Quote stack",
+      "category": "body",
+      "description": "Pair with BOD-07 or after a feature run. Exactly three quotes, each under 25 words.",
+      "usage": "Three short peer quotes in bordered cards under one heading. Locked layout — edit only text.",
+      "editable": [
+        "Heading",
+        "3 quotes"
+      ],
+      "seenIn": "Voucher 6",
+      "chars": {
+        "Heading": "≤ 70",
+        "Quote": "≤ 130 (under 25 words)"
+      },
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal",
+        "border/primary"
+      ],
+      "notes": [
+        "Exactly three quotes.",
+        "The #7B8290 card border (border/primary) is unchanged in dark mode.",
+        "Heading uses mfs-h2 per CONVENTIONS (28 → 24 on mobile); the Figma Mobile frame keeps 28px.",
+        "Padding drops from 48px to 32px, card gaps from 24px to 16px and card padding from 16/24 to 8/16 on mobile."
+      ],
+      "figmaNode": "100:1050",
+      "bytes": 2869
+    },
+    {
+      "id": "BOD-09",
+      "title": "Message card · copy & send",
+      "category": "body",
+      "description": "Prescription-request step in voucher journeys. One per email.",
+      "usage": "Pre-written message the user forwards to their doctor, in a bordered card. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Subheading",
+        "Body",
+        "Message",
+        "Copy hint (label + link)"
+      ],
+      "seenIn": "Voucher 2, 6, 9",
+      "chars": {
+        "Heading": "≤ 45",
+        "Subheading": "≤ 45",
+        "Body": "≤ 140",
+        "Message": "≤ 220",
+        "Copy hint": "≤ 20"
+      },
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal",
+        "surface/light-grey-30",
+        "border/primary",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "No JavaScript/clipboard in email: the copy hint is a plain text link (href=\"#\") — point it at a landing page with the message, or leave it as a cue for the reader to select the text manually.",
+        "Copy hint is right-aligned bold caps with 0.96px letter-spacing, as in Figma.",
+        "Card border (#7B8290) is unchanged in dark mode; card fill flips to #464646 via mfs-dm-bg-grey.",
+        "Outlook shows square card corners.",
+        "[Name] is a placeholder — replace or personalise before send."
+      ],
+      "figmaNode": "100:1100",
+      "bytes": 2996
+    },
+    {
+      "id": "BOD-10",
+      "title": "Steps · thumbnail + action",
+      "category": "body",
+      "description": "Process emails (claim, prescribe, collect). Never more than three steps.",
+      "usage": "Sequential how-to. Max 3 steps: thumbnail, bold action, one line, inline link. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "3 thumbnails",
+        "Step titles",
+        "Step bodies",
+        "Step links",
+        "CTA label + link"
+      ],
+      "seenIn": "Voucher 10, 13",
+      "chars": {
+        "Heading": "≤ 40",
+        "Step title": "≤ 40",
+        "Step body": "≤ 90",
+        "Step link": "≤ 20",
+        "CTA": "≤ 22"
+      },
+      "images": [
+        {
+          "slot": "Step thumbnail (×3)",
+          "w": 100,
+          "h": 100,
+          "notes": "Square JPG, cover; rounded 8px via inline border-radius"
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal",
+        "text/hyperlink",
+        "components/button/yellow"
+      ],
+      "notes": [
+        "Mobile Figma shows 64px thumbnails with a 16px gap; there is no mfs-* class to resize them, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
+        "Yellow button is unchanged in dark mode.",
+        "Outlook shows square thumbnail corners."
+      ],
+      "figmaNode": "100:1162",
+      "bytes": 7767
+    },
+    {
+      "id": "BOD-11",
+      "title": "Photo + heading + body + CTA",
+      "category": "body",
+      "description": "Programme or service promotion (training, coaching, resource hub).",
+      "usage": "Service / programme promo. Wide photo, heading, short body, one CTA and an optional secondary link. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Photo",
+        "Body",
+        "CTA label + link",
+        "Secondary link",
+        "Footnote"
+      ],
+      "seenIn": "Nudges 1, 4",
+      "chars": {
+        "Heading": "≤ 60",
+        "Body": "≤ 160",
+        "CTA": "≤ 22",
+        "Secondary link": "≤ 30",
+        "Footnote": "≤ 80"
+      },
+      "images": [
+        {
+          "slot": "Photo",
+          "w": 504,
+          "h": 270,
+          "notes": "JPG, cover; rounded 16px via inline border-radius"
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal",
+        "surface/charcoal-1000",
+        "text/white",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "Secondary link is optional; delete its row if unused.",
+        "Outlook shows square photo corners."
+      ],
+      "figmaNode": "101:1101",
+      "bytes": 3633
+    },
+    {
+      "id": "BOD-12",
+      "title": "App download · store badges",
+      "category": "body",
+      "description": "App feature education. Always pair the badges with a one-line prompt.",
+      "usage": "App feature + download prompt. Store badges are locked artwork. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Feature image",
+        "Body",
+        "Download prompt",
+        "Badge links"
+      ],
+      "seenIn": "Nudges 4, 5",
+      "chars": {
+        "Heading": "≤ 40",
+        "Body": "≤ 140",
+        "Download prompt": "≤ 45"
+      },
+      "images": [
+        {
+          "slot": "Feature image",
+          "w": 190,
+          "h": 310,
+          "notes": "Transparent PNG, phone render (contain)"
+        },
+        {
+          "slot": "App Store badge",
+          "w": 150,
+          "h": 50,
+          "notes": "Locked artwork, exported from Figma at 2x"
+        },
+        {
+          "slot": "Google Play badge",
+          "w": 150,
+          "h": 50,
+          "notes": "Locked artwork, exported from Figma at 2x"
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Badges are black with a grey border and work on both light and dark backgrounds; do not recolour.",
+        "Badge gap is 16px desktop / 8px mobile (mfs-pr0 removes the first badge's 8px right padding)."
+      ],
+      "figmaNode": "101:1166",
+      "bytes": 3250
+    },
+    {
+      "id": "BOD-13",
+      "title": "Journey stepper",
+      "category": "body",
+      "description": "Directly under the hero in transactional journeys. Labels max 4 words.",
+      "usage": "Shows where the user is in a 3-step journey. Icons from the Abbott icon set. Locked layout — edit only image fills and text.",
+      "editable": [
+        "3 step labels",
+        "3 icons (Abbott icon set)"
+      ],
+      "seenIn": "Voucher 9, 13",
+      "chars": {
+        "Step label": "≤ 25 (max 4 words)"
+      },
+      "images": [
+        {
+          "slot": "Step icon (×3)",
+          "w": 64,
+          "h": 64,
+          "notes": "Yellow circle + icon flattened into one transparent PNG"
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Figma's stepper is three yellow icon circles separated by › chevrons (no numbered dots or connector lines), so it is built as 30% / 5% table cells; the circles are images, so they stay round in Outlook.",
+        "Does not stack on mobile — labels wrap instead.",
+        "Icons are decorative (alt=\"\"); the labels carry the meaning.",
+        "Yellow circles are hard-coded #FFD100 in Figma and stay yellow in dark mode."
+      ],
+      "figmaNode": "101:1269",
+      "bytes": 4081
+    },
+    {
+      "id": "BOD-14",
+      "title": "Yellow CTA band",
+      "category": "body",
+      "description": "Closing action before the support block. Never two yellow bands in a row.",
+      "usage": "Full-bleed closing CTA. One per email, directly before Customer Support. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "CTA label + link"
+      ],
+      "seenIn": "Voucher 1, 2, 4, 6, 7",
+      "chars": {
+        "Heading": "≤ 80",
+        "CTA": "≤ 30"
+      },
+      "images": [],
+      "tokens": [
+        "surface/yellow",
+        "text/charcoal",
+        "surface/charcoal-1000",
+        "text/white"
+      ],
+      "notes": [
+        "One per email, directly before Customer Support.",
+        "VML button width is 310px for the default label; adjust if the label changes length."
+      ],
+      "figmaNode": "101:1337",
+      "bytes": 2125
+    },
+    {
+      "id": "BOD-15",
+      "title": "Icon feature list",
+      "category": "body",
+      "description": "Quick product truths after a hero. 3–4 rows, one sentence each.",
+      "usage": "3 product truths, icon + one sentence each. Replaces paragraphs of body copy. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "3 feature lines",
+        "3 icons (Abbott icon set)"
+      ],
+      "seenIn": "Nudges 5 · Voucher 15",
+      "chars": {
+        "Heading": "≤ 40",
+        "Feature line": "≤ 90"
+      },
+      "images": [
+        {
+          "slot": "Feature icon (×3)",
+          "w": 64,
+          "h": 64,
+          "notes": "Yellow circle + icon flattened into one transparent PNG"
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Add a 4th row by duplicating a feature row (24px top padding).",
+        "Mobile Figma gap between icon and text is 16px; there is no mfs-pl class, so it stays 24px on mobile.",
+        "Icons are decorative (alt=\"\")."
+      ],
+      "figmaNode": "101:1385",
+      "bytes": 3327
+    },
+    {
+      "id": "SUP-01",
+      "title": "Support · 3 links (call / chat / FAQ)",
+      "category": "support",
+      "description": "Voucher / offer journeys. Always the last content module before the disclaimer.",
+      "usage": "Full Customer Care block for voucher / offer journeys. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Intro",
+        "Link labels",
+        "Links"
+      ],
+      "seenIn": "Voucher 1–19",
+      "chars": {
+        "Heading": "≤ 70",
+        "Intro": "≤ 140",
+        "Link label": "≤ 16",
+        "Link text": "≤ 14"
+      },
+      "images": [
+        {
+          "slot": "Icon · call",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. White circle + phone icon composite."
+        },
+        {
+          "slot": "Icon · chat",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. White circle + question-bubble icon composite."
+        },
+        {
+          "slot": "Icon · FAQ",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. White circle + FAQ bubbles composite."
+        }
+      ],
+      "tokens": [
+        "surface/light-grey-30",
+        "text/charcoal",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "Icons are locked. The circle is baked into each PNG because border-radius circles are unreliable in Outlook. The circle stays white in dark mode, as in Figma, so there is no swap.",
+        "The Figma icon exports are only 72px (1×), so the 2× PNGs were rebuilt from the matching brand icons (assets/brand/icon-call, icon-question, icon-faq) at the exact positions measured from the Figma export.",
+        "[3/2] is a magenta merge placeholder and must be replaced before send.",
+        "The three columns stay side by side on mobile, matching Mobile · Light.",
+        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps the subheadline at 28px."
+      ],
+      "figmaNode": "102:1340",
+      "bytes": 5261
+    },
+    {
+      "id": "SUP-02",
+      "title": "Support · compact (still have questions?)",
+      "category": "support",
+      "description": "Nudge and education journeys. Same destinations as SUP-01 with less vertical weight.",
+      "usage": "Lighter support block for Nudge / education journeys. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Intro",
+        "Link labels",
+        "Links"
+      ],
+      "seenIn": "Nudges 1–7",
+      "chars": {
+        "Heading": "≤ 30",
+        "Intro": "≤ 100",
+        "Link label": "≤ 22",
+        "Link text": "≤ 14"
+      },
+      "images": [
+        {
+          "slot": "Icon · sensor replacement",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. 44px laptop icon in a 72px circle (#F4F4F3 light / #464646 dark, swapped)."
+        },
+        {
+          "slot": "Icon · call",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. 44px phone icon in a 72px circle, light/dark pair."
+        },
+        {
+          "slot": "Icon · FAQ",
+          "w": 72,
+          "h": 72,
+          "notes": "Locked. 44px FAQ icon in a 72px circle, light/dark pair."
+        }
+      ],
+      "tokens": [
+        "surface/white",
+        "surface/light-grey-30",
+        "text/charcoal",
+        "text/hyperlink"
+      ],
+      "notes": [
+        "Icons are locked. Each circle (surface/light-grey-30) is baked into the PNG with a light/dark pair via mfs-light-img / mfs-dark-img, so Outlook never shows a square box.",
+        "The three columns stay side by side on mobile, and long labels wrap ('Call customer service').",
+        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+      ],
+      "figmaNode": "102:1430",
+      "bytes": 6226
+    },
+    {
+      "id": "POL-01",
+      "title": "Single-select poll · 4 options",
+      "category": "polls",
+      "description": "Resource-hub and Nudge emails when intent is unknown. Max 4 options, one poll per email.",
+      "usage": "Zero-party data capture. Each option is a tracked link mapped to a follow-up journey. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body",
+        "4 option labels + tracked links"
+      ],
+      "seenIn": "Nudges 1, 2, 4, 5",
+      "chars": {
+        "Heading": "≤ 40",
+        "Body": "≤ 120",
+        "Option": "≤ 60"
+      },
+      "images": [
+        {
+          "slot": "Radio (light)",
+          "w": 24,
+          "h": 24,
+          "notes": "Locked. 2px #222731 ring, transparent."
+        },
+        {
+          "slot": "Radio (dark)",
+          "w": 24,
+          "h": 24,
+          "notes": "Locked. 2px white ring, shown via mfs-dark-img."
+        }
+      ],
+      "tokens": [
+        "surface/yellow",
+        "surface/white",
+        "border/primary",
+        "text/charcoal"
+      ],
+      "notes": [
+        "No forms or JS. Each option is a bordered row whose radio and label link to the same tracked URL, so each row needs one alias. In most clients the label link is display:block and spans the row.",
+        "Max 4 options, one poll per email.",
+        "Mobile: row padding 16/24 → 8/16 (mfs-py2 mfs-px3), gap between rows 16 → 8 (mfs-pt2), and the radio-to-label gap 16 → 8 (mfs-px2, which also adds 8px of right padding to the label).",
+        "The 4px option radius shows as square corners in Outlook. border/primary #7B8290 is unchanged in dark mode.",
+        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS. Figma's mobile frame keeps it at 28px."
+      ],
+      "figmaNode": "102:1525",
+      "bytes": 8951
+    },
+    {
+      "id": "POL-02",
+      "title": "Quick pulse · 2 options",
+      "category": "polls",
+      "description": "Short Nudge / conversational emails. Two options only, each a tracked link.",
+      "usage": "Lightweight yes / no pulse. Derived from POL-01 for short emails where 4 options is too heavy. Locked layout — edit only image fills and text.",
+      "editable": [
+        "Heading",
+        "Body",
+        "2 option labels + tracked links"
+      ],
+      "seenIn": "Derived from Nudge poll pattern",
+      "chars": {
+        "Heading": "≤ 45",
+        "Body": "≤ 80",
+        "Option": "≤ 20"
+      },
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Options are outline pills. The 2px ring uses the text/charcoal variable, which turns white in dark mode, and no border-colour utility class exists. The ring is therefore an outer td with padding:2px and mfs-dm-bg-charcoal, around an inner td with mfs-dm-bg-white. Outlook gets a VML roundrect with a 2px stroke instead (no dark flip).",
+        "Mobile compromise: the options stack (centred, 8px apart) instead of sitting side by side as in Mobile · Light. In Figma the pair only fits by bleeding into the 32px side padding, and it would overflow at 375px with the Arial fallback (iOS has no Calibri).",
+        "VML widths are 216px and 132px. Re-check them if the labels change.",
+        "The heading uses mfs-h2 (28→24 on mobile) per CONVENTIONS."
+      ],
+      "figmaNode": "102:1600",
+      "bytes": 5231
+    },
+    {
+      "id": "DIS-01",
+      "title": "Full disclaimer · footnotes + legal + ADC code",
+      "category": "disclaimer",
+      "description": "Every voucher / offer email. Always the last module.",
+      "usage": "Mandatory legal footer. Copy is MLR-controlled; layout never changes. Locked layout — edit only text.",
+      "editable": [
+        "Footnotes / legal (Regulatory-supplied)",
+        "ISI",
+        "Trademark + address",
+        "Footer links",
+        "ADC code"
+      ],
+      "seenIn": "Voucher 1–19",
+      "chars": {},
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Editable: text only — supplied by Regulatory. Never restyle.",
+        "Legal type is 13/18 throughout. Figma uses a 1.4/1.3 line height, normalised to the 18px legal token.",
+        "Keep the footnote symbols (*) and the [ADC code] / [MM/YY] / [Offer terms…] / [ISI…] placeholders verbatim. The magenta #FF00F5 placeholders must be replaced before send.",
+        "Blank lines between footnotes are 18px top padding (one legal line). Block gaps are 24 → 16 on mobile (mfs-pt3).",
+        "Footer links are hard-coded #001489 in Figma, even in the Dark frame. They get mfs-dm-link per the CONVENTIONS link rule so they stay readable on #222731."
+      ],
+      "figmaNode": "102:1649",
+      "bytes": 4042
+    },
+    {
+      "id": "DIS-02",
+      "title": "Compact disclaimer · legal + ADC code",
+      "category": "disclaimer",
+      "description": "Nudge / education emails with no offer or pricing claims.",
+      "usage": "Short legal footer for Nudge / education emails without offer terms. Locked layout — edit only text.",
+      "editable": [
+        "Legal (Regulatory-supplied)",
+        "Footer links",
+        "ADC code"
+      ],
+      "seenIn": "Nudges 1–7",
+      "chars": {},
+      "images": [],
+      "tokens": [
+        "surface/white",
+        "text/charcoal"
+      ],
+      "notes": [
+        "Editable: text only — supplied by Regulatory.",
+        "Legal type is 13/18. Keep the [XXXXX] / [MM/YY] magenta placeholders verbatim.",
+        "Padding 32/48 → 24/32 on mobile (mfs-py4 mfs-px6). Gaps are 16 → 8 (mfs-pt2).",
+        "Footer links get mfs-dm-link (Figma hard-codes #001489 in dark too). See DIS-01."
+      ],
+      "figmaNode": "102:1690",
+      "bytes": 2040
+    }
+  ],
+  "built": "2026-10-06T20:56:24.749Z"
+}

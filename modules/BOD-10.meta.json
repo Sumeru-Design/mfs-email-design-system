@@ -1,0 +1,43 @@
+{
+  "id": "BOD-10",
+  "title": "Steps · thumbnail + action",
+  "category": "body",
+  "description": "Process emails (claim, prescribe, collect). Never more than three steps.",
+  "usage": "Sequential how-to. Max 3 steps: thumbnail, bold action, one line, inline link. Locked layout — edit only image fills and text.",
+  "editable": [
+    "Heading",
+    "3 thumbnails",
+    "Step titles",
+    "Step bodies",
+    "Step links",
+    "CTA label + link"
+  ],
+  "seenIn": "Voucher 10, 13",
+  "chars": {
+    "Heading": "≤ 40",
+    "Step title": "≤ 40",
+    "Step body": "≤ 90",
+    "Step link": "≤ 20",
+    "CTA": "≤ 22"
+  },
+  "images": [
+    {
+      "slot": "Step thumbnail (×3)",
+      "w": 100,
+      "h": 100,
+      "notes": "Square JPG, cover; rounded 8px via inline border-radius"
+    }
+  ],
+  "tokens": [
+    "surface/white",
+    "text/charcoal",
+    "text/hyperlink",
+    "components/button/yellow"
+  ],
+  "notes": [
+    "Mobile Figma shows 64px thumbnails with a 16px gap; there is no mfs-* class to resize them, so they stay 100px with a 24px gap on mobile (columns do not stack, matching Figma).",
+    "Yellow button is unchanged in dark mode.",
+    "Outlook shows square thumbnail corners."
+  ],
+  "figmaNode": "100:1162"
+}

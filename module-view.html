@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Module preview</title>
+  <link rel="stylesheet" href="email-head.css">
+  <style>
+    /* Preview frame only — not part of the email. */
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden; }
+    body { background: #FFFFFF; }
+    body.mfs-dark { background: #222731; }
+    #mfs-msg { font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #7B8290; padding: 24px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div id="mfs-root"></div>
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var id = (q.get('id') || '').replace(/[^A-Z0-9-]/gi, '');
+      var root = document.getElementById('mfs-root');
+      if (q.get('scheme') === 'dark') document.body.classList.add('mfs-dark');
+
+      var ready = false;
+      function post() {
+        if (!ready) return;
+        var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+        parent.postMessage({ type: 'mfs-height', id: id, frame: q.get('frame') || id, height: h }, '*');
+      }
+      if (!id) { root.innerHTML = '<p id="mfs-msg">No module id.</p>'; ready = true; post(); return; }
+      document.title = id + ' · preview';
+      fetch('modules/' + id + '.html', { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (html) {
+          root.innerHTML = html;
+          ready = true;
+          [].forEach.call(root.querySelectorAll('img'), function (img) { img.addEventListener('load', post); });
+          if ('ResizeObserver' in window) new ResizeObserver(post).observe(document.documentElement);
+          post();
+        })
+        .catch(function () { root.innerHTML = '<p id="mfs-msg">Module ' + id + ' not found.</p>'; ready = true; post(); });
+      window.addEventListener('load', post);
+    })();
+  </script>
+</body>
+</html>
